@@ -292,25 +292,30 @@ int main(void)
 				break;
 
 			case 12:
+			input = 'q';
+
 				{
 					printf("\nYou lose.");
 				}
 				break;
 
 			case 13:
+				input = 'q';
 				{
 					printf("\nYou win!");
 				}
 				break;
 
 			case 14:
-				if(input == '1')
+			input = 'q';
 				{
 					printf("\nYou lose.");
 				}
 				break;
 
 			case 15:
+			input = 'q';
+
 
 				break;
 		}
