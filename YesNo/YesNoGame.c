@@ -41,7 +41,7 @@ int main(void)
 				printf("You wake up on a beach. The last thing you remember is a plane crash.\n You stand up. Suddenly, you feel a sharp pain and notice a gash in your left leg. (Press 1 to continue) \n");
 				break;
 			case 0:
-				printf("You see a beach and the ocean on your left and a pool of water on your right. Do you want to go go to the pool (1) pr the beach(2)?\n");
+				printf("You see a beach and the ocean on your left and a pool of water on your right. Do you want to go to the fresh water (1) or the salt water (2)?\n");
 				break;
 			case 1:
 				printf("You gaze into the water. It looks clear. Do you want to wash your cut out? (1 is yes, 2 is no)\n");
@@ -50,23 +50,23 @@ int main(void)
 				printf("You gaze into the water. It looks clear. Do you want to wash your cut out? (1 is yes, 2 is no)\n");
 				break;
 			case 3:
-				printf("You see a forest and a mountain. Do you want to go to the forest and try to find food, or climb the mountain and try to see the whole island?\n", );
+				printf("Oh no! There was a parasite in the water and now you have an infection.\nYou see a forest and a mountain. Do you want to go to the forest and try to find food, or climb the mountain and try to see the whole island?\n", );
 				break;
 			case 4:
-				printf("You look around and you see a river that leads into the pool of water and a mountain. Do you want to follow the river and try to find its source, or climb the mountain and try to see the whole island?\n", );
+				printf("You decide not to wash your cut out.\nYou look around and you see a river that leads into the pool of water and a mountain. Do you want to follow the river and try to find its source, or climb the mountain and try to see the whole island?\n", );
 				break;
 			case 5:
-				printf("You see a forest and a mountain. Do you want to go to the forest and try to find food, or climb the mountain and try to see the whole island?\n", );
+				printf("You wash your cut out. Now, your cut is clean, and it has magically stopped bleeding.\nYou see a forest and a mountain. Do you want to go to the forest and try to find food, or climb the mountain and try to see the whole island?\n", );
 				break;
 			case 6:
-				printf("You see a forest and a mountain. Do you want to go to the forest and try to find food, or climb the mountain and try to see the whole island?\n", );
+				printf("You decide not to wash your cut out.\nYou see a forest and a mountain. Do you want to go to the forest and try to find food, or climb the mountain and try to see the whole island?\n", );
 				break;
 			/*FOREST*/
 			case 7:
 				printf("While in the forest, you see a tree with a hole in it. You can also see a small, shiny object shimmering in the sunlight. Do you want to investigate the hole (1), or the shiny object (2)?\n", );
 				break;
 			case 8:
-				printf("While at the base of the mountain, you see a black fuzzy object. It stands up! It's a bear! Do you want to make friends with it (1) or run from it (2)?\n", );
+				printf("You make your way to the base of the mountain.\nWhile at the base of the mountain, you see a black fuzzy object. It stands up! It's a bear! Do you want to make friends with it (1) or run from it (2)?\n", );
 				break;
 			case 9:
 				printf("While walking up the side of the river, you see a log that crosses into the forest on the other side. you also see that the river leads to the mountain. Do you want to go across the log into the forest (1), or keep following the river to the mountain (2)?\n", );
@@ -75,7 +75,7 @@ int main(void)
 				printf("The bear says to you  \"Hi, My name is Karl. I've been stuck on this island for two years now, and I am looking for an assistant. Do you want to be my assistant?\" (1=Yes, 2=No).\n", );
 				break;
 			case 11:
-				printf("Eventually, you reach the base of the mountain, you see a black fuzzy object. It stands up! It's a bear! Do you want to make friends with it (1) or run from it (2)?\n", );
+				printf("You make your way up the river.\nEventually, you reach the base of the mountain, you see a black fuzzy object. It stands up! It's a bear! Do you want to make friends with it (1) or run from it (2)?\n", );
 				break;
 			case 12:
 				printf("You turn and run away, up the mountain. The bear catches up to you and before killing you, you hear him say \"ALL I WANTED WAS TO BE FRIENDS! WHY ARE YOU HUMANS SO MEAN?!\"\n", );
@@ -87,14 +87,14 @@ int main(void)
 				printf("You walk towards the shiny object. you bend down to pick it up, but as you touch it, a vicious bird swoops down and lifts you high into the clouds and you were never seen again.\n", );
 				break;
 			case 15;
-				if (cleancut == 1)
+				if (cleancut == 0)
 				{
 					printf("You walk towards the tree and begin to climb. But as you reach the top. your cut leg slips, and you fall. As you hit the ground, you hear a pop. Your leg has snapped.\n\nTHE END\n", );
 					break;
 				}
-				else if (cleancut == 0)
+				else if (cleancut == 1)
 				{
-					printf("You walk up to the tree and start to climb. as you reach the hole, you see a \n", );
+					printf("You walk up to the tree and start to climb. as you reach the hole, you see a light coming from the inside.\nYou keep going. Suddenly, you feel a strong force pulling you towards the hole, almost like gravity. You are sucked into a portal and spat out in Uganda.\n", );
 					break;
 				}
 		}
@@ -127,25 +127,25 @@ int main(void)
 				/*Add what happens in each answer down here, they can adjust variables*/
 				if(input == '1')
 				{
-					printf("You go to the pool.\n");
+					printf("\n", );
 					eventID = 2;
 				}
 				else if(input == '2')
 				{
-					printf("You choose the beach. \n");
+					printf("\n", );
 					eventID = 1;
 				}
 				break;
 			case 1:
 				if(input == '1')
 				{
-					printf("You wash your cut out. Now, your cut is clean, and it has magically stopped bleeding.\n", );
+					printf("\n", );
 					cleancut = 1;
 					eventID = 6;
 				}
 				else if(input == '2')
 				{
-					printf("You decide not to wash your cut out.\n", );
+					printf("\n", );
 					cleancut = 0;
 					eventID = 5;
 				}
@@ -155,35 +155,162 @@ int main(void)
 				cleancut = 0;
 				if(input == '1')
 				{
-					printf("Oh no! There was a parasite in the water and now you have an infection.\n", );
+					printf("\n", );
+					eventID = 3;
 				}
 				else if(input == '2')
 				{
-					printf("You decide not to wash your cut out.\n", );
-
+					printf("\n", );
+					eventID = 4;
 				}
 				break;
 
 			case 3:
 				if(input == '1')
 				{
-
+					printf("\n", );
+					eventID = 7;
 				}
 				else if(input == '2')
 				{
-
+					printf("\n", );
+					eventID = 8;
 				}
 				break;
 
 			case 4:
 				if(input == '1')
 				{
-
+					printf("\n", );
+					eventID = 8;
 				}
 				else if(input == '2')
 				{
-
+					printf("\n", );
+					eventID = 9;
 				}
+				break;
+
+			case 5:
+				if(input == '1')
+				{
+					printf("\n", );
+					eventID = 7;
+				}
+				else if(input == '2')
+				{
+					printf("\n", );
+					eventID = 8;
+				}
+				break;
+
+			case 6:
+				if(input == '1')
+				{
+					printf("\n", );
+					eventID = 7;
+				}
+				else if(input == '2')
+				{
+					printf("\n", );
+					eventID = 8;
+				}
+				break;
+
+			case 7:
+				if(input == '1')
+				{
+					if(cleancut == '1')
+					{
+						printf("\n", );
+						eventID = 15;
+					}
+					else if(cleancut == '0')
+					{
+						printf("\n", );
+						eventID = 16;
+					}
+				}
+				else if(input == '2')
+				{
+					printf("\n", );
+					eventID = 14;
+				}
+				break;
+
+			case 8:
+				if(input == '1')
+				{
+					printf("\n", );
+					eventID = 10;
+				}
+				else if(input == '2')
+				{
+					printf("\n", );
+					eventID = 12;
+				}
+				break;
+
+			case 9:
+				if(input == '1')
+				{
+					printf("\n", );
+					eventID = 7;
+				}
+				else if(input == '2')
+				{
+					printf("\n", );
+					eventID = 11;
+				}
+				break;
+
+			case 10:
+				if(input == '1')
+				{
+					printf("\n", );
+					eventID = 13;
+				}
+				else if(input == '2')
+				{
+					printf("\n", );
+					eventID = 12;
+				}
+				break;
+
+			case 11:
+				if(input == '1')
+				{
+					printf("\n", );
+					eventID = 10;
+				}
+				else if(input == '2')
+				{
+					printf("\n", );
+					eventID = 12;
+				}
+				break;
+
+			case 12:
+				{
+					printf("\nYou lose.", );
+				}
+				break;
+
+			case 13:
+				{
+					printf("\nYou win!", );
+				}
+				break;
+
+			case 14:
+				if(input == '1')
+				{
+					printf("\nYou lose.", );
+				}
+				break;
+
+			case 15:
+
 				break;
 		}
 
