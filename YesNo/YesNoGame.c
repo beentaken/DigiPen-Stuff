@@ -1,7 +1,7 @@
 /****************************
 Filename: YesNoGame.c
 Name: Blakely North
-Date Last Edited: 9-19-2018
+Date Last Edited: 9-21-2018
 Brief Description: Starting point for a yes no game
 gcc -Wall -Wextra -O -ansi -pedantic -o yesnogame YesNoGame.c
 ****************************/
