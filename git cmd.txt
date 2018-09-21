@@ -1,0 +1,46 @@
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+Y:\>git clone https://github.com/PowerUser00/DigiPen-stuff
+Cloning into 'DigiPen-stuff'...
+remote: Enumerating objects: 32, done.
+remote: Counting objects: 100% (32/32), done.
+remote: Compressing objects: 100% (28/28), done.
+remote: Total 32 (delta 9), reused 13 (delta 1), pack-reused 0
+Unpacking objects: 100% (32/32), done.
+Checking connectivity: 32, done.
+Checking out files: 100% (10/10), done.
+
+Y:\>cd DigiPen-stuff
+
+Y:\DigiPen-stuff>ls
+BitwiseC  Formatted_IO  HelloWorld  RND  YesNo
+
+Y:\DigiPen-stuff>git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working tree clean
+
+Y:\DigiPen-stuff>touch test.txt
+
+Y:\DigiPen-stuff>git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        test.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Y:\DigiPen-stuff>git add test.txt
+
+Y:\DigiPen-stuff>git commit -m "Commit message"
+
+Y:\DigiPen-stuff>rm test.txt
+
+Y:\DigiPen-stuff>git push
+^C
+Y:\DigiPen-stuff>git checkout
+
+Y:\DigiPen-stuff>
