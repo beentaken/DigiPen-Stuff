@@ -18,7 +18,7 @@ int main(void)
 	/*-1 descibes the starter event*/
 	int eventID = -1;
 	/*change this if you want to add more events*/
-	int maxEventID = 15;
+	int maxEventID = 16;
 	/*Add other game variables here, this could include a currency, special event triggers, how far down a specific event chain they are, ect.*/
 
 
@@ -141,13 +141,13 @@ int main(void)
 				{
 					printf("\n");
 					cleancut = 1;
-					eventID = 6;
+					eventID = 5;
 				}
 				else if(input == '2')
 				{
 					printf("\n");
 					cleancut = 0;
-					eventID = 5;
+					eventID = 6;
 				}
 				break;
 
@@ -230,6 +230,7 @@ int main(void)
 						printf("\n");
 						eventID = 16;
 					}
+					break;
 				}
 				else if(input == '2')
 				{
@@ -319,7 +320,7 @@ int main(void)
 		getchar();
 		getchar();
 
-	}while(input != 'q');
+	}while(input != 'q') ;
 
 
 	return 0;
