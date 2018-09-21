@@ -42,12 +42,12 @@ int main(void)
 				break;
 			case 0:
 				printf("You see a beach and the ocean on your left and a pool of water on your right. Do you want to go go to the pool (1) pr the beach(2)?\n");
-				break;			
+				break;
 			case 1:
-				printf("You see a beach and the ocean on your left and a pool of water on your right. Do you want to go go to the pool (1) pr the beach(2)?\n");
+				printf("You gaze into the water. It looks clear. Do you want to wash your cut out? (1 is yes, 2 is no)\n");
 				break;
 			case 2:
-
+			printf("You gaze into the water. It looks clear. Do you want to wash your cut out? (1 is yes, 2 is no)\n");
 				break;
 			case 3:
 
@@ -85,28 +85,39 @@ int main(void)
 				/*Add what happens in each answer down here, they can adjust variables*/
 				if(input == '1')
 				{
-					printf("You go to the pool.");
+					printf("You go to the pool.\n");
 					eventID = 2;
 				}
 				else if(input == '2')
 				{
-					printf("You choose the beach");
-					eventID = 3;
+					printf("You choose the beach. \n");
+					eventID = 1;
 				}
 				break;
 			case 1:
+				if(input == '1')
 				{
-
+					printf("You wash your cut out. Now, your cut is clean, and it has magically stopped bleeding.\n", );
+					cleancut = 1;
+					eventID = 6;
+				}
+				else if(input == '2')
+				{
+					printf("You decide not to wash your cut out.\n", );
+					cleancut = 0;
+					eventID = 5;
 				}
 				break;
 
 			case 2:
+				cleancut = 0;
 				if(input == '1')
 				{
-
+					printf("Oh no! There was a parasite in the water and now you have an infection.\n", );
 				}
 				else if(input == '2')
 				{
+					printf("You decide not to wash your cut out.\n", );
 
 				}
 				break;
