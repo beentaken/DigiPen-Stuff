@@ -328,7 +328,7 @@ int main(void)
 			getchar();
 		}
 
-	}while(input != 'q' | eventID != maxEventID) ;
+	}while(input != 'q' || eventID != maxEventID) ;
 
 
 	return 0;
