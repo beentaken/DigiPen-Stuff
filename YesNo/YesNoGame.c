@@ -299,6 +299,7 @@ int main(void)
 
 				{
 					printf("\nYou lose.");
+					eventID = 16;
 				}
 				break;
 
@@ -306,6 +307,7 @@ int main(void)
 				input = 'q';
 				{
 					printf("\nYou win!");
+					eventID = 16;
 				}
 				break;
 
@@ -313,11 +315,12 @@ int main(void)
 			input = 'q';
 				{
 					printf("\nYou lose.");
+					eventID = 16;
 				}
 				break;
 
 			case 15:
-			input = 'q';
+			eventID = 16;
 
 
 				break;
