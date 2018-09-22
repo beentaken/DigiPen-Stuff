@@ -97,7 +97,7 @@ int main(void)
 					printf("You walk up to the tree and start to climb. as you reach the hole, you see a light coming from the inside.\nYou keep going. Suddenly, you feel a strong force pulling you towards the hole, almost like gravity.\nYou are sucked into a portal inside the tree and you are spat out in Uganda.\n\nYou win!");
 					break;
 				case 16:
-					printf("Press 1 or 2 to restart.\n", );
+					printf("Press 1 or 2 to restart.\n");
 					break;
 				}
 		}
@@ -325,7 +325,15 @@ int main(void)
 
 				break;
 			case 16:
-				eventID = -1;
+				if(input == '1')
+					{
+						eventID = -1;
+					}
+				else if(input == '2')
+					{
+						eventID = -1;
+					}
+					break;
 		}
 
 		/*reset event id with rand*/
