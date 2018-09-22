@@ -50,16 +50,16 @@ int main(void)
 				printf("You gaze into the water. It looks clear. Do you want to wash your cut out? (1 is yes, 2 is no)\n");
 				break;
 			case 3:
-				printf("Oh no! There was a parasite in the water and now you have an infection.\nYou see a forest and a mountain. Do you want to go to the forest and try to find food, or climb the mountain and try to see the whole island?\n");
+				printf("Oh no! There was a parasite in the water and now you have an infection.\nYou see a forest and a mountain. Do you want to go to the forest and try to find food (1), or climb the mountain and try to see the whole island  (2)?\n");
 				break;
 			case 4:
-				printf("You decide not to wash your cut out.\nYou look around and you see a river that leads into the pool of water and a mountain. Do you want to follow the river and try to find its source, or climb the mountain and try to see the whole island?\n");
+				printf("You decide not to wash your cut out.\nYou look around and you see a river that leads into the pool of water and a mountain. Do you want to follow the river and try to find its source  1), or climb the mountain and try to see the whole island (2)?\n");
 				break;
 			case 5:
-				printf("You wash your cut out. Now, your cut is clean, and it has magically stopped bleeding.\nYou see a forest and a mountain. Do you want to go to the forest and try to find food, or climb the mountain and try to see the whole island?\n");
+				printf("You wash your cut out. Now, your cut is clean, and it has magically stopped bleeding.\nYou see a forest and a mountain. Do you want to go to the forest and try to find food (1), or climb the mountain and try to see the whole island (2)?\n");
 				break;
 			case 6:
-				printf("You decide not to wash your cut out.\nYou see a forest and a mountain. Do you want to go to the forest and try to find food, or climb the mountain and try to see the whole island?\n");
+				printf("You decide not to wash your cut out.\nYou see a forest and a mountain. Do you want to go to the forest and try to find food (1), or climb the mountain and try to see the whole island (2)?\n");
 				break;
 			/*FOREST*/
 			case 7:
@@ -72,7 +72,7 @@ int main(void)
 				printf("While walking up the side of the river, you see a log that crosses into the forest on the other side. you also see that the river leads to the mountain. Do you want to go across the log into the forest (1), or keep following the river to the mountain (2)?\n");
 				break;
 			case 10:
-				printf("The bear says to you  \"Hi, My name is Karl. I've been stuck on this island for two years now, and I am looking for an assistant. Do you want to be my assistant?\" (1=Yes, 2=No).\n");
+				printf("The bear says to you  \"Hi, My name is Karl. I've been stuck on this island for two years now, and I am looking for a friend. Do you want to be my friend?\" (1=Yes, 2=No).\n");
 				break;
 			case 11:
 				printf("You make your way up the river.\nEventually, you reach the base of the mountain, you see a black fuzzy object. It stands up! It's a bear! Do you want to make friends with it (1) or run from it (2)?\n");
