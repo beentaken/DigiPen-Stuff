@@ -1,0 +1,8 @@
+[Version:1]
+ContentLibrary 
+{
+	var Name = "Rube Goldgoldberg"
+	var LibraryId = 0x5bf6f58966a644a1
+	var SourceControlType = ""
+	var ReadOnly = false
+}

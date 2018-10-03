@@ -1,0 +1,18 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "NotBouncy"
+		var ResourceId = 0x5bf849b92d202ba8
+		var LoaderType = "PhysicsMaterial"
+		var Version = 0
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"PhysicsMaterial"
+		}
+	}
+}

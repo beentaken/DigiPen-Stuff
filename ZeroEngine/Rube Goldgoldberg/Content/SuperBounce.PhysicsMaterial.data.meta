@@ -1,0 +1,18 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "SuperBounce"
+		var ResourceId = 0x5bf859ef0763086c
+		var LoaderType = "PhysicsMaterial"
+		var Version = 0
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"PhysicsMaterial"
+		}
+	}
+}

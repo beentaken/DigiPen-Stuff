@@ -1,0 +1,10 @@
+[Version:1]
+PhysicsMaterial 
+{
+	var Restitution = 0
+	var StaticFriction = 1
+	var DynamicFriction = 1
+	var Density = 1
+	var RestitutionImportance = 0
+	var FrictionImportance = 0
+}

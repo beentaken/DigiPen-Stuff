@@ -1,0 +1,68 @@
+class PlayerControler : ZilchComponent
+{
+  //Acceleration
+  [Property]
+  var Speed : Real = 10.0;
+  //this is up / foward
+  [Property]
+  var UpKey : Keys = Keys.W;
+  
+    [Property]
+  var LeftKey : Keys = Keys.A;
+
+  [Property]
+  var DownKey : Keys = Keys.S;
+
+  [Property]
+  var RightKey : Keys = Keys.D;
+
+
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    var movement = Real3();
+    
+    //check if key is down
+    if(Zero.Keyboard.KeyIsDown(this.UpKey))
+    {
+    //Use for debug
+    //Console.WriteLine("/\");
+    movement.Y += 1;
+    }
+    
+        //check if key is down
+    if(Zero.Keyboard.KeyIsDown(this.LeftKey))
+    {
+    //Use for debug
+    //Console.WriteLine("<");
+    movement.X -= 1;
+    }
+
+    //check if key is down
+    if(Zero.Keyboard.KeyIsDown(this.DownKey))
+    {
+    //Use for debug
+    //Console.WriteLine("\/");
+    movement.Y -= 1;
+    }
+
+    //check if key is down
+    if(Zero.Keyboard.KeyIsDown(this.RightKey))
+    {
+    //Use for debug
+    //Console.WriteLine(">");
+    movement.X += 1;
+    }
+
+  
+  //Increace the velocity
+  this.Owner.RigidBody.Velocity += movement * this.Speed * event.Dt;
+  //ensure movement is normal
+  movement = Math.Normalize(movement);
+  //increase velosity
+ }
+}
