@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 60.0289917
+			var Size = 147.647369
 		}
 		EditorCameraController 
 		{
@@ -439,7 +439,7 @@ Level
 		var Name = "SphereFalling"
 		Transform 
 		{
-			var Translation = Real3{-33.2980843, 28.0612049, 4.85106284e-08}
+			var Translation = Real3{-80.4475632, 28.0612049, 4.85106284e-08}
 			var Scale = Real3{4, 4, 9.99999975e-05}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -495,7 +495,7 @@ Level
 		var Name = "SphereFalling"
 		Transform 
 		{
-			var Translation = Real3{-33.2980843, 31.061203, 4.85106284e-08}
+			var Translation = Real3{-80.4475632, 31.061203, 4.85106284e-08}
 			var Scale = Real3{2, 2, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -1035,7 +1035,7 @@ Level
 			var WakeUpOnChange = true
 			var DebugDrawEffect = true
 			var LocalSpaceDirection = true
-			var Strength = 75
+			var Strength = 118.803139
 			var Direction = Real3{0, 1, 0}
 		}
 		RigidBody 
@@ -1096,7 +1096,7 @@ Level
 			var WakeUpOnChange = true
 			var DebugDrawEffect = true
 			var LocalSpaceDirection = true
-			var Strength = 75
+			var Strength = 77.1016388
 			var Direction = Real3{0, 1, 0}
 		}
 		RigidBody 
@@ -1610,7 +1610,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-31.5818005, 34.3526955, 1.19721994e-06}
+			var Translation = Real3{-78.7312775, 34.3526955, 1.19721994e-06}
 			var Scale = Real3{1, 5.15430164, 1}
 			var Rotation = Quaternion{0, 0, -0.167964265, 0.985793114}
 		}
@@ -1658,7 +1658,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-34.9294014, 34.3759003, 1.19721994e-06}
+			var Translation = Real3{-82.0788803, 34.3759003, 1.19721994e-06}
 			var Scale = Real3{1, 5.15430164, 1}
 			var Rotation = Quaternion{0, 0, 0.15765579, 0.987494171}
 		}
@@ -1706,7 +1706,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-19.6853065, 18.5939751, 1.19721994e-06}
+			var Translation = Real3{-19.2632771, 31.3391228, 1.19721994e-06}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -4205,7 +4205,7 @@ Level
 		var Name = "Snowman"
 		Transform 
 		{
-			var Translation = Real3{-37.6030006, 28.5315113, 4.00194438e-08}
+			var Translation = Real3{-84.7524796, 28.5315113, 4.00194438e-08}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -4233,7 +4233,7 @@ Level
 		var Name = "SpriteText"
 		Transform 
 		{
-			var Translation = Real3{-21.8621731, 18.5715714, 6.5744706e-07}
+			var Translation = Real3{-21.4401455, 31.3167191, 6.5744706e-07}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
