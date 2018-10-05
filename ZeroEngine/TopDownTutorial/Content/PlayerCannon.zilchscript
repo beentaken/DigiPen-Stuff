@@ -1,0 +1,72 @@
+//Blake North
+//10/04
+//This will fire all cannons
+class PlayerCannon : ZilchComponent
+{
+  //cannon ball
+  [Property]
+  var Projectile : Archetype = null;
+  
+  [Property]
+  var ProjSpeed :Real = 20;
+  
+  [Property]
+  var Cooldown : Real = 0.3;
+  
+  var Timer : Real = 0;
+  
+  function Initialize(init : CogInitializer)
+  {    
+    this.Timer = this.Cooldown;
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Space, Events.MouseUpdate, this.OnMouseUpdate);
+  }
+
+  function OnMouseUpdate(event : ViewportMouseEvent)
+  {
+   //allow fireing once cool down is done
+    if(this.Timer >= this.Cooldown)
+    {
+      if(event.IsButtonDown(MouseButtons.Left))
+      {
+        //Find direction to fire in
+        var mousePos = event.ToWorldZPlane(this.Owner.Transform.Translation.Z);
+        var direction = mousePos - this.Owner.Transform.Translation;
+        //Fire proj
+        this.Fire(direction);          
+        //reset timer cooldown 
+        this.Timer = 0;
+      }
+      if(event.IsButtonDown(MouseButtons.Right))
+      {
+        var direction = Real3();
+        direction.X = Math.Cos(this.Owner.Transform.EulerAngles.Z + Math.Pi/2);
+        direction.Y = Math.Sin(this.Owner.Transform.EulerAngles.Z + Math.Pi/2);
+        //calculate cross product
+        direction = Math.Cross(direction, Real3(0,0,1));
+        //fire Karannons
+        this.Fire(direction);
+        this.Fire(-direction);
+        
+        this.Timer = 0;                
+      }
+    }
+  }
+
+  //function to fire proj
+  function Fire( direction : Real3)
+  {
+    //where to make our proj
+    var spawnPos = this.Owner.Transform.Translation + direction * 1;
+    //Create the projectile
+    var projectile = this.Space.CreateAtPosition(this.Projectile, spawnPos);
+    //adjust velosity
+    projectile.RigidBody.Velocity = direction * this.ProjSpeed;
+  }
+  
+  
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    this.Timer += event.Dt;
+  }
+}

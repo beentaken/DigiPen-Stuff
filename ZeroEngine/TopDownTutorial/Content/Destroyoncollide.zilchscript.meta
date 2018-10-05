@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "Destroyoncollide"
+		var ResourceId = 0x5bd6ab73c3990720
+	}
+}
