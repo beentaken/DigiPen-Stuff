@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "CannonBall"
+		var ResourceId = 0x5bd6a03ae1900367
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}
