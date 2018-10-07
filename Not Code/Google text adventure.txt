@@ -20,7 +20,7 @@ G  you                            ------+-~~-+------
 @  unsolved                      ---+- ---  --|---//
                                  |...|           |.|
                                  ---+-           ---
-                                 |.|
-                                 |.|
-                                 ---
+                                   |.|
+                                   |.|
+                                   ---
 Commands: north, south, east, west, up, down, grab, why, inventory, use, help, exits, map, and friends.
