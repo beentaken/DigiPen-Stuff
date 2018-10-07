@@ -1,0 +1,26 @@
+                                       ---
+Map Legend:                            |<|
+G  you                            ------+-~~-+------
+.  clear path                     |..+<+..==........
+-| wall                           -\\---+-~~-+---+-.
++  door                            |.| |<|  |.|.@.|.
+@  unsolved                       --+- ---  --|---//
+                                  .@.|           |.|
+                                  --+-           ---
+                                  |@|
+                                  |@|
+                                  ---
+
+                                       ---  -------
+Map Legend:                            |<|  |.=...|
+G  you                            ------+-~~-+------
+.  clear path                     |..+<+..==........
+-| wall                           -\\---+-~~-+---+-@
++  door                            |.| |<|  |.|...|G
+@  unsolved                      ---+- ---  --|---//
+                                 |...|           |.|
+                                 ---+-           ---
+                                 |.|
+                                 |.|
+                                 ---
+Commands: north, south, east, west, up, down, grab, why, inventory, use, help, exits, map, and friends.
