@@ -77,7 +77,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{1.36124492, -0.952601969, 20}
+			var Translation = Real3{-0.25258106, -0.189691067, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 24.4280682
+			var Size = 24.4281788
 		}
 		EditorCameraController 
 		{
@@ -139,7 +139,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{1.36124492, -0.952601969, 5.95019038e-08}
+			var LookTarget = Real3{-0.25258106, -0.189691067, -1.10410117e-08}
 			var MoveSensitivity = 1
 		}
 	}
@@ -292,7 +292,7 @@ Level
 		{
 			var DebugOn = false
 			var Speed = 50
-			var TurnSpeed = 1e+09
+			var TurnSpeed = 500
 			var UpKey = Keys.W
 			var DownKey = Keys.S
 			var RightKey = Keys.D
@@ -302,16 +302,21 @@ Level
 		{
 			var Projectile = "5bd6a03ae1900367:CannonBall"
 			var ProjSpeed = 20
-			var Cooldown = 0.300000012
+			var Cooldown = 0.75
 		}
-		SphereCollider 
+		EllipsoidCollider 
 		{
 			var Ghost = false
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var Radius = 0.5
+			var Radii = Real3{0.150000006, 0.5, 0.5}
+		}
+		DamageOnCollide 
+		{
+			var Damage = 10
+			var ColisionCooldown = 0.5
 		}
 	}
 	Cog [ContextId:6]
@@ -471,54 +476,6 @@ Level
 		var Name = "Wall"
 		Transform 
 		{
-			var Translation = Real3{-17.5631828, 0.0816105604, -1.98956451e-09}
-			var Scale = Real3{1, 22.958086, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5275aa4d802dd6dc:Square"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Static
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-		BoxCollider 
-		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
-		}
-	}
-	Cog [ContextId:11]
-	{
-		var Name = "Wall"
-		Transform 
-		{
 			var Translation = Real3{0.0677247047, -9.59566593, -1.98956451e-09}
 			var Scale = Real3{1.00000012, 37.9566536, 1}
 			var Rotation = Quaternion{0, 0, -0.707176626, 0.707036972}
@@ -562,7 +519,7 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:12]
+	Cog [ContextId:11]
 	{
 		var Name = "Wall"
 		Transform 
@@ -610,7 +567,7 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:13]
+	Cog [ContextId:12]
 	{
 		var Name = "Wall"
 		Transform 
@@ -658,12 +615,60 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
+	Cog [ContextId:13]
+	{
+		var Name = "Wall"
+		Transform 
+		{
+			var Translation = Real3{-17.3868599, 0.0816105604, -1.98956451e-09}
+			var Scale = Real3{1, 22.958086, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5275aa4d802dd6dc:Square"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Static
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
+		}
+	}
 	Cog [ContextId:14]
 	{
 		var Name = "Enemy"
 		Transform 
 		{
-			var Translation = Real3{15, 8, 6}
+			var Translation = Real3{15, 8, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -698,8 +703,8 @@ Level
 		}
 		PaceAndChaceAI 
 		{
-			var StartPoint = Real3{15, 8, 6}
-			var EndPoint = Real3{1, 0, 0}
+			var StartPoint = Real3{15, 8, 0}
+			var EndPoint = Real3{-15, -8, 0}
 			var PaceSpeed = 10
 			var PaceToStart = true
 			var TargetName = "Player"
@@ -714,6 +719,11 @@ Level
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
 			var Radii = Real3{0.5, 0.5, 0.5}
+		}
+		DamageOnCollide 
+		{
+			var Damage = 10
+			var ColisionCooldown = 0.5
 		}
 	}
 }

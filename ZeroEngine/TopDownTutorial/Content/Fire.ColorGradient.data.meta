@@ -1,0 +1,18 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Fire"
+		var ResourceId = 0x5bdbdee544c1c7f4
+		var LoaderType = "ColorGradient"
+		var Version = 0
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"ColorGradient"
+		}
+	}
+}

@@ -56,6 +56,7 @@ class PlayerCannon : ZilchComponent
   //function to fire proj
   function Fire( direction : Real3)
   {
+    direction = Math.Normalize(direction);
     //where to make our proj
     var spawnPos = this.Owner.Transform.Translation + direction * 1;
     //Create the projectile

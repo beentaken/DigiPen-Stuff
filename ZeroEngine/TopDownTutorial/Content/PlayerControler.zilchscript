@@ -1,6 +1,3 @@
-// Blakely North
-//10-04
-//Controlls the player
 class PlayerController : ZilchComponent
 {
 //This chooses whether we show debug lines or not

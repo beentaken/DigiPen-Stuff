@@ -20,6 +20,17 @@ CollisionTable
 			var PersistedEvent = false
 			var PreSolveEvent = false
 		}
+		Object
+		{
+			var TypeA = "5bd6ad00588f723c:PlayerProjectile"
+			var TypeB = "5bd6ad00588f723c:PlayerProjectile"
+			var SkipResolution = false
+			var SkipDetectingCollision = false
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
 	}
 	var AutoRegister = true
 }

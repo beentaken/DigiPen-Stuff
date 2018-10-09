@@ -1,0 +1,95 @@
+/************************************
+Blakely North
+10-05-2018
+This AI will chase the player
+************************************/
+class BuletMagnet : ZilchComponent
+{
+  //point that it starts at or moves to first
+  [Property]
+  var StartPoint : Real3 = Real3();
+  
+  //the other point to pace between
+  [Property]
+  var EndPoint : Real3 = Real3(1,0,0);
+  [Property]
+  var PaceSpeed : Real = 10;
+  [Property]
+  var PaceToStart : Boolean = true;
+  //which target to chase
+  
+  var Target : Cog = null;
+  [Property]
+  var TargetName : String = "Player";
+  [Property]
+  var ChaseSpeed : Real = 20;
+  //the distance that it can chase in
+  [Property]
+  var ChaseDist : Real = 10;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.Target = this.Space.FindObjectByName(this.TargetName);
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Target != null)
+    {
+      var toTarget = this.Target.Transform.Translation - this.Owner.Transform.Translation;
+      //check if it is in range
+      if(Math.LengthSq(toTarget) <= this.ChaseDist * this.ChaseDist)
+      {
+        this.Chase(event.Dt, toTarget);
+      }
+      else
+      {
+        this.Pace(event.Dt);
+      }
+    }
+    else
+    {
+      this.Pace(event.Dt);
+    } 
+    this.Pace(event.Dt);
+  }
+  //chase the target
+  function Chase(dt :Real, direction : Real3)
+  {
+    direction = Math.Normalize(direction);
+    this.Owner.RigidBody.Velocity += direction * this.ChaseSpeed * dt;
+  }
+  //Pace btween 2 points
+  function Pace(dt : Real)
+  {
+  if(this.PaceToStart)
+  {
+    //if we are close enough, switch to other point
+   var direction = this.StartPoint - this.Owner.Transform.Translation; 
+   if(Math.LengthSq(direction) < 0.01)
+   {
+     this.PaceToStart = false;
+   }
+   
+   //otherwise, keep moving
+   else
+   {
+     direction = Math.Normalize(direction);
+     this.Owner.RigidBody.Velocity += direction * this.PaceSpeed * dt;
+   }
+  }
+  else
+  {
+    var direction = this.EndPoint - this.Owner.Transform.Translation;
+    //if we are close enough then pact to the other point
+    if(Math.LengthSq(direction) <0.01)
+    {
+      this.PaceToStart = true;
+    }
+    //otherwise, keep moving
+    direction = Math.Normalize(direction);
+    this.Owner.RigidBody.Velocity += direction * this.PaceSpeed * dt;
+  } 
+  }
+}
