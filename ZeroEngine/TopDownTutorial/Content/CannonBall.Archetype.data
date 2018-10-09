@@ -32,7 +32,7 @@ Cog
 		var Ghost = false
 		var SendsEvents = true
 		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-		var CollisionGroup = "5bd6ad00588f723c:PlayerProjectile"
+		var CollisionGroup = "5bd6aecf15d52d53:Player"
 		var Offset = Real3{0, 0, 0}
 		var Radius = 0.5
 	}
@@ -52,5 +52,10 @@ Cog
 	CreateOnDestroy 
 	{
 		var ArchToBeMade = "5bdbe098dfa08ce3:CanonBallEffect"
+	}
+	DamageOnCollide 
+	{
+		var Damage = 10
+		var ColisionCooldown = 0.5
 	}
 }

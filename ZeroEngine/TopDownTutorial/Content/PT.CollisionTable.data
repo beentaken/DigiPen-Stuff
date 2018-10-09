@@ -6,6 +6,7 @@ CollisionTable
 		"5bd6aecf15d52d53:Player"
 		"4e740859314e5515:DefaultGroup"
 		"5bd6ad00588f723c:PlayerProjectile"
+		"5b200ac9f3bcbcfb:BadGuy"
 	}
 	var CollisionFilters = Array
 	{
@@ -25,6 +26,28 @@ CollisionTable
 			var TypeA = "5bd6ad00588f723c:PlayerProjectile"
 			var TypeB = "5bd6ad00588f723c:PlayerProjectile"
 			var SkipResolution = false
+			var SkipDetectingCollision = false
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5bd6aecf15d52d53:Player"
+			var TypeB = "5bd6aecf15d52d53:Player"
+			var SkipResolution = false
+			var SkipDetectingCollision = true
+			var StartEvent = false
+			var EndEvent = false
+			var PersistedEvent = false
+			var PreSolveEvent = false
+		}
+		Object
+		{
+			var TypeA = "5b200ac9f3bcbcfb:BadGuy"
+			var TypeB = "5bd6aecf15d52d53:Player"
+			var SkipResolution = true
 			var SkipDetectingCollision = false
 			var StartEvent = false
 			var EndEvent = false
