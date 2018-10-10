@@ -1,6 +1,6 @@
 /***********************************
 TicTacToe.c
-10/1/17
+10/1/18
 Programmed By: The Masked Programmer and (insert name here)
 Brief: Tic Tac Toe game with some missing components to be fixed.
 gcc -Wall -Wextra -ansi -pedantic -O -o TicTacToe TicTacToe.c
@@ -62,7 +62,7 @@ int main(void)
 		gameState = CheckGrid(Grid);
 	}
 	printBoard(Grid);
-	/*determines winner*/
+	/*determine winner*/
 	switch(gameState)
 	{
 		case 0:
@@ -84,30 +84,35 @@ int CheckGrid(int Grid[3][3])
 	int i, j;
 
 	/*horizontal loop through all on one row*/
-	for (i = 0; i < 3; i++)
+	for(i = 0; i < 3; i++)
 	{
-		if (Grid[i][0] != -1 && Grid[i][0] == Grid[i][1] && Grid[i][1] == Grid[i][2])
+		if(Grid[i][0] != -1 && Grid[i][0] == Grid[i][1] && Grid[i][1] == Grid[i][2])
 		{
-			return Grid[i][0]
+			return Grid[i][0];
 		}
 	}
 
 	/*verticle loop through all on one column*/
-	for (j = 0; j < 3; j++)
+	for(j = 0; j < 3; j++)
 	{
-		if (Grid[0][j] != -1 && Grid[1][j]  != -1 && Grid[2][j])
+		if(Grid[0][j] != -1 && Grid[0][j] == Grid[1][j] && Grid[1][j] == Grid[2][j])
 		{
-			return -1
+			return Grid[0][j];
 		}
 	}
 	/*diagonals check all at once*/
-	for (j = 0, i = 0; j < count; j++, i++)
+
+	if(Grid[0][0] != -1 && Grid[0][0] == Grid[1][1] && Grid[1][1] == Grid[2][2])
 	{
-		if (Grid[i][j] != -1 && Grid[i][j]  != -1 && Grid[i][j])
-		{
-			return -1
-		}
+		return Grid[1][1];
 	}
+
+	/*other diagnol*/
+	if(Grid[0][2] != -1 && Grid[0][2] == Grid[1][1] && Grid[1][1] == Grid[2][0])
+	{
+		return Grid[1][1];
+	}
+
 
 	/*make sure not tie*/
 	for(i = 0; i <3; i++)
@@ -116,10 +121,6 @@ int CheckGrid(int Grid[3][3])
 		{
 			/* -1 means the game isn't done */
 			if(Grid[i][j] == -1)
-			{
-				return -1;
-			}
-			if(Grid[j][i] == -1)
 			{
 				return -1;
 			}
