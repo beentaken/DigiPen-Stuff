@@ -8,7 +8,7 @@ gcc -Wall -Wextra -O -ansi -pedantic -o main main.c
 #include <stdio.h> /* printf                                         */
 #include "sieve.h" /* sieve, twin_primes, brun_constant, TRUE, FALSE */
 
-#define SIZE 101   /* The size of the array        */
+#define SIZE 50000   /* The size of the array        */
 
 int main(void)
 {
