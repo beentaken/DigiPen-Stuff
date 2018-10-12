@@ -42,12 +42,34 @@ void sieve(int array[], int size)
 
 int twin_primes(const int primes[], int size)
 {
-  return 0;
+  int i, j, totalTwins = 0;
+  /*loop and see if i&j are prime*/
+  for(i = 2, j = 4; j<= size; i++, j++)
+  {
+    if(primes[i] &&primes[j])
+    {
+      /*//we have a set of twin primes*/
+      totalTwins++;
+      printf("Twinprime #%4i: %4i and %4i\n", totalTwins, i, j);
+    }
+  }
+  return totalTwins;
 }
 
 double brun_constant(const int primes[], int size)
 {
-  return 0.0;
+  double bruns;
+  int i, j;
+  for (i =2, j = 4; j <= size; i++, j++)
+  {
+    if(primes[i] &&primes[j])
+    {
+      /* calculate bruns constant*/
+      bruns += 1.0 / i + 1.0 / j;
+    }
+
+  }
+  return bruns;
 }
 
 /**/
