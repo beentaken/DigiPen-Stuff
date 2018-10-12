@@ -1,0 +1,8 @@
+[Version:1]
+ContentLibrary 
+{
+	var Name = "PersonalProject-TankGame-FamousBird"
+	var LibraryId = 0x5bdfed849a551b81
+	var SourceControlType = ""
+	var ReadOnly = false
+}
