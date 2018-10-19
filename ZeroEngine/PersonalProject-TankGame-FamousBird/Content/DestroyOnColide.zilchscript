@@ -2,6 +2,7 @@ class Destroyoncollide : ZilchComponent
 {
   [Property]
   var DeathDelay : Real = 0.5;
+  
   function Initialize(init : CogInitializer)
   {
     
@@ -17,6 +18,7 @@ class Destroyoncollide : ZilchComponent
     //add delay to action sequence
     Actions.Delay(seq, this.DeathDelay);
     //////DESTROY
-     Actions.Call(seq, this.Owner.Destroy);
+    Actions.Call(seq, this.Owner.Destroy);
+    this.LevelSettings.LevelVars.BlocksLeft -= 1;
   }
 }

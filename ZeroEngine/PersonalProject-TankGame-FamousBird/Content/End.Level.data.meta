@@ -1,0 +1,18 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "End"
+		var ResourceId = 0x5ba92cbabe06d3a6
+		var LoaderType = "Level"
+		var Version = 0
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"Level"
+		}
+	}
+}

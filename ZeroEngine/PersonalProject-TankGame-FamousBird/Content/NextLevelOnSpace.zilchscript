@@ -1,0 +1,20 @@
+class NextLevelOnSpace : ZilchComponent
+{
+  [Property]
+  var NextLevel : Level = null;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(Zero.Keyboard.KeyIsPressed(Keys.Space))
+    {
+      if(this.NextLevel != null)
+      {
+        this.Space.LoadLevel(this.NextLevel);
+      }
+    }
+  }
+}

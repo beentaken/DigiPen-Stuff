@@ -38,6 +38,10 @@ Level
 			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
+		LevelVars 
+		{
+			var BlocksLeft = 100
+		}
 	}
 	Cog [ContextId:2]
 	{
@@ -77,7 +81,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{0, 4, 20}
+			var Translation = Real3{-1.32879972, -1.17034864, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -130,7 +134,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 147.647583
+			var Size = 40.2387772
 		}
 		EditorCameraController 
 		{
@@ -139,7 +143,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{0, 4, 0}
+			var LookTarget = Real3{-1.32879972, -1.17034864, -5.80853836e-08}
 			var MoveSensitivity = 1
 		}
 	}
@@ -235,8 +239,42 @@ Level
 				var PathPreference2 = CogPathPreference.Absolute
 			}
 		}
+		Hierarchy 
+		{
+			Cog [Id:0x5ba92003293129c5][ContextId:6]
+			{
+				var Name = "HUDText"
+				Transform 
+				{
+					var Translation = Real3{-15.5133896, 8.30007648, -5}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				SpriteText 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = "Sprite Text..."
+					var Font = "57343753bb4eaaec:NotoSans-Regular"
+					var FontSize = 64
+					var PixelsPerUnit = 128
+					var TextAlign = TextAlign.Center
+				}
+				BlockText 
+				{
+				}
+			}
+		}
 	}
-	Cog [ContextId:6]
+	Cog [ContextId:7]
 	{
 		var Name = "Wall"
 		Transform 
@@ -284,7 +322,7 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:7]
+	Cog [ContextId:8]
 	{
 		var Name = "Wall"
 		Transform 
@@ -332,7 +370,7 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:8]
+	Cog [ContextId:9]
 	{
 		var Name = "Wall"
 		Transform 
@@ -380,7 +418,7 @@ Level
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
 	}
-	Cog [ContextId:9]
+	Cog [ContextId:10]
 	{
 		var Name = "Wall"
 		Transform 
@@ -470,7 +508,7 @@ Level
 		{
 			var DebugOn = false
 			var Speed = 80
-			var TurnSpeed = 180
+			var TurnSpeed = 2500
 			var UpKey = Keys.W
 			var DownKey = Keys.S
 			var RightKey = Keys.D
@@ -491,12 +529,12 @@ Level
 			var WakeUpOnChange = true
 			var DebugDrawEffect = true
 			var LinearDamping = 3
-			var AngularDamping = 0.100000001
+			var AngularDamping = 5.60604
 			var LinearDrag = 3
 			var AngularDrag = 0
 		}
 	}
-	Cog [ContextId:10]
+	Cog [ContextId:11]
 	{
 		var Name = "Hammer"
 		Transform 
@@ -543,14 +581,6 @@ Level
 			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
-		MassOverride 
-		{
-			var Active = true
-			var InverseMass = 1e+10
-			var Mass = 1.00000001e-10
-			var LocalInverseInertiaTensor = Real3x3{2.39999959e+10, 0, 0, 0, 2.39999959e+10, 0, 0, 0, 1.50000015e+10}
-			var LocalCenterOfMass = Real3{0, 0, 0}
-		}
 		DragEffect 
 		{
 			var Active = true
@@ -561,25 +591,20 @@ Level
 			var LinearDrag = 0
 			var AngularDrag = 0
 		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:11]
-	{
-		Transform 
+		MassOverride 
 		{
-			var Translation = Real3{0, 10, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
+			var Active = true
+			var InverseMass = 1e+09
+			var Mass = 9.99999972e-10
+			var LocalInverseInertiaTensor = Real3x3{2.39999974e+09, 0, 0, 0, 2.39999974e+09, 0, 0, 0, 1.50000013e+09}
+			var LocalCenterOfMass = Real3{0, 0, 0}
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:12]
 	{
 		Transform 
 		{
-			var Translation = Real3{0, -29.75, 0}
+			var Translation = Real3{-45, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -592,7 +617,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{0, -40, 0}
+			var Translation = Real3{5, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -605,7 +630,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{0, -40, 0}
+			var Translation = Real3{-45, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -618,7 +643,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-20, 10, 0}
+			var Translation = Real3{5, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -631,7 +656,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-20, -29.75, 0}
+			var Translation = Real3{-45, -15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -644,7 +669,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-20, -40, 0}
+			var Translation = Real3{5, -15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -657,7 +682,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-20, -40, 0}
+			var Translation = Real3{-45, 35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -670,7 +695,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-20, 30, 0}
+			var Translation = Real3{5, 35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -683,7 +708,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-20, -9.75, 0}
+			var Translation = Real3{-45, 5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -696,7 +721,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{0, 30, 0}
+			var Translation = Real3{5, 5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -709,7 +734,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{0, -9.75, 0}
+			var Translation = Real3{-45, -25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -722,7 +747,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{20, 30, 0}
+			var Translation = Real3{5, -25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -735,7 +760,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{40, 30, 0}
+			var Translation = Real3{-45, 25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -748,7 +773,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{20, 10, 0}
+			var Translation = Real3{5, 25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -761,7 +786,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{40, 10, 0}
+			var Translation = Real3{-45, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -774,7 +799,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{20, -10, 0}
+			var Translation = Real3{5, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -787,7 +812,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{40, -10, 0}
+			var Translation = Real3{-45, -35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -800,7 +825,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{20, -30, 0}
+			var Translation = Real3{5, -35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -813,7 +838,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{20, -40.25, 0}
+			var Translation = Real3{-45, -45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -826,7 +851,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{20, -40.25, 0}
+			var Translation = Real3{5, -45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -839,7 +864,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{40, -30, 0}
+			var Translation = Real3{-45, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -852,7 +877,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{40, -40.25, 0}
+			var Translation = Real3{5, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -865,7 +890,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{40, -40.25, 0}
+			var Translation = Real3{-45, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -878,7 +903,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{0, 20, 0}
+			var Translation = Real3{5, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -891,7 +916,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{0, -19.75, 0}
+			var Translation = Real3{-45, -15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -904,7 +929,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-20, 20, 0}
+			var Translation = Real3{5, -15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -917,7 +942,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-20, -19.75, 0}
+			var Translation = Real3{-45, 35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -930,7 +955,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-20, 40, 0}
+			var Translation = Real3{5, 35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -943,7 +968,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-20, 0.25, 0}
+			var Translation = Real3{-45, 5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -956,7 +981,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{0, 40, 0}
+			var Translation = Real3{5, 5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -969,7 +994,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{20, 40, 0}
+			var Translation = Real3{-45, -25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -982,7 +1007,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{40, 40, 0}
+			var Translation = Real3{5, -25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -995,7 +1020,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{20, 20, 0}
+			var Translation = Real3{-45, 25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1008,7 +1033,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{40, 20, 0}
+			var Translation = Real3{5, 25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1021,7 +1046,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{20, 0, 0}
+			var Translation = Real3{-45, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1034,7 +1059,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{40, 0, 0}
+			var Translation = Real3{5, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1047,7 +1072,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{20, -20, 0}
+			var Translation = Real3{-45, -35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1060,7 +1085,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{40, -20, 0}
+			var Translation = Real3{5, -35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1073,7 +1098,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10, 10, 0}
+			var Translation = Real3{-45, -45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1086,7 +1111,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10, -29.75, 0}
+			var Translation = Real3{5, -45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1099,7 +1124,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10, -40, 0}
+			var Translation = Real3{-35, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1112,7 +1137,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10, -40, 0}
+			var Translation = Real3{15, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1125,7 +1150,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-30, 10, 0}
+			var Translation = Real3{-15, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1138,7 +1163,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-30, -29.75, 0}
+			var Translation = Real3{35, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1151,7 +1176,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-30, -40, 0}
+			var Translation = Real3{-35, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1164,7 +1189,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-30, -40, 0}
+			var Translation = Real3{15, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1177,7 +1202,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-30, 30, 0}
+			var Translation = Real3{-15, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1190,7 +1215,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-30, -9.75, 0}
+			var Translation = Real3{35, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1203,7 +1228,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-40, 30, 0}
+			var Translation = Real3{-35, -15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1216,7 +1241,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-40, -9.75, 0}
+			var Translation = Real3{15, -15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1229,7 +1254,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-40, 10, 0}
+			var Translation = Real3{-15, -15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1242,7 +1267,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-40, -29.75, 0}
+			var Translation = Real3{35, -15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1255,7 +1280,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-40, -40, 0}
+			var Translation = Real3{-35, 35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1268,7 +1293,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-40, -40, 0}
+			var Translation = Real3{15, 35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1281,7 +1306,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10, 30, 0}
+			var Translation = Real3{-15, 35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1294,7 +1319,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10, -9.75, 0}
+			var Translation = Real3{35, 35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1307,7 +1332,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{10, 30, 0}
+			var Translation = Real3{-35, 5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1320,7 +1345,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{30, 30, 0}
+			var Translation = Real3{15, 5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1333,7 +1358,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{10, 10, 0}
+			var Translation = Real3{-15, 5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1346,7 +1371,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{30, 10, 0}
+			var Translation = Real3{35, 5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1359,7 +1384,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{10, -10, 0}
+			var Translation = Real3{-35, -25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1372,7 +1397,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{30, -10, 0}
+			var Translation = Real3{15, -25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1385,7 +1410,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{10, -30, 0}
+			var Translation = Real3{-15, -25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1398,7 +1423,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{10, -40.25, 0}
+			var Translation = Real3{35, -25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1411,7 +1436,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{10, -40.25, 0}
+			var Translation = Real3{-35, 25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1424,7 +1449,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{30, -30, 0}
+			var Translation = Real3{15, 25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1437,7 +1462,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{30, -40.25, 0}
+			var Translation = Real3{-15, 25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1450,7 +1475,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{30, -40.25, 0}
+			var Translation = Real3{35, 25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1463,7 +1488,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10, 20, 0}
+			var Translation = Real3{-35, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1476,7 +1501,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10, -19.75, 0}
+			var Translation = Real3{15, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1489,7 +1514,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-30, 20, 0}
+			var Translation = Real3{-15, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1502,7 +1527,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-30, -19.75, 0}
+			var Translation = Real3{35, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1515,7 +1540,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-30, 40, 0}
+			var Translation = Real3{-35, -35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1528,7 +1553,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-30, 0.25, 0}
+			var Translation = Real3{15, -35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1541,7 +1566,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-40, 40, 0}
+			var Translation = Real3{-15, -35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1554,7 +1579,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-40, 0.25, 0}
+			var Translation = Real3{35, -35, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1567,7 +1592,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-40, 20, 0}
+			var Translation = Real3{-35, -45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1580,7 +1605,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-40, -19.75, 0}
+			var Translation = Real3{15, -45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1593,7 +1618,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10, 40, 0}
+			var Translation = Real3{-15, -45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1606,7 +1631,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10, 0.25, 0}
+			var Translation = Real3{35, -45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1619,7 +1644,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{10, 40, 0}
+			var Translation = Real3{-25, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1632,7 +1657,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{30, 40, 0}
+			var Translation = Real3{25, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1645,7 +1670,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{10, 20, 0}
+			var Translation = Real3{-5, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1658,7 +1683,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{30, 20, 0}
+			var Translation = Real3{45, 45, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1671,7 +1696,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{10, 0, 0}
+			var Translation = Real3{-25, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1684,7 +1709,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{30, 0, 0}
+			var Translation = Real3{25, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1697,7 +1722,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{10, -20, 0}
+			var Translation = Real3{-5, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1710,7 +1735,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{30, -20, 0}
+			var Translation = Real3{45, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -1719,7 +1744,423 @@ Level
 			var DeathDelay = 0.00557610532
 		}
 	}
-	Cog [ContextId:100]
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:100]
+	{
+		Transform 
+		{
+			var Translation = Real3{-25, -15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:101]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, -15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:102]
+	{
+		Transform 
+		{
+			var Translation = Real3{-5, -15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:103]
+	{
+		Transform 
+		{
+			var Translation = Real3{45, -15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:104]
+	{
+		Transform 
+		{
+			var Translation = Real3{-25, 35, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:105]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, 35, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:106]
+	{
+		Transform 
+		{
+			var Translation = Real3{-5, 35, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:107]
+	{
+		Transform 
+		{
+			var Translation = Real3{45, 35, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:108]
+	{
+		Transform 
+		{
+			var Translation = Real3{-25, 5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:109]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, 5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:110]
+	{
+		Transform 
+		{
+			var Translation = Real3{-5, 5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:111]
+	{
+		Transform 
+		{
+			var Translation = Real3{45, 5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:112]
+	{
+		Transform 
+		{
+			var Translation = Real3{-25, -25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:113]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, -25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:114]
+	{
+		Transform 
+		{
+			var Translation = Real3{-5, -25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:115]
+	{
+		Transform 
+		{
+			var Translation = Real3{45, -25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:116]
+	{
+		Transform 
+		{
+			var Translation = Real3{-25, 25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:117]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, 25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:118]
+	{
+		Transform 
+		{
+			var Translation = Real3{-5, 25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:119]
+	{
+		Transform 
+		{
+			var Translation = Real3{45, 25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:120]
+	{
+		Transform 
+		{
+			var Translation = Real3{-25, -5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:121]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, -5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:122]
+	{
+		Transform 
+		{
+			var Translation = Real3{-5, -5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:123]
+	{
+		Transform 
+		{
+			var Translation = Real3{45, -5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:124]
+	{
+		Transform 
+		{
+			var Translation = Real3{-25, -35, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:125]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, -35, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:126]
+	{
+		Transform 
+		{
+			var Translation = Real3{-5, -35, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:127]
+	{
+		Transform 
+		{
+			var Translation = Real3{45, -35, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:128]
+	{
+		Transform 
+		{
+			var Translation = Real3{-25, -45, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:129]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, -45, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:130]
+	{
+		Transform 
+		{
+			var Translation = Real3{-5, -45, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:131]
+	{
+		Transform 
+		{
+			var Translation = Real3{45, -45, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00557610532
+		}
+	}
+	Cog [ContextId:132]
 	{
 		var Name = ""
 		ObjectLink 
@@ -1734,7 +2175,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var Cog = 10
+				var Cog = 11
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
