@@ -4,7 +4,7 @@ Cog
 	var Name = "Block"
 	Transform 
 	{
-		var Translation = Real3{-9.25, 7.5, 0}
+		var Translation = Real3{-15, 5, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -29,7 +29,7 @@ Cog
 	}
 	Destroyoncollide 
 	{
-		var DeathDelay = 0.5
+		var DeathDelay = 0.00557610532
 	}
 	RigidBody 
 	{
@@ -45,7 +45,7 @@ Cog
 	{
 		var Ghost = false
 		var SendsEvents = true
-		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var Material = "5b566269887cafc2:Bouncy"
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"
 		var Offset = Real3{0, 0, 0}
 		var HalfSize = Real3{0.5, 0.5, 0.5}

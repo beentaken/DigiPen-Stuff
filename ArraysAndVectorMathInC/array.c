@@ -9,7 +9,7 @@ Brief Description:
 /**/
 void reverse_array(int a[], int size)
 {
-} 
+}
 
 /**/
 void add_arrays(const int a[], const int b[], int c[], int size)

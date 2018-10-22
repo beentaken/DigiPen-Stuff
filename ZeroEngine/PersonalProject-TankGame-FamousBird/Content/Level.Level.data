@@ -1362,10 +1362,6 @@ Level
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:71]
 	{
@@ -2038,10 +2034,6 @@ Level
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:123]
 	{
@@ -2200,10 +2192,10 @@ Level
 		}
 		SelectionIcon 
 		{
-			var Visible = true
+			var Visible = false
 			var VisibilityEvents = true
 			var Material = "56581e2bb81777be:DebugDrawOnTop"
-			var SpriteSource = "58f8e4be736f19fe:ConnectionIcon"
+			var SpriteSource = "5275aa4d802dd6dc:Square"
 			var ViewScale = 1
 			var OverrideSelections = true
 		}

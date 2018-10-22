@@ -1,7 +1,7 @@
 class Destroyoncollide : ZilchComponent
 {
   [Property]
-  var DeathDelay : Real = 0.5;
+  var DeathDelay : Real = 0.05;
   
   function Initialize(init : CogInitializer)
   {
