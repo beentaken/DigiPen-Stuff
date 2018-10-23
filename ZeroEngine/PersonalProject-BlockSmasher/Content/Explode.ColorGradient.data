@@ -1,0 +1,35 @@
+[Version:1]
+ColorGradient 
+{
+	var Gradient = Object
+	{
+		var ControlPoints = Array
+		{
+			Object
+			{
+				var Value = Real4{1, 0, 0, 1}
+				var Interpolant = 0
+			}
+			Object
+			{
+				var Value = Real4{1, 0.567794144, 0, 1}
+				var Interpolant = 0.261682242
+			}
+			Object
+			{
+				var Value = Real4{1, 0.779999971, 0, 1}
+				var Interpolant = 0.423675984
+			}
+			Object
+			{
+				var Value = Real4{0.827026963, 0.645080984, 0, 1}
+				var Interpolant = 0.56386292
+			}
+			Object
+			{
+				var Value = Real4{0.34117648, 0.34117648, 0.34117648, 1}
+				var Interpolant = 1
+			}
+		}
+	}
+}

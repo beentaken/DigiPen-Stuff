@@ -1,9 +1,0 @@
-[Version:1]
-TextContent 
-{
-	ZilchScriptBuilder 
-	{
-		var Name = "CamFollow"
-		var ResourceId = 0x5ba517c782e0e2a5
-	}
-}

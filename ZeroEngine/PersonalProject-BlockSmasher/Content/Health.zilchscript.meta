@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "Health"
+		var ResourceId = 0x5ba5185d7c63e1a9
+	}
+}

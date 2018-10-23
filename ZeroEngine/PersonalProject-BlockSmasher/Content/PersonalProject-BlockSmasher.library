@@ -1,0 +1,8 @@
+[Version:1]
+ContentLibrary 
+{
+	var Name = "PersonalProject-BlockSmasher"
+	var LibraryId = 0x5b528457273f64aa
+	var SourceControlType = ""
+	var ReadOnly = false
+}

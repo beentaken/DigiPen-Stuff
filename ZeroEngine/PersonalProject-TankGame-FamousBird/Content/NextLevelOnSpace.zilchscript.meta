@@ -1,9 +1,0 @@
-[Version:1]
-TextContent 
-{
-	ZilchScriptBuilder 
-	{
-		var Name = "NextLevelOnSpace"
-		var ResourceId = 0x5ba91fe75c221bfc
-	}
-}
