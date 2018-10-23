@@ -4,7 +4,7 @@ Cog
 	var Name = "Projectile"
 	Transform 
 	{
-		var Translation = Real3{9.57749557, 5.63690615, 0}
+		var Translation = Real3{0, 0, 0}
 		var Scale = Real3{0.5, 0.5, 0.5}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -45,5 +45,8 @@ Cog
 		var Asleep = false
 		var RotationLocked = false
 		var Mode2D = Mode2DStates.InheritFromSpace
+	}
+	Destroyoncollide 
+	{
 	}
 }

@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Explode"
+		var ResourceId = 0x5bae73006a8740fc
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

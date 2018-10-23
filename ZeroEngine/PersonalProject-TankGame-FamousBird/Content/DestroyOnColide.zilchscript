@@ -19,6 +19,7 @@ class Destroyoncollide : ZilchComponent
     Actions.Delay(seq, this.DeathDelay);
     //////DESTROY
     Actions.Call(seq, this.Owner.Destroy);
-    this.LevelSettings.LevelVars.BlocksLeft -= 1;
+    //this.LevelSettings.LevelVars.BlocksLeft -= 1;
+
   }
 }

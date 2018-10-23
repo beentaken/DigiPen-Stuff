@@ -40,7 +40,8 @@ Level
 		}
 		LevelVars 
 		{
-			var BlocksLeft = 100
+			var BlocksLeft = 36
+			var NextLevel = "5ba92cbabe06d3a6:End"
 		}
 	}
 	Cog [ContextId:2]
@@ -81,7 +82,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-1.32879972, -1.17034864, 20}
+			var Translation = Real3{1.31299317, 0.0870067626, 20.0000019}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -134,7 +135,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 40.2387772
+			var Size = 54.3167419
 		}
 		EditorCameraController 
 		{
@@ -143,7 +144,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{-1.32879972, -1.17034864, -5.80853836e-08}
+			var LookTarget = Real3{1.31299317, 0.0870067626, 1.15017667e-06}
 			var MoveSensitivity = 1
 		}
 	}
@@ -241,7 +242,7 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [Id:0x5ba92003293129c5][ContextId:6]
+			Cog [Id:0x5bae6b7503550594][ContextId:6]
 			{
 				var Name = "HUDText"
 				Transform 
@@ -279,8 +280,8 @@ Level
 		var Name = "Wall"
 		Transform 
 		{
-			var Translation = Real3{0, -50.5, 0}
-			var Scale = Real3{102, 1, 1}
+			var Translation = Real3{0, -30.5000019, 0}
+			var Scale = Real3{62, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -327,8 +328,8 @@ Level
 		var Name = "Wall"
 		Transform 
 		{
-			var Translation = Real3{0, 51, 0}
-			var Scale = Real3{102, 1, 1}
+			var Translation = Real3{0, 30.5, 0}
+			var Scale = Real3{62, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -375,8 +376,8 @@ Level
 		var Name = "Wall"
 		Transform 
 		{
-			var Translation = Real3{-50.5, 0, 0}
-			var Scale = Real3{102, 1, 1}
+			var Translation = Real3{-30.5, 0, 0}
+			var Scale = Real3{62, 1, 1}
 			var Rotation = Quaternion{0, 0, 0.707106829, 0.707106829}
 		}
 		Sprite 
@@ -423,8 +424,8 @@ Level
 		var Name = "Wall"
 		Transform 
 		{
-			var Translation = Real3{50.5, 0, 0}
-			var Scale = Real3{102, 1, 1}
+			var Translation = Real3{30.5, 0, 0}
+			var Scale = Real3{62, 1, 1}
 			var Rotation = Quaternion{0, 0, 0.707106829, 0.707106829}
 		}
 		Sprite 
@@ -604,1555 +605,199 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-45, 45, 0}
+			var Translation = Real3{-24.9999981, -15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:13]
 	{
 		Transform 
 		{
-			var Translation = Real3{5, 45, 0}
+			var Translation = Real3{-24.9999981, -25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:14]
 	{
 		Transform 
 		{
-			var Translation = Real3{-45, 15, 0}
+			var Translation = Real3{-24.9999981, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:15]
 	{
 		Transform 
 		{
-			var Translation = Real3{5, 15, 0}
+			var Translation = Real3{-24.9999981, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:16]
 	{
 		Transform 
 		{
-			var Translation = Real3{-45, -15, 0}
+			var Translation = Real3{-24.9999981, 5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:17]
 	{
 		Transform 
 		{
-			var Translation = Real3{5, -15, 0}
+			var Translation = Real3{-24.9999981, 25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:18]
 	{
 		Transform 
 		{
-			var Translation = Real3{-45, 35, 0}
+			var Translation = Real3{-14.9999981, -15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:19]
 	{
 		Transform 
 		{
-			var Translation = Real3{5, 35, 0}
+			var Translation = Real3{-14.9999981, -25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:20]
 	{
 		Transform 
 		{
-			var Translation = Real3{-45, 5, 0}
+			var Translation = Real3{-14.9999981, 5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:21]
 	{
 		Transform 
 		{
-			var Translation = Real3{5, 5, 0}
+			var Translation = Real3{-14.9999981, 25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:22]
 	{
 		Transform 
 		{
-			var Translation = Real3{-45, -25, 0}
+			var Translation = Real3{-14.9999981, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
 		}
 	}
 	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:23]
 	{
 		Transform 
 		{
-			var Translation = Real3{5, -25, 0}
+			var Translation = Real3{-14.9999981, 15, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 		Destroyoncollide 
 		{
-			var DeathDelay = 0.00557610532
+			var DeathDelay = 0.00499999989
 		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:24]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:25]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:26]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:27]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:28]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:29]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:30]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:31]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:32]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, 45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:33]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, 45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:34]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, 15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:35]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, 15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:36]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, -15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:37]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, -15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:38]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, 35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:39]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, 35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:40]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, 5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:41]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, 5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:42]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, -25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:43]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, -25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:44]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:45]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:46]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:47]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:48]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:49]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:50]
-	{
-		Transform 
-		{
-			var Translation = Real3{-45, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:51]
-	{
-		Transform 
-		{
-			var Translation = Real3{5, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:52]
-	{
-		Transform 
-		{
-			var Translation = Real3{-35, 45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:53]
-	{
-		Transform 
-		{
-			var Translation = Real3{15, 45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:54]
-	{
-		Transform 
-		{
-			var Translation = Real3{-15, 45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:55]
-	{
-		Transform 
-		{
-			var Translation = Real3{35, 45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:56]
-	{
-		Transform 
-		{
-			var Translation = Real3{-35, 15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:57]
-	{
-		Transform 
-		{
-			var Translation = Real3{15, 15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:58]
-	{
-		Transform 
-		{
-			var Translation = Real3{-15, 15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:59]
-	{
-		Transform 
-		{
-			var Translation = Real3{35, 15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:60]
-	{
-		Transform 
-		{
-			var Translation = Real3{-35, -15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:61]
-	{
-		Transform 
-		{
-			var Translation = Real3{15, -15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:62]
-	{
-		Transform 
-		{
-			var Translation = Real3{-15, -15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:63]
-	{
-		Transform 
-		{
-			var Translation = Real3{35, -15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:64]
-	{
-		Transform 
-		{
-			var Translation = Real3{-35, 35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:65]
-	{
-		Transform 
-		{
-			var Translation = Real3{15, 35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:66]
-	{
-		Transform 
-		{
-			var Translation = Real3{-15, 35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:67]
-	{
-		Transform 
-		{
-			var Translation = Real3{35, 35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:68]
-	{
-		Transform 
-		{
-			var Translation = Real3{-35, 5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:69]
-	{
-		Transform 
-		{
-			var Translation = Real3{15, 5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:70]
-	{
-		Transform 
-		{
-			var Translation = Real3{-15, 5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:71]
-	{
-		Transform 
-		{
-			var Translation = Real3{35, 5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:72]
-	{
-		Transform 
-		{
-			var Translation = Real3{-35, -25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:73]
-	{
-		Transform 
-		{
-			var Translation = Real3{15, -25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:74]
-	{
-		Transform 
-		{
-			var Translation = Real3{-15, -25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:75]
-	{
-		Transform 
-		{
-			var Translation = Real3{35, -25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:76]
-	{
-		Transform 
-		{
-			var Translation = Real3{-35, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:77]
-	{
-		Transform 
-		{
-			var Translation = Real3{15, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:78]
-	{
-		Transform 
-		{
-			var Translation = Real3{-15, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:79]
-	{
-		Transform 
-		{
-			var Translation = Real3{35, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:80]
-	{
-		Transform 
-		{
-			var Translation = Real3{-35, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:81]
-	{
-		Transform 
-		{
-			var Translation = Real3{15, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:82]
-	{
-		Transform 
-		{
-			var Translation = Real3{-15, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:83]
-	{
-		Transform 
-		{
-			var Translation = Real3{35, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:84]
-	{
-		Transform 
-		{
-			var Translation = Real3{-35, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:85]
-	{
-		Transform 
-		{
-			var Translation = Real3{15, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:86]
-	{
-		Transform 
-		{
-			var Translation = Real3{-15, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:87]
-	{
-		Transform 
-		{
-			var Translation = Real3{35, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:88]
-	{
-		Transform 
-		{
-			var Translation = Real3{-35, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:89]
-	{
-		Transform 
-		{
-			var Translation = Real3{15, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:90]
-	{
-		Transform 
-		{
-			var Translation = Real3{-15, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:91]
-	{
-		Transform 
-		{
-			var Translation = Real3{35, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:92]
-	{
-		Transform 
-		{
-			var Translation = Real3{-25, 45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:93]
-	{
-		Transform 
-		{
-			var Translation = Real3{25, 45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:94]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5, 45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:95]
-	{
-		Transform 
-		{
-			var Translation = Real3{45, 45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:96]
-	{
-		Transform 
-		{
-			var Translation = Real3{-25, 15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:97]
-	{
-		Transform 
-		{
-			var Translation = Real3{25, 15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:98]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5, 15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:99]
-	{
-		Transform 
-		{
-			var Translation = Real3{45, 15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:100]
-	{
-		Transform 
-		{
-			var Translation = Real3{-25, -15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:101]
-	{
-		Transform 
-		{
-			var Translation = Real3{25, -15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:102]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5, -15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:103]
-	{
-		Transform 
-		{
-			var Translation = Real3{45, -15, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:104]
-	{
-		Transform 
-		{
-			var Translation = Real3{-25, 35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:105]
-	{
-		Transform 
-		{
-			var Translation = Real3{25, 35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:106]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5, 35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:107]
-	{
-		Transform 
-		{
-			var Translation = Real3{45, 35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:108]
-	{
-		Transform 
-		{
-			var Translation = Real3{-25, 5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:109]
-	{
-		Transform 
-		{
-			var Translation = Real3{25, 5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:110]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5, 5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:111]
-	{
-		Transform 
-		{
-			var Translation = Real3{45, 5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:112]
-	{
-		Transform 
-		{
-			var Translation = Real3{-25, -25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:113]
-	{
-		Transform 
-		{
-			var Translation = Real3{25, -25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:114]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5, -25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:115]
-	{
-		Transform 
-		{
-			var Translation = Real3{45, -25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:116]
-	{
-		Transform 
-		{
-			var Translation = Real3{-25, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:117]
-	{
-		Transform 
-		{
-			var Translation = Real3{25, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:118]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:119]
-	{
-		Transform 
-		{
-			var Translation = Real3{45, 25, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:120]
-	{
-		Transform 
-		{
-			var Translation = Real3{-25, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:121]
-	{
-		Transform 
-		{
-			var Translation = Real3{25, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:122]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:123]
-	{
-		Transform 
-		{
-			var Translation = Real3{45, -5, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:124]
-	{
-		Transform 
-		{
-			var Translation = Real3{-25, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:125]
-	{
-		Transform 
-		{
-			var Translation = Real3{25, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:126]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:127]
-	{
-		Transform 
-		{
-			var Translation = Real3{45, -35, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:128]
-	{
-		Transform 
-		{
-			var Translation = Real3{-25, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:129]
-	{
-		Transform 
-		{
-			var Translation = Real3{25, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:130]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
-		{
-			var DeathDelay = 0.00557610532
-		}
-	}
-	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:131]
-	{
-		Transform 
-		{
-			var Translation = Real3{45, -45, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-		Destroyoncollide 
+		CreateOnDestroy 
 		{
-			var DeathDelay = 0.00557610532
+			var ArchToBeMade = "null"
 		}
 	}
-	Cog [ContextId:132]
+	Cog [ContextId:24]
 	{
 		var Name = ""
 		ObjectLink 
@@ -2210,5 +855,412 @@ Level
 			var LocalPointA = Real3{0, 0, 0}
 			var LocalPointB = Real3{0, 0, 0}
 		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:25]
+	{
+		Transform 
+		{
+			var Translation = Real3{-4.99999809, 5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:26]
+	{
+		Transform 
+		{
+			var Translation = Real3{-4.99999809, 25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:27]
+	{
+		Transform 
+		{
+			var Translation = Real3{-4.99999809, 15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:28]
+	{
+		Transform 
+		{
+			var Translation = Real3{-4.99999809, -15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:29]
+	{
+		Transform 
+		{
+			var Translation = Real3{-4.99999809, -25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:30]
+	{
+		Transform 
+		{
+			var Translation = Real3{-4.99999809, -5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:31]
+	{
+		Transform 
+		{
+			var Translation = Real3{5.00000191, -5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:32]
+	{
+		Transform 
+		{
+			var Translation = Real3{5.00000191, 5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:33]
+	{
+		Transform 
+		{
+			var Translation = Real3{5.00000191, 25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:34]
+	{
+		Transform 
+		{
+			var Translation = Real3{5.00000191, -15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:35]
+	{
+		Transform 
+		{
+			var Translation = Real3{5.00000191, -25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:36]
+	{
+		Transform 
+		{
+			var Translation = Real3{15.0000019, -5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:37]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, -5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:38]
+	{
+		Transform 
+		{
+			var Translation = Real3{5.00000191, 15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:39]
+	{
+		Transform 
+		{
+			var Translation = Real3{15.0000019, 15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:40]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, 15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:41]
+	{
+		Transform 
+		{
+			var Translation = Real3{15.0000019, -15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:42]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, -15, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:43]
+	{
+		Transform 
+		{
+			var Translation = Real3{15.0000019, -25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:44]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, -25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:45]
+	{
+		Transform 
+		{
+			var Translation = Real3{15.0000019, 25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:46]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, 25, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:47]
+	{
+		Transform 
+		{
+			var Translation = Real3{15.0000019, 5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5ba7ba000e2c5790:Block"][ContextId:48]
+	{
+		Transform 
+		{
+			var Translation = Real3{25, 5, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		Destroyoncollide 
+		{
+			var DeathDelay = 0.00499999989
+		}
+		CreateOnDestroy 
+		{
+			var ArchToBeMade = "null"
+		}
+	}
+	Cog [InheritId:"5bae73006a8740fc:Explode"][ContextId:49]
+	{
 	}
 }

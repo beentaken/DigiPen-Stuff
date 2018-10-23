@@ -130,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 19.9999905
+			var Size = 22.1034069
 		}
 		EditorCameraController 
 		{
@@ -223,7 +223,7 @@ Level
 		var Name = "MenuBkgnd"
 		Transform 
 		{
-			var Translation = Real3{0, 0, 0}
+			var Translation = Real3{0, 0, -2}
 			var Scale = Real3{36, 19.9999981, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -269,7 +269,7 @@ Level
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
-					var Text = "Press Spacebar to Start"
+					var Text = "Press Spacebar to restart."
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
 					var PixelsPerUnit = 128
@@ -283,7 +283,38 @@ Level
 				{
 				}
 			}
-			Cog [Id:0x5ba917add1610ce2][ContextId:7]
+			Cog [Id:0x5bae6d8f71a3079e][ContextId:7]
+			{
+				var Name = "PlayButton"
+				Transform 
+				{
+					var Translation = Real3{0, 0.0125000104, 1}
+					var Scale = Real3{0.138888896, 0.25000003, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				SpriteText 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Text = ""
+					var Font = "57343753bb4eaaec:NotoSans-Regular"
+					var FontSize = 32
+					var PixelsPerUnit = 128
+					var TextAlign = TextAlign.Center
+				}
+				Hierarchy 
+				{
+				}
+			}
+			Cog [Id:0x5ba917add1610ce2][ContextId:8]
 			{
 				var Name = "Welcome"
 				Transform 
@@ -304,7 +335,7 @@ Level
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
-					var Text = "Welcome to Block Smasher"
+					var Text = "You Win!"
 					var Font = "57343753bb4eaaec:NotoSans-Regular"
 					var FontSize = 32
 					var PixelsPerUnit = 128
