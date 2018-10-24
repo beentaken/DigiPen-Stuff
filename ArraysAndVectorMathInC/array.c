@@ -3,14 +3,16 @@ Filename: array.c
 Author: Blakely North
 Date: 10-22-18
 Brief Description: This is the math that powers the other two c files
+gcc -Wall -Wextra -O -ansi -pedantic -o C:\Users\Blakely\Documents\GitHub\DigiPen-Stuff\ArraysAndVectorMathInC\array1 C:\Users\Blakely\Documents\GitHub\DigiPen-Stuff\ArraysAndVectorMathInC\main1.c C:\Users\Blakely\Documents\GitHub\DigiPen-Stuff\ArraysAndVectorMathInC\array.c
 ******************************************************************************/
 
 /**/
 void reverse_array(int a[], int size)
 {
-  int b[], size, i;
   size = sizeof a[];
-  i = 0
+  int b[size], i;
+  size = sizeof a[];
+  i = 0;
   for (; sizeof b[] <= sizeof a[];--size, ++i)
   {
     b[i] = a[size];
@@ -56,7 +58,7 @@ void cross_product(const int a[], const int b[], int c[])
   int k = 0;
   for (;sizeof c[] < sizeof a[]; k++, j++, i++)
   {
-    c[k] = a[j] * b[i] - a[i]
+    c[k] = a[j] * b[i] - a[i];
     if (j = sizeof a[])
     {
       j = 0;
