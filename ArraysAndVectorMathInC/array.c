@@ -58,5 +58,4 @@ void cross_product(const int a[], const int b[], int c[])
   c[1] = -(b[2]*a[0] - b[0]*a[2]);
 
   c[2] = a[0]*b[1] - a[1]*b[0];
-  }
 }
