@@ -3,20 +3,18 @@ Filename: array.c
 Author: Blakely North
 Date: 10-22-18
 Brief Description: This is the math that powers the other two c files
-gcc -Wall -Wextra -O -ansi -pedantic -o array1 main1.c array.c
-gcc -Wall -Wextra -O -ansi -pedantic -o C:\Users\Blakely\Documents\GitHub\DigiPen-Stuff\ArraysAndVectorMathInC\array1 C:\Users\Blakely\Documents\GitHub\DigiPen-Stuff\ArraysAndVectorMathInC\main1.c C:\Users\Blakely\Documents\GitHub\DigiPen-Stuff\ArraysAndVectorMathInC\array.c
+gcc -Wall -Wextra -O -ansi -pedantic -o array main1.c array.c
 ******************************************************************************/
 
 /* frusterate */
 void reverse_array(int a[], int size)
 {
-  int i, temp2, temp, csize, k[size];
-  for (i = 0, csize = size ;i < (size / 2); ++i, --csize)
+  int i, temp2, temp, csize;
+  int hsize = size/2;
+  for (i = 0, csize = size-1; i < hsize; ++i, --csize)
   {
-    temp = a[csize];
-    temp2 = a[i];
-    a[i] = temp;
-    a[csize] = temp2;
+    a[i] = a[csize];
+    a[csize] = a[i];
   }
 }
 
