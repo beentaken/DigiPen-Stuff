@@ -10,18 +10,21 @@ gcc -Wall -Wextra -O -ansi -pedantic -o C:\Users\Blakely\Documents\GitHub\DigiPe
 /**/
 void reverse_array(int a[], int size)
 {
-  int b, i;
-  for (i = 0 ;i < size / 2; ++i)
+  int i, temp2, temp, csize, k[size];
+  for (i = 0, csize = size ;i < (size / 2); ++i, --csize)
   {
-
+    temp = a[csize];
+    temp2 = a[i];
+    a[i] = temp;
+    a[csize] = temp2;
   }
 }
 
 /**/
 void add_arrays(const int a[], const int b[], int c[], int size)
 {
-  int i = 0;
-  for (; size > i ; i++)
+  int i;
+  for (i = 0; size > i ; i++)
   {
     c[i] = a[i] + b[i];
   }
