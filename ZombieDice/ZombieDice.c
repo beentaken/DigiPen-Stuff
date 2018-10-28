@@ -29,8 +29,9 @@ int turn()
   rnd(0, 2)
   if (DieCount[RNDNum] = 0)
   {
-     
+
   }
+  
   return 0;
 }
 

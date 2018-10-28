@@ -32,10 +32,10 @@ int main(void)
 	int NumOPlayers = -1;
 	int playerScores[MAXPLAYERS] = {0};
 	int currentPlayer = 0;
-	int i, winner;
-	
+	int i, j, winner;
+
 	srand(time(NULL));
-	
+
 	while (NumOPlayers <= 0 || NumOPlayers > MAXPLAYERS)
 	{
 		printf("Input Number of Players!: ");
@@ -50,22 +50,43 @@ int main(void)
 		{
 			break;
 		}
-		/* TODO: print whos turn it is! */
-		
+
+		printf("It's player \i's turn\n", currentPlayer);
+
 		WaitForEnter();
-		
+
 		/* TODO: adjust the current players score, in the array playerScores, by adding the PlayerTurn function to it */
-		
+		playerScores[currentPlayer] += PlayerTurn;
 		/* TODO: move to next player if at last player move to first player*/
-		
+		currentPlayer++;
+		if (currentPlayer > NumOPlayers)
+		{
+			currentPlayer = 0;
+		}
 		/* TODO: Print out current scores in some way, should use a loop, but if you want to make a function for it can */
-		
-		
+		for (i = 0; i < NumOPlayers; i++)
+		{
+			printf("Player \i's score is \i.\n", i, playerScores[i]);
+		}
 	}
 	/*TODO: figure out who won here in a loop also print scores*/
-	
-	
-	
+	printf("Final scores:\n", );
+	for (i = 0; i < NumOPlayers; i++)
+	{
+		printf("Player \i's score is \i.\n", i, playerScores[i]);
+	}
+
+	printf("The winner is...\n", );
+
+	for (i = 0, winner = 1; i < NumOPlayers; i++)
+	{
+		if (playerScores[winner] < playerScores[i])
+		{
+			winner = i;
+		}
+
+	}
+
 	return 0;
 }
 /*A full player's turn returns how many brains they earned*/
@@ -86,37 +107,37 @@ int PlayerTurn()
 	int diceRemaining;
 	/* set arrays for start of turn */
 	diceRemaining = RefreshDice(dicePool, shotArray, current3Dice);
-	
+
 	/* TODO: loop through each roll while input is 'y' */
-		
+
 		/* TODO: if not enough dice remaining (3) refresh dice pool */
-		
+
 		/* TODO: Roll 3 dice and figure out the results , loop through the 3 colors in current3Dice*/
-			
+
 			/* TODO: if current3Dice at the current index is -1 select a die from the dicePool array */
-				
+
 				/* TODO: when selecting choose randomly based on the number of diceRemaining (don't forget to remove from pool and diceRemaining number)*/
-		
+
 		/* TODO: Roll current dice with 6 possible sides */
-		
+
 		/* TODO: switch based on what color die you rolled to figure out results (print die type and what gets rolled) */
-		
-		
+
+
 		WaitForEnter();
-		
+
 		/* TODO: if 3 shots return 0 */
-		
+
 		intput = 'a';
-		
+
 		/* TODO: check for input using scanf (use WaitForEnter() to clear enter from scanf), loop until they answer 'y' or 'n', make sure player is informed about the descision with printf */
-	
+
 	return brains;
-	
+
 }
 /*shuffle all brains back into bag not the shots return total dice, use to set up and when the player needs to shuffle beyond original 13 dice*/
 int RefreshDice(int dicePool[], int shotArray[], int current3Dice[])
 {
-	
+
 	int i, total;
 	/*green dice total*/
 	dicePool[GREEN] = 6;
