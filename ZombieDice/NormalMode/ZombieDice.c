@@ -105,23 +105,81 @@ int PlayerTurn()
 	/* number of shots so far this turn */
 	int shots = 0;
 	int diceRemaining;
+	int high, low;
+	int RNDNum, i;
 	/* set arrays for start of turn */
 	diceRemaining = RefreshDice(dicePool, shotArray, current3Dice);
 
 	/* TODO: loop through each roll while input is 'y' */
 
-		/* TODO: if not enough dice remaining (3) refresh dice pool */
-
-		/* TODO: Roll 3 dice and figure out the results , loop through the 3 colors in current3Dice*/
+		/* TODO: if not enough dice remaining (3), refresh dice pool */
+		if (diceRemaining < 3)
+		{
+			diceRemaining = RefreshDice(dicePool, shotArray, current3Dice);
+		}
+		/* TODO: Roll 3 dice and figure out the results , loop through the 3 dice (colors) in current3Dice*/
+		for(i = 0 ; i < 3 ; i++ )
+		{
 
 			/* TODO: if current3Dice at the current index is -1 select a die from the dicePool array */
-
+			if(current3Dice[i] == -1)
+			{
 				/* TODO: when selecting choose randomly based on the number of diceRemaining (don't forget to remove from pool and diceRemaining number)*/
+				low = 0;
+				high = diceRemaining;
+				RNDNum = rnd(low, high);
+				if(RNDNum < dicePool[GREEN])
+				{
+					dicePool[GREEN]--;
+					current3Dice[i]= GREEN;
+				}
 
-		/* TODO: Roll current dice with 6 possible sides */
+				else if(RNDNum < dicePool[YELLOW])
+				{
+					dicePool[YELLOW]--
+					current3Dice[i] = YELLOW;
+				}
 
-		/* TODO: switch based on what color die you rolled to figure out results (print die type and what gets rolled) */
+				else if(RNDNum < dicePool[RED])
+				{
+					dicePool[RED]--
+					current3Dice[i] = RED;
+				}
+				diceRemaining--;
+			}
 
+			/* TODO: Roll current dice with 6 possible sides */
+			RNDNum = rnd(0, 5);
+			/* TODO: switch based on what color die you rolled to figure out results (print die type and what gets rolled) */
+			switch (current3Dice[i])
+			{
+				case GREEN:
+				if(RNDNum > 3)
+				{
+					brains++;
+				}
+				else if(RNDNum > 1)
+				{
+
+				}
+				break;
+
+				case YELLOW:
+				if(RNDNum > 4)
+				{
+					brains++
+				}
+				break;
+
+				case RED:
+				if(RNDNum == 5)
+				{
+					brains++
+				}
+				break;
+
+			}
+		}
 
 		WaitForEnter();
 
@@ -134,6 +192,14 @@ int PlayerTurn()
 	return brains;
 
 }
+/* generate a random number */
+int rnd(int low, int high)
+{
+  int RNDNum;
+  RNDNum = rand() % ((high + 1) - low) + low;
+  return RNDNum;
+}
+
 /*shuffle all brains back into bag not the shots return total dice, use to set up and when the player needs to shuffle beyond original 13 dice*/
 int RefreshDice(int dicePool[], int shotArray[], int current3Dice[])
 {
