@@ -136,13 +136,13 @@ int PlayerTurn()
 
 				else if(RNDNum < dicePool[YELLOW])
 				{
-					dicePool[YELLOW]--
+					dicePool[YELLOW]--;
 					current3Dice[i] = YELLOW;
 				}
 
 				else if(RNDNum < dicePool[RED])
 				{
-					dicePool[RED]--
+					dicePool[RED]--;
 					current3Dice[i] = RED;
 				}
 				diceRemaining--;
