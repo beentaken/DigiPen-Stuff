@@ -1,7 +1,7 @@
 /**********************
 ZombieDice.c
-By: Ryan Scheppler and finished by :
-Last Edited: 9/27/17
+By: Ryan Scheppler and finished by : Blakely North
+Last Edited: 9/31/18
 Brief: A dice game meant for up to 8 people, player with the most after one gets 13 or more brains wins
 gcc -Wall -Wextra -ansi -pedantic -O -o ZombieDice ZombieDice.c
 **********************/
@@ -80,13 +80,12 @@ int main(void)
 
 	printf("The winner is...\n");
 
-	for (i = 0, winner = 1; i < NumOPlayers; i++)
+	for (i = 0, winner = 0; i < NumOPlayers; i++)
 	{
 		if (playerScores[winner] < playerScores[i])
 		{
 			winner = i;
 		}
-
 	}
 	printf("Player %i!\n", i);
 	return 0;
@@ -232,11 +231,12 @@ int PlayerTurn()
 		WaitForEnter();
 
 		/* TODO: if 3 shots return 0 */
-
+		/*Checks if the player has been shot 3 times yet*/
 		if (shots > 2)
 		{
 			return 0;
 		}
+		/*displays the current player's score.*/
 		printf("Current score:\nBrains:%i\nShots:%i\n", shots, brains);
 		input = 'a';
 
