@@ -1,7 +1,7 @@
 /**********************
 ZombieDice.c
-By: Ryan Scheppler and finished by :
-Last Edited: 9/27/17
+By: Ryan Scheppler and finished by :Blakely North
+Last Edited: 9/31/18
 Brief: A dice game meant for up to 8 people, player with the most after one gets 13 or more brains wins
 gcc -Wall -Wextra -ansi -pedantic -O -o ZombieDice ZombieDice.c
 **********************/
@@ -27,18 +27,21 @@ int RefreshDice(int dicePool[], int shotArray[], int current3Dice[]);
 /*Call to pause for an enter*/
 void WaitForEnter();
 
+int randomnum(int low, int high);
+
 int main(void)
 {
 	int NumOPlayers = -1;
+	
 	int playerScores[MAXPLAYERS] = {0};
 	int currentPlayer = 0;
-	int i, j, winner;
+	int i, winner;
 
 	srand(time(NULL));
 
 	while (NumOPlayers <= 0 || NumOPlayers > MAXPLAYERS)
 	{
-		printf("Input Number of Players!: ");
+		printf("Input Number of Players: ");
 		scanf(" %i", &NumOPlayers);
 		WaitForEnter();
 	}
@@ -51,32 +54,32 @@ int main(void)
 			break;
 		}
 
-		printf("It's player \i's turn\n", currentPlayer);
+		printf("It's player %i's turn.\nPress enter.\n", currentPlayer + 1);
 
 		WaitForEnter();
 
 		/* TODO: adjust the current players score, in the array playerScores, by adding the PlayerTurn function to it */
-		playerScores[currentPlayer] += PlayerTurn;
+		playerScores[currentPlayer] += PlayerTurn();
 		/* TODO: move to next player if at last player move to first player*/
 		currentPlayer++;
-		if (currentPlayer > NumOPlayers)
+		if (currentPlayer >= NumOPlayers)
 		{
 			currentPlayer = 0;
 		}
 		/* TODO: Print out current scores in some way, should use a loop, but if you want to make a function for it can */
 		for (i = 0; i < NumOPlayers; i++)
 		{
-			printf("Player \i's score is \i.\n", i, playerScores[i]);
+			printf("Player %i's score is %i.\n", i + 1, playerScores[i]);
 		}
 	}
 	/*TODO: figure out who won here in a loop also print scores*/
-	printf("Final scores:\n", );
+	printf("Final scores:\n");
 	for (i = 0; i < NumOPlayers; i++)
 	{
-		printf("Player \i's score is \i.\n", i, playerScores[i]);
+		printf("Player %i's score is %i.\n", i + 1, playerScores[i]);
 	}
 
-	printf("The winner is...\n", );
+	printf("The winner is...\n");
 
 	for (i = 0, winner = 1; i < NumOPlayers; i++)
 	{
@@ -86,7 +89,7 @@ int main(void)
 		}
 
 	}
-
+	printf("Player %i!\n", i);
 	return 0;
 }
 /*A full player's turn returns how many brains they earned*/
@@ -105,12 +108,12 @@ int PlayerTurn()
 	/* number of shots so far this turn */
 	int shots = 0;
 	int diceRemaining;
-	int high, low;
 	int RNDNum, i;
 	/* set arrays for start of turn */
 	diceRemaining = RefreshDice(dicePool, shotArray, current3Dice);
 
 	/* TODO: loop through each roll while input is 'y' */
+	do {
 
 		/* TODO: if not enough dice remaining (3), refresh dice pool */
 		if (diceRemaining < 3)
@@ -120,93 +123,137 @@ int PlayerTurn()
 		/* TODO: Roll 3 dice and figure out the results , loop through the 3 dice (colors) in current3Dice*/
 		for(i = 0 ; i < 3 ; i++ )
 		{
-
+			/*printf("i si currently %i\n", i);*/
 			/* TODO: if current3Dice at the current index is -1 select a die from the dicePool array */
 			if(current3Dice[i] == -1)
 			{
 				/* TODO: when selecting choose randomly based on the number of diceRemaining (don't forget to remove from pool and diceRemaining number)*/
-				low = 0;
-				high = diceRemaining;
-				RNDNum = rnd(low, high);
+
+				RNDNum = randomnum(0, diceRemaining-1);
 				if(RNDNum < dicePool[GREEN])
 				{
 					dicePool[GREEN]--;
 					current3Dice[i]= GREEN;
+					/*printf("      this is a green die\n");*/
 				}
 
-				else if(RNDNum < dicePool[YELLOW])
+				else if(RNDNum < dicePool[YELLOW] + dicePool[GREEN])
 				{
-					dicePool[YELLOW]--
+					dicePool[YELLOW]--;
 					current3Dice[i] = YELLOW;
+					/*printf("      this is a yellow die\n");*/
 				}
 
-				else if(RNDNum < dicePool[RED])
+				else if(RNDNum < dicePool[RED] + dicePool[YELLOW] + dicePool[GREEN])
 				{
-					dicePool[RED]--
+					dicePool[RED]--;
 					current3Dice[i] = RED;
+					/*printf("      this is a red die\n");*/
 				}
 				diceRemaining--;
 			}
 
 			/* TODO: Roll current dice with 6 possible sides */
-			RNDNum = rnd(0, 5);
+			RNDNum = randomnum(0, 5);
 			/* TODO: switch based on what color die you rolled to figure out results (print die type and what gets rolled) */
 			switch (current3Dice[i])
 			{
 				case GREEN:
-				if(RNDNum > 3)
+				if(RNDNum >= 3)
 				{
 					brains++;
+					current3Dice[i] = -1;
+					printf("It's a green brain!\n");
 				}
-				else if(RNDNum > 1)
-				{
 
+				else if(RNDNum >= 1)
+				{
+					printf("It's a green runner!\n");
 				}
+
 				else if(RNDNum == 0)
 				{
+					if(shots < 3)
+						shotArray[shots] = GREEN;
 					shots++;
+					current3Dice[i] = -1;
+					printf("Oh no! A green shot!\n");
 				}
 				break;
 
 				case YELLOW:
 				if(RNDNum >= 4)
 				{
-					brains++
+					printf("It's a yellow brain!\n");
+					current3Dice[i] = -1;
+					brains++;
 				}
+
 				else if(RNDNum >= 2)
 				{
-					
+					printf("It's a yellow runner!\n");
 				}
-				
-				else
+
+				else if(RNDNum >= 0)
 				{
+					if(shots < 3)
+						shotArray[shots] = YELLOW;
 					shots++;
+					current3Dice[i] = -1;
+					printf("Oh no! A yellow shot!\n");
 				}
 				break;
 
 				case RED:
-				if(RNDNum == 5)
+				if(RNDNum >= 3)
 				{
-					brains++
+					if(shots < 3)
+						shotArray[shots] = RED;
+					shots++;
+					current3Dice[i] = -1;
+					printf("Oh no! A red shot!\n");
+				}
+
+				else if(RNDNum >= 1)
+				{
+					printf("It's a red runner!\n");
+				}
+
+				else if(RNDNum == 0)
+				{
+					brains++;
+					current3Dice[i] = -1;
+					printf("It's a red brain!\n");
 				}
 				break;
 
 			}
 		}
-
+		printf("Press enter\n");
 		WaitForEnter();
 
 		/* TODO: if 3 shots return 0 */
 
-		intput = 'a';
+		if (shots > 2)
+		{
+			return 0;
+		}
+		printf("Current score:\nBrains:%i\nShots:%i\n", brains, shots);
+		input = 'a';
 
 		/* TODO: check for input using scanf (use WaitForEnter() to clear enter from scanf), loop until they answer 'y' or 'n', make sure player is informed about the descision with printf */
+		while(input != 'y' && input != 'n')
+		{
+			printf("Do you want to roll again?\n");
+			scanf( "%c", &input);
+			WaitForEnter();
+		}
 
+	} while(input == 'y');
 	return brains;
-
 }
 /* generate a random number */
-int rnd(int low, int high)
+int randomnum(int low, int high)
 {
   int RNDNum;
   RNDNum = rand() % ((high + 1) - low) + low;
@@ -219,6 +266,7 @@ int RefreshDice(int dicePool[], int shotArray[], int current3Dice[])
 
 	int i, total;
 	/*green dice total*/
+	/*green dice total*/
 	dicePool[GREEN] = 6;
 	/*yellow dice total*/
 	dicePool[YELLOW] = 4;
@@ -226,7 +274,7 @@ int RefreshDice(int dicePool[], int shotArray[], int current3Dice[])
 	dicePool[RED] = 3;
 	/*all dice*/
 	total = dicePool[GREEN] + dicePool[YELLOW] + dicePool[RED];
-	printf("Refreshing Dice Pool\n");
+	/* printf("Refreshing Dice Pool\n"); */
 	/*remove dice currently saved as a shot*/
 	for(i = 0; i <3 ; i++)
 	{
@@ -241,6 +289,8 @@ int RefreshDice(int dicePool[], int shotArray[], int current3Dice[])
 			total--;
 		}
 	}
+
+
 	return total;
 }
 /*Call to pause for an enter, also needs to be used after scanf if used to remove any excess characters and newlines*/
