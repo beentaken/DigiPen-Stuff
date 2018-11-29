@@ -1,15 +1,15 @@
-/**************************
-MazeC.c
-Base By: Ryan Scheppler
-Edited and completed by: 
-Brief: This game demonstrates some pointer and miltidimensional array concepts. Move the player through the maze to reach the exit and win!
-gcc -Wall -Wextra -ansi -pedantic -O -o maze MazeC.c
-**************************/
-/* standard input and output */
+ /****************************
+Filename: Maze.c
+Name: Blakely North
+Date Last Edited:11-26-18
+Brief Description: Demonstrates some pointer stuff and multidimensional arrays. A maze Game.
+gcc -Wall -Wextra -O -ansi -pedantic -o Maze Maze.c
+****************************/
+/*printf, scanf*/
 #include <stdio.h>
-/* rand, srand in the standard library */
+/*rand, srand*/
 #include <stdlib.h>
-/* time to set the random seed different */
+/*time*/
 #include <time.h>
 
 /* define the size of the map with these definitions */
@@ -84,7 +84,7 @@ int main(void)
 		/* show maze in its current layout */
 		printMap( map, player, enemies);
 		
-		printf("Enter in w, a, s, or d to move around the map , q to quit\n");
+		printf("Use WASD to move around the map.\nUse q to quit\n");
 		/* Accept user input here */
 		do
 		{
