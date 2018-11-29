@@ -1,11 +1,24 @@
 {
-    "name": "MinGW",
-    "intelliSenseMode": "gcc-x64",
-    "compilerPath": "C:/mingw64/bin/gcc.exe",
-    "includePath": [
-        "${workspaceFolder}"
+    "env" : {
+        "myDefaultIncludePath": [
+            "${workspaceFolder}",
+            "${workspaceFolder}/include"
+        ],
+        "myCompilerPath": "/usr/local/bin/gcc-7"
+    },
+    "configurations": [
+        {
+            "name": "MinGW",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "C:/mingw64/bin/gcc.exe",
+            "includePath": [
+                "${workspaceFolder}"
+            ],
+            "defines": [],
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+        
     ],
-    "defines": [],
-    "cStandard": "c11",
-    "cppStandard": "c++17"
+    "version": 4
 }
