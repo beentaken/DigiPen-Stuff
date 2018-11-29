@@ -12,7 +12,6 @@ gcc -Wall -Wextra -O -ansi -pedantic -o Maze Maze.c
 /*time*/
 #include <time.h>
  /* Define map sizes*/
-#ifndef MAPHEIGHT
 #define MAPHEIGHT 10
  /*#ifndef MAPWIDTH*/
 #define MAPWIDTH 20
@@ -63,11 +62,11 @@ void printMap(char map[][MAPWIDTH], char* player, char* enemies[])
   enemies[0] = *map + 6 + 5;
   enemies[1] = *(map+6) + 16;
    /* put game intro here wherew it till run once*/
-  printf("Welcome to the maze game! You are the %c, move through the the game to reach the %c while avoiding the %c's\n", PLAYER, EXIT__, ENEMY_,);
+  printf("Welcome to the maze game! You are the %c, move through the the game to reach the %c while avoiding the %c's\n", PLAYER, EXIT__, ENEMY_);
   /* Wait for enter*/
   waitforenter()
    /* this is our main game loop*/
-  do {
+  do{
     /* this var determines how the player moves using pointer atithamtic*/
     int playerMovement = 0;
     /* show maze in its current current layout*/
