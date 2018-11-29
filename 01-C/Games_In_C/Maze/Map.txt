@@ -1,24 +1,44 @@
- {WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__,},
- {WALL__, FLOOR_, PLAYER, WALL__, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__,},
- {WALL__, FLOOR_, WALL__, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, PLAYER, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__,},
- {WALL__, FLOOR_, WALL__, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, PLAYER, WALL__,},
- {WALL__, FLOOR_, WALL__, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, WALL__,},
- {WALL__, FLOOR_, WALL__, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, WALL__, FLOOR_, PLAYER, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__,},
- {WALL__, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__,},
- {WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__,},
- {WALL__, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__,},
- {WALL__, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__,},
- {WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__,},
- {WALL__, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, WALL__, WALL__,},
- {WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__,},
- {WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__,},
- {WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, WALL__, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__,},
- {WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, WALL__, WALL__, FLOOR_, WALL__,},
- {WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, FLOOR_, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, WALL__,},
- {WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, FLOOR_, WALL__, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, WALL__,},
- {WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, WALL__, FLOOR_, WALL__, WALL__, PLAYER, WALL__, WALL__, PLAYER, WALL__, WALL__, WALL__, WALL__,},
- {WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__,}
+ {X X X X X X X X X X X X X X X X X X X X X X X X X X X X}
+ {X   @ X X   X X X X X X X X X X X X X X               X}
+ {X   X   X             X               X X X X X X X X X}
+ {X   X   X   X X X X X X X X X X X X               X X X}
+ {X   X   X   X X                   X X X X X X X X X   X}
+ {X   X   X   X X   X X X X X X   X /                   X}
+ {X   X                       X   X X X X   X X X X X X X}
+ {X         X X X X X X X X X X   X X     X X       X X X}
+ {X X     X         X               X X     X   X X X X X}
+ {X X     X   X X   / X   X X X X X X     X X   X X X X X}
+ {X     X X   X X X X     X                     X X X X X}
+ {X   X                 X X     X       X X X X X X   X X}
+ {X   X X X X X X X X     X X     X X     X X X     X X X}
+ {X     X           X X     X     X X X     X X   X X X X}
+ {X X     X X X X   X   X       X       X     X         X}
+ {X X X       X X X X   X X X X X X X       X X   X X   X}
+ {X / X X X   X         X               X   X     X     X}
+ {X   X X X   X   X X X X   X     X   X X   X     X     X}
+ {X O X X X       X         X X   X   X X / X X / X X X X}
+ {X X X X X X X X X X X X X X X X X X X X X X X X X X X X}
 
+{X X X X X X X X X X X X X X X X X X X X X X X X X X X X}
+{X   @ X X   X X X X X X X X X X X X X X               X}
+{X   X   X             X               X X X X X X X X X}
+{X   X   X   X X X X X X X X X X X X               X / X}
+{X   X   X   X X                   X X X X X X X X X   X}
+{X   X   X   X X   X X X X X X   X /                   X}
+{X   X                       X   X X X X   X X X X X X X}
+{X     X   X X X X X X X X X X   X X     X X       X X X}
+{X X     X         X               X X     X   X X X X X}
+{X X     X   X X   / X   X X X X X X     X X   X X X X X}
+{X     X X   X X X X     X                     X X X X X}
+{X   X                 X X     X       X X X X X X   X X}
+{X   X X X X X X X X     X X     X X     X X X     X X X}
+{X     X           X X     X     X X X     X X   X X X X}
+{X X     X X X X   X   X       X       X     X         X}
+{X X X       X X X X   X X X X X X X       X X   X X   X}
+{X X X X X   X         X               X   X     X     X}
+{X X X X X   X   X X X X   X     X   X X   X     X     X}
+{X X X X X       X         X X   X   X X / X X / X X X X}
+{X X X X X X X X X X X X X X X X X X X X X X X X X X X X}
 
  /****************************
 Filename: Maze.c
