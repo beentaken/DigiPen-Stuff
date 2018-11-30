@@ -39,7 +39,7 @@
 {X X   X   X X X   X X   X     X   X       X   X X X X X}
 {X 6   X       X   X               X X X   X       X   X}
 {X     X X X   X X X X X X X X X X X X X   X X X   X   X}
-{X     X                                 4     3   X   X}
+{X O   X                                 4     3   X   X}
 {X X X X X X X X X X X X X X X X X X X X X X X X X X X X}
 
 
