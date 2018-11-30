@@ -13,15 +13,15 @@ gcc -Wall -Wextra -O -ansi -pedantic -o Maze Maze.c
 #include <time.h>
 
 /* define the size of the map with these definitions */
-#define MAPHEIGHT 10
-#define MAPWIDTH 20
+#define MAPHEIGHT 28
+#define MAPWIDTH 28
 /* game value definitions */
 #define ENEMYSIZE 2
 /* set what characters are used to represent different things */
-#define PLAYER 'P'
+#define PLAYER '@'
 #define ENEMY_ 'E'
-#define FLOOR_ '-'
-#define WALL__ '|'
+#define FLOOR_ ' '
+#define WALL__ 'X'
 #define EXIT__ 'O'
 /* have true and false values to be useful */
 #define TRUE 1
@@ -80,7 +80,7 @@ int main(void)
 	/* this is our main game loop and it runs until some exit condition is reached */
 	do
 	{
-		
+		int playerMovement;
 		/* show maze in its current layout */
 		printMap( map, player, enemies);
 		
@@ -106,22 +106,31 @@ int main(void)
 			case 'w':
 			case 'W':
 				/* set playerMovement to move the character up a line, this means adjusting by a whole array */
+				playerMovement -= MAPWIDTH;
 				break;
 			case 's':
 			case 'S':
 				/* set playerMovement to move the player down a line */
+				playerMovement += MAPWIDTH;
 				break;
 			case 'a':
 			case 'A':
 				/* set playerMovement to go left one character */
+				playerMovement = *player - 1;
 				break;
 			case 'd':
 			case 'D':
 				/* set playerMovement to go right one character */
+				playerMovement = *player + 1;
 				break;
 		}
 		
 		/* Make sure where the player wants to move is legal */
+		
+		if (playerMovement != WALL__)
+		{
+			
+		}
 		
 		/* If it is legal move the player (player += playerMovement) */
 		
