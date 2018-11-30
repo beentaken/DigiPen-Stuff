@@ -20,7 +20,7 @@ gcc -Wall -Wextra -O -ansi -pedantic -o Maze Maze.c
 /* set what characters are used to represent different things */
 #define PLAYER '@'
 #define ENEMY_ 'E'
-#define FLOOR_ ' '
+#define FLOOR_ '-'
 #define WALL__ 'X'
 #define EXIT__ 'O'
 #define ACHVMT '?'
@@ -36,7 +36,7 @@ void printMap(char map[][MAPHEIGHT][MAPWIDTH], char *player, char *enemies[]);
 int main(void)
 {
 	/* map defining where all static things are, access with map[Y][X] */
-	char map[2][MAPHEIGHT][MAPWIDTH] =
+	char map[1][MAPHEIGHT][MAPWIDTH] =
 		{
 			{
 				{
