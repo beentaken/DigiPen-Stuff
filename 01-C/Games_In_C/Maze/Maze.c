@@ -40,7 +40,7 @@ int main(void)
 		{
 			{
 				{	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__},
-				{	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	PLAYER,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+				{	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
 				{	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	ACHVMT,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
 				{	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
 				{	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
@@ -87,7 +87,7 @@ int main(void)
 	/* player is represented by a pointer pointing to where in the map it is currently */
 	int playerMovement;
 	/* formula for this location is *(map + Y) + X */
-	char *player = *(*(map + 0) + 3) + 1;
+	char *player = *(*(map + 0) + 1) + 4;
 	/* Alternative formula map[Y] + X */
 	/* set this to TRUE if the player chooses to quit or the win condition or lose condition is reached */
 	int exitGame = FALSE;
@@ -96,9 +96,11 @@ int main(void)
 	/* this array stores the location of all our basic enemies */
 	char *enemies[ENEMYSIZE];
 	int timer;
+	/* prevent instantly going back a floor */
+	int previously_stairs = FALSE;
 	/* The current floor that we are on*/
 	int currentfloor = 0;
-	int  moves,
+	int moves = 0;
 	/* set all enemy locations after the initialization of the arrays */
 	enemies[0] = *(*(map + 0) + 11) + 10;
 	enemies[1] = *(*(map + 1) + 11) + 17;
@@ -135,21 +137,25 @@ int main(void)
 			break;
 		case 'w':
 		case 'W':
+			moves++;
 			/* set playerMovement to move the character up a line, this means adjusting by a whole array */
 			playerMovement -= MAPWIDTH;
 			break;
 		case 's':
 		case 'S':
+			moves++;
 			/* set playerMovement to move the player down a line */
 			playerMovement += MAPWIDTH;
 			break;
 		case 'a':
 		case 'A':
+			moves++;
 			/* set playerMovement to go left one character */
 			playerMovement = -2;
 			break;
 		case 'd':
 		case 'D':
+			moves++;
 			/* set playerMovement to go right one character */
 			playerMovement =  2;
 			break;
@@ -160,6 +166,22 @@ int main(void)
 		if (*(player + playerMovement) != WALL__)
 		{
 			player += playerMovement;
+		}
+
+		/* if they hit stairs*/
+		if (*player == STAIRS && previously_stairs == FALSE)
+		{
+			
+			if (currentfloor == 0)
+			{
+				currentfloor = 1;
+				*player = *(*(map + currentfloor) + *player);
+			}
+			else if (currentfloor == 1) 
+			{
+				currentfloor = 0;
+				*player = *(*(map + currentfloor) + *player);
+			}
 		}
 
 		/* If it is legal move the player (player += playerMovement) */
@@ -191,6 +213,14 @@ void waitForEnter()
 	/* shorter version might not be as easy to read but may be more efficient barely */
 	/* while(getchar() != '\n'); */
 }
+
+int randomnum(int low, int high)
+{
+	int RNDNum;
+	RNDNum = rand() % ((high + 1) - low) + low;
+	return RNDNum;
+}
+
 /* Prints out the map with all moving pieces shown on it */
 void printMap(char map[][MAPHEIGHT][MAPWIDTH], char *player, char *enemies[], int currentfloor)
 {
