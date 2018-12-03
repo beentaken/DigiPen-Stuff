@@ -34,11 +34,11 @@ gcc -Wall -Wextra -O -ansi -pedantic -o Maze Maze.c
 /* have true and false values to be useful */
 #define TRUE 1
 #define FALSE 0
+/*keeps gcc from complaining about an unused var*/
 /* Waits until it sees a newline from the input stream */
 void waitForEnter();
 /* Prints out the map with all moving pieces shown on it */
 void printMap(char map[][MAPHEIGHT][MAPWIDTH], char *player, char *enemies[], int currentfloor);
-
 int main(void)
 {
 	/* map defining where all static things are, access with map[Y][X] */
@@ -174,8 +174,6 @@ int main(void)
 
 
 		/* Keep GCC from complaining about a variable */
-		srand(time(NULL));
-		randomnum(playerMovement, playerMovement + 2);
 		/* Make sure where the player wants to move is legal */
 
 		if (*(player + playerMovement) != WALL__)
