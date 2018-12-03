@@ -25,10 +25,11 @@ gcc -Wall -Wextra -O -ansi -pedantic -o Maze Maze.c
 #define EXIT__ 'O'
 #define ACHVMT '?'
 /* spairs = special stairs */
-#define SPAIRS '\'
+#define SPAIRS '\\'
 #define STAIRS '/'
 #define HOLE_L '['
 #define HOLE_R ']'
+#define KEY___ 'K'
 #define MAPSIZE 1100
 /* have true and false values to be useful */
 #define TRUE 1
@@ -83,8 +84,8 @@ int main(void)
 				{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_},
 				{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
 				{	WALL__,	WALL__,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	HOLE_L,	HOLE_R,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	HOLE_L,	KEY___,	HOLE_R,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
 				{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__}
 			}
 		};
@@ -98,14 +99,18 @@ int main(void)
 	int exitGame = FALSE;
 	/* store a character of input */
 	char input = '-';
-	/* this array stores the location of all our basic enemies */
-	char *enemies[ENEMYSIZE];
 	int timer;
 	/* prevent instantly going back a floor */
 	int previously_stairs = FALSE;
 	/* The current floor that we are on*/
 	int currentfloor = 0;
 	int moves = 0;
+	/*******
+	int lastdoor = FALSE;
+	int haskey = FALSE;
+	*******/
+	/* this array stores the location of all our basic enemies */
+	char *enemies[ENEMYSIZE];
 	int enemymovement = 2, amntofenemies = 2, enemypos = 1, enemydir = 1;
 	int i;
 	/* set all enemy locations after the initialization of the arrays */
@@ -124,7 +129,7 @@ int main(void)
 		/* show maze in its current layout */
 		printMap(map, player, enemies, currentfloor);
 
-		printf("Use WASD to move around the map.\nUse q to quit\n");
+		printf("WASD = Move \nQ = Quit\nMoves: %i\n Time: %li\n", moves, (long) time(NULL) - timer);
 		/* Accept user input here */
 		do
 		{
@@ -167,6 +172,10 @@ int main(void)
 			break;
 		}
 
+
+		/* Keep GCC from complaining about a variable */
+		srand(time(NULL));
+		randomnum(playerMovement, playerMovement + 2);
 		/* Make sure where the player wants to move is legal */
 
 		if (*(player + playerMovement) != WALL__)
@@ -175,7 +184,7 @@ int main(void)
 		}
 
 		/* if they hit stairs*/
-		if ((*player == STAIRS || *player == HOLE_L) && (previously_stairs == FALSE))
+		if ((*player == STAIRS || *player == KEY___) && (previously_stairs == FALSE))
 		{
 			
 			if (currentfloor == 0)
@@ -191,12 +200,21 @@ int main(void)
 		}
 
 		/* if you get the key */
+		if (*player == KEY___)
+		{
+			/*haskey = TRUE;*/
+			map[1][19][49] = FLOOR_;
+			map[1][19][50] = FLOOR_;
+			map[1][19][51] = FLOOR_;
+			printf ("You got the key!");
 
+		}
 		/* If it is legal move the player (player += playerMovement) */
 
 		/* if the player moves to the exit they win */
 		
-		if (*player == EXIT__) {
+		if (*player == EXIT__)
+		{
 			printf("Congradulations! You win!\nTime: %i\nMoves: %i", timer, moves);
 		}
 		
@@ -206,7 +224,7 @@ int main(void)
 		{
 			if (enemydir == 1 && enemypos == 4)
 			enemydir = -1;
-			
+
 			else if (enemydir == -1 && enemypos == -4)
 			enemydir = +1;
 

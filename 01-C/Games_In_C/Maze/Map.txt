@@ -1,46 +1,45 @@
+{XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
+{XX  @ XX    XXXXXXXXXXXX      XX      XX              X}
+{XX  XX  XX            XX??XX      XX  XX  XXXXXXXXXX  X}
+{XX  XX  XX  XXXXXXXXXXXXXXXXXXXXXXXX              XX  X}
+{XX  XX  XX  XX                    XXXXXXXXXXXXXXXXXX  X}
+{XX  XX  XX  XXXX  XXXXXXXXXXXX  XX22                  X}
+{XX  XX                      XX  XXXXXXXXXX  XXXXXXXX  X}
+{XX        XXXXXXXXXXXXXXXXXXXX  XXXX    XX            X}
+{XXXX    XX        XX              XXXX    XX  XXXXXXXXX}
+{XXXX    XX  XXXX  11XX  XXXXXXXXXXXX    XXXX  XXXXXXXXX}
+{XX    XXXX  XXXXXXXX    XX              XXXX        XXX}
+{XX  XX    E           XXXX    XX      XXXXXXXXXXXX  XXX}
+{XX  XXXXXXXXXXXXXXXX    XXXX    XXXX    XXXXXX      XXX}
+{XX    XX          XXXX    XX    XX  XX    XXXX  XXXXXXX}
+{XXXX    XXXXXXXX  XX  XX      XX    XXXXXX  XX        X}
+{XXXXXX      XXXXXXXX    XXXXXXXXXXXX      XXXX  XXXX  X}
+{XX66XXXXXX  XX                        XX  XX    XX    X}
+{XX  XXXXXX  XX  XXXXXXXX  XX    XX  XXXX  XX    XX    X}
+{XXOOXXXXXX      XX        XXXX  XX  XXXX  XXXX\\XXXXXXX}
+{XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
 
-{X X X X X X X X X X X X X X X X X X X X X X X X X X X X}
-{X   @ X     X X X X X X       X       X               X}
-{X   X   X             X ? X       X   X   X X X X X   X}
-{X   X   X   X X X X X X X X X X X X               X   X}
-{X   X   X   X                     X X X X X X X X X   X}
-{X   X   X   X X   X X X X X X   X 2                   X}
-{X   X                       X   X X X X X   X X X X   X}
-{X         X X X X X X X X X X   X X     X             X}
-{X X     X         X               X X     X   X X X X X}
-{X X     X   X X   1 X   X X X X X X     X X   X X X X X}
-{X     X X   X X X X     X               X X         X X}
-{X   X     E           X X     X       X X X X X X   X X}
-{X   X X X X X X X X     X X     X X     X X X       X X}
-{X     X           X X     X     X   X     X X   X X X X}
-{X X     X X X X   X   X       X     X X X   X         X}
-{X X X       X X X X     X X X X X X       X X   X X   X}
-{X 6 X X X   X                         X   X     X     X}
-{X   X X X   X   X X X X   X     X   X X   X     X     X}
-{X O X X X       X         X X   X   X X   X X 3 X X X X}
-{X X X X X X X X X X X X X X X X X X X X X X X X X X X X}
 
-
-{X X X X X X X X X X X X X X X X X X X X X X X X X X X X}
-{X       X         X                                   X}
-{X   X       X     X   X X X   X X X X X X X X X X X   X}
-{X   X X X X X X   X     X   X                     X   X}
-{X             X     X   X   X X X   X X X X X X       X}
-{X X X X X X     X               X 2 X           X X X X}
-{X           X   X X X X X X X     X   X X X X     X _ X}
-{X   X X X   X                 X               X   X   X}
-{X   X   X   X X X   X X X X     X X X X   X X     X   X}
-{X   X   X X X X X 1         X   X X       X     X     X}
-{X       X         X X X X   X     X   X     X   X   X X}
-{X   X X X X X X       X       X   X     X   X   X   X X}
-{X             X X X X X   X   X   X X X X   X X       X}
-{X X X X X X   X X         X   X   X         X     X   X}
-{X X       X   X     X X X X   X   X   X X X     X X X  }
-{X X   X   X X X   X X   X     X   X       X   X X X X X}
-{X 6   X       X   X               X X X   X       X   X}
-{X     X X X   X X X X X X X X X X X X X   X X X   X   X}
-{X O   X     E                           4     3   X   X}
-{X X X X X X X X X X X X X X X X X X X X X X X X X X X X}
+{XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
+{XX      XX        XX                                  X}
+{XX  XX      XX    XX  XXXXXX  XXXXXXXXXXXXXXXXXXXXXX  X}
+{XX  XXXXXXXXXXXX  XX    XX  XX                    XX  X}
+{XX            XX    XX  XX  XXXXXX  XXXXXXXXXXXX      X}
+{XXXXXXXXXXXX    XX              XX22XX          XXXXXXX}
+{XX          XX  XXXXXXXXXXXXXX    XX  XXXXXXXX    XX??X}
+{XX  XXXXXX  XX                XX              XX  XX  X}
+{XX  XX  XX  XXXXXX  XXXXXXXX    XXXXXXXX  XXXX    XX  X}
+{XX  XX  XXXXXXXXXX11        XX  XXXX      XX    XX    X}
+{XX      XX        XXXXXXXX  XX    XX  XX    XX  XX  XXX}
+{XX  XXXXXXXXXXXX      XX      XX  XX    XX  XX  XX  XXX}
+{XX            XXXXXXXXXX  XX  XX  XXXXXXXX  XXXX      X}
+{XXXXXXXXXXXX  XXXX        XX  XX  XX        XX    XX  X}
+{XXXX      XX  XX    XXXXXXXX  XX  XX  XXXXXX    XXXXXX }
+{XXXX  XX  XXXXXX  XXXX  XX    XX  XX      XX  XXXXXXXXX}
+{XX66  XX      XX  XX              XXXXXX  XX      XX  X}
+{XX    XXXXXX  XXXXXXXXXXXXXXXXXXXXXXXXXX  XXXXXX  XX  X}
+{XXOO  XX    E                           []    \\  XX  X}
+{XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
 
 
 =========================================================
