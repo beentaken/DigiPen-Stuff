@@ -34,11 +34,11 @@ gcc -Wall -Wextra -O -ansi -pedantic -o Maze Maze.c
 /* have true and false values to be useful */
 #define TRUE 1
 #define FALSE 0
-/*keeps gcc from complaining about an unused var*/
 /* Waits until it sees a newline from the input stream */
 void waitForEnter();
 /* Prints out the map with all moving pieces shown on it */
 void printMap(char map[][MAPHEIGHT][MAPWIDTH], char *player, char *enemies[], int currentfloor);
+
 int main(void)
 {
 	/* map defining where all static things are, access with map[Y][X] */
@@ -111,7 +111,7 @@ int main(void)
 	*******/
 	/* this array stores the location of all our basic enemies */
 	char *enemies[ENEMYSIZE];
-	int enemymovement = 2, amntofenemies = 2, enemypos = 1, enemydir = 1;
+	int enemymovement = 2, amntofenemies = 2, enemypos = 0, enemydir = 1;
 	int i;
 	/* set all enemy locations after the initialization of the arrays */
 	enemies[0] = *(*(map + 0) + 11) + 10;
@@ -172,13 +172,21 @@ int main(void)
 			break;
 		}
 
-
-		/* Keep GCC from complaining about a variable */
 		/* Make sure where the player wants to move is legal */
 
 		if (*(player + playerMovement) != WALL__)
 		{
 			player += playerMovement;
+		}
+
+		/* if you get the key */
+		if (*player == KEY___)
+		{
+			/*haskey = TRUE;*/
+			map[1][19][49] = FLOOR_;
+			map[1][19][50] = FLOOR_;
+			map[1][19][51] = FLOOR_;
+			printf("You got the key!");
 		}
 
 		/* if they hit stairs*/
@@ -197,16 +205,6 @@ int main(void)
 			}
 		}
 
-		/* if you get the key */
-		if (*player == KEY___)
-		{
-			/*haskey = TRUE;*/
-			map[1][19][49] = FLOOR_;
-			map[1][19][50] = FLOOR_;
-			map[1][19][51] = FLOOR_;
-			printf ("You got the key!");
-
-		}
 		/* If it is legal move the player (player += playerMovement) */
 
 		/* if the player moves to the exit they win */
@@ -217,21 +215,24 @@ int main(void)
 		}
 		
 		/* move all enemies in a loop here */
+		/* turns the enemy around*/
+		if (enemydir == 1 && enemypos == 4)
+			enemydir = -1, enemymovement = -2;
+
+		else if (enemydir == -1 && enemypos == -4)
+			enemydir = 1, enemymovement = 2;
+
+		if (enemydir == 1)
+			enemymovement = 2;
+		else
+			enemymovement = -2;
 
 		for (i = 0; i < amntofenemies; i++)
 		{
-			if (enemydir == 1 && enemypos == 4)
-			enemydir = -1;
-
-			else if (enemydir == -1 && enemypos == -4)
-			enemydir = +1;
-
-			if (enemydir == 1)
-			enemymovement +=2;
-
-			if (enemymovement == 2 || -2)
-			enemies[i] = *(*(map + currentfloor) + 0) + 2;
+			enemies[i] += enemymovement;
+			enemypos += enemymovement;
 		}
+		printf ("enemymovement = %i\n", enemymovement);
 		
 		/* if enemy moves to the player the player loses */
 
