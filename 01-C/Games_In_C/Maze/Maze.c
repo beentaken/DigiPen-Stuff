@@ -175,9 +175,7 @@ int main(void)
 		/* Make sure where the player wants to move is legal */
 
 		if (*(player + playerMovement) != WALL__)
-		{
 			player += playerMovement;
-		}
 
 		/* if you get the key */
 		if (*player == KEY___)
@@ -210,9 +208,7 @@ int main(void)
 		/* if the player moves to the exit they win */
 		
 		if (*player == EXIT__)
-		{
 			printf("Congradulations! You win!\nTime: %i\nMoves: %i", timer, moves);
-		}
 		
 		/* move all enemies in a loop here */
 		/* turns the enemy around*/
@@ -235,6 +231,12 @@ int main(void)
 		printf ("enemymovement = %i\n", enemymovement);
 		
 		/* if enemy moves to the player the player loses */
+		if (*player == *enemies[0] || *player == *enemies[1] )
+		{
+			printf ("Owch! You hit an enemy! Better luck next time.\nPress enter to quit.\n");
+			waitForEnter();
+			exitGame = TRUE;
+		}
 
 	} while (!exitGame);
 
