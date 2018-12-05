@@ -84,8 +84,8 @@ int main(void)
 				{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_},
 				{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
 				{	WALL__,	WALL__,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	HOLE_L,	KEY___,	HOLE_R,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
 				{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__}
 			}
 		};
@@ -117,7 +117,7 @@ int main(void)
 	enemies[0] = *(*(map + 0) + 11) + 10;
 	enemies[1] = *(*(map + 1) + 11) + 17;
 	/* put game introduction here where it will run one time */
-	printf("Welcome to the maze game! You are the %c, move through the game and try to reach the %c while avoiding the %c\n", PLAYER, EXIT__, ENEMY_);
+	printf("Welcome to the maze game! You are the %c, move through the game and try to reach the %c while avoiding the %c.\n", PLAYER, EXIT__, ENEMY_);
 
 	/* wait for player to hit enter */
 	waitForEnter();
@@ -180,32 +180,36 @@ int main(void)
 		}
 
 		/* if you get the key */
-		if (*player == KEY___)
+		/*if (*player == KEY___)
 		{
-			/*haskey = TRUE;*/
+			haskey = TRUE;
 			map[1][19][49] = FLOOR_;
 			map[1][19][50] = FLOOR_;
 			map[1][19][51] = FLOOR_;
 			printf("You got the key!");
-		}
+		} 
+		*/
 
 		/* if they hit stairs*/
 		if ((*player == STAIRS || *player == KEY___) && (previously_stairs == FALSE))
+	{
+
+		if (currentfloor == 0)
 		{
-			
-			if (currentfloor == 0)
-			{
-				currentfloor = 1;
-				player += MAPSIZE;
-			}
-			else if (currentfloor == 1) 
-			{
-				currentfloor = 0;
-				player -= MAPSIZE;
-			}
+			currentfloor = 1;
+			player += MAPSIZE;
+		}
+		else if (currentfloor == 1)
+		{
+			currentfloor = 0;
+			player -= MAPSIZE;
+		}
 		}
 
 		/* If it is legal move the player (player += playerMovement) */
+
+		/*enemy collision detestion*/
+		if (player == enemies[1])
 
 		/* if the player moves to the exit they win */
 		
@@ -235,6 +239,16 @@ int main(void)
 		printf ("enemymovement = %i\n", enemymovement);
 		
 		/* if enemy moves to the player the player loses */
+		if (player == enemies[0] || player == enemies[1])
+		{
+			printf("Owch! You hit an enemy! Better luck next time.\nPress enter to quit.\n");
+			waitForEnter();
+			exitGame = TRUE;
+			/* show maze in its current layout */
+			printMap(map, player, enemies, currentfloor);
+
+			printf("WASD = Move \nQ = Quit\nMoves: %i\n Time: %li\n", moves, (long)time(NULL) - timer);
+		}
 
 	} while (!exitGame);
 
@@ -252,13 +266,6 @@ void waitForEnter()
 	}
 	/* shorter version might not be as easy to read but may be more efficient barely */
 	/* while(getchar() != '\n'); */
-}
-
-int randomnum(int low, int high)
-{
-	int RNDNum;
-	RNDNum = rand() % ((high + 1) - low) + low;
-	return RNDNum;
 }
 
 /* Prints out the map with all moving pieces shown on it */
