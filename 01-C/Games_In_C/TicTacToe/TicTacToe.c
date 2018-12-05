@@ -2,7 +2,7 @@
 TicTacToe.c
 10/1/18
 Programmed By: The Masked Programmer and (insert name here)
-Brief: Tic Tac Toe game with some missing components to be fixed.
+Brief: A Tic Tac Toe game with some missing components to be fixed.
 gcc -Wall -Wextra -ansi -pedantic -O -o TicTacToe TicTacToe.c
 ***********************************/
 /*printf scanf*/
