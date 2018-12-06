@@ -41,207 +41,234 @@ void printMap(char map[][MAPHEIGHT][MAPWIDTH], char *player, char *enemies[], in
 
 int main(void)
 {
-	/* map defining where all static things are, access with map[Y][X] */
-	char map[2][MAPHEIGHT][MAPWIDTH] =
-		{
+	int Reset = FALSE;
+	int Achievment = 0;
+	do{
+		/* map defining where all static things are, access with map[Y][X] */
+		char map[2][MAPHEIGHT][MAPWIDTH] =
 			{
-				{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	ACHVMT,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	STAIRS,	STAIRS,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	STAIRS,	STAIRS,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	EXIT__,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	STAIRS,	STAIRS,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__}
-			},
-			{
-				{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	STAIRS,	STAIRS,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	ACHVMT,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_},
-				{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
-				{	WALL__,	WALL__,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	HOLE_L,	KEY___,	HOLE_R,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
-				{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__}
-			}
-		};
-	/* this variable determines how the player moves using pointer arithmetic */
-	/* player is represented by a pointer pointing to where in the map it is currently */
-	int playerMovement;
-	/* formula for this location is *(map + Y) + X */
-	char *player = *(*(map + 0) + 1) + 4;
-	/* Alternative formula map[Y] + X */
-	/* set this to TRUE if the player chooses to quit or the win condition or lose condition is reached */
-	int exitGame = FALSE;
-	/* store a character of input */
-	char input = '-';
-	int timer;
-	/* prevent instantly going back a floor */
-	int previously_stairs = FALSE;
-	/* The current floor that we are on*/
-	int currentfloor = 0;
-	int moves = 0;
-	/*******
-	int lastdoor = FALSE;
-	int haskey = FALSE;
-	*******/
-	/* this array stores the location of all our basic enemies */
-	char *enemies[ENEMYSIZE];
-	int enemymovement = 2, amntofenemies = 2, enemypos = 0, enemydir = 1;
-	int i;
-	/* set all enemy locations after the initialization of the arrays */
-	enemies[0] = *(*(map + 0) + 11) + 10;
-	enemies[1] = *(*(map + 1) + 11) + 17;
-	/* put game introduction here where it will run one time */
-	printf("Welcome to the maze game! You are the %c, move through the game and try to reach the %c while avoiding the %c\n", PLAYER, EXIT__, ENEMY_);
+				{
+					{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	ACHVMT,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	STAIRS,	STAIRS,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	STAIRS,	STAIRS,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	EXIT__,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	STAIRS,	STAIRS,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__}
+				},
+				{
+					{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	STAIRS,	STAIRS,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	ACHVMT,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_},
+					{	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__},
+					{	WALL__,	WALL__,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	HOLE_L,	KEY___,	HOLE_R,	FLOOR_,	FLOOR_,	FLOOR_,	FLOOR_,	STAIRS,	STAIRS,	FLOOR_,	FLOOR_,	WALL__,	WALL__,	FLOOR_,	FLOOR_,	WALL__},
+					{	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__,	WALL__}
+				}
+			};
+		/* this variable determines how the player moves using pointer arithmetic */
+		/* player is represented by a pointer pointing to where in the map it is currently */
+		int playerMovement;
+		/* formula for this location is *(map + Y) + X */
+		char *player = *(*(map + 0) + 1) + 4;
+		/* Alternative formula map[Y] + X */
+		/* set this to TRUE if the player chooses to quit or the win condition or lose condition is reached */
+		int exitGame = FALSE;
+		/* store a character of input */
+		char input = '-';
+		int timer;
+		/* prevent instantly going back a floor */
+		int previously_stairs = FALSE;
+		/* The current floor that we are on*/
+		int currentfloor = 0;
+		int moves = 0;
+		/*******
+		int lastdoor = FALSE;
+		int haskey = FALSE;
+		*******/
+		/* this array stores the location of all our basic enemies */
+		char *enemies[ENEMYSIZE];
+		int enemymovement = 2, amntofenemies = 2, enemypos = 0, enemydir = 1;
+		int i;
+		int Reset = FALSE;
+		/* set all enemy locations after the initialization of the arrays */
+		enemies[0] = *(*(map + 0) + 11) + 10;
+		enemies[1] = *(*(map + 1) + 11) + 18;
+		/* put game introduction here where it will run one time */
+		printf("Welcome to the maze game! You are the %c, move through the game and try to reach the %c while avoiding the %c.\n", PLAYER, EXIT__, ENEMY_);
 
-	/* wait for player to hit enter */
-	waitForEnter();
-	timer = time(NULL);
-	/* this is our main game loop and it runs until some exit condition is reached */
-	do
-	{
-		int playerMovement = 0;
-		/* show maze in its current layout */
-		printMap(map, player, enemies, currentfloor);
-
-		printf("WASD = Move \nQ = Quit\nMoves: %i\n Time: %li\n", moves, (long) time(NULL) - timer);
-		/* Accept user input here */
+		/* wait for player to hit enter */
+		waitForEnter();
+		timer = time(NULL);
+		/* this is our main game loop and it runs until some exit condition is reached */
 		do
 		{
-			input = getchar();
-		} while (input != 'w' && input != 'W' && input != 'a' && input != 'A' && input != 's' && input != 'S' && input != 'd' && input != 'D' && input != 'q' && input != 'Q');
+			int playerMovement = 0;
+			/* show maze in its current layout */
+			printMap(map, player, enemies, currentfloor);
 
-		waitForEnter();
-
-		/* determine what to do with the input */
-		switch (input)
-		{
-		/* quit the game if q */
-		case 'q':
-		case 'Q':
-			exitGame = TRUE;
-			break;
-		case 'w':
-		case 'W':
-			moves++;
-			/* set playerMovement to move the character up a line, this means adjusting by a whole array */
-			playerMovement -= MAPWIDTH;
-			break;
-		case 's':
-		case 'S':
-			moves++;
-			/* set playerMovement to move the player down a line */
-			playerMovement += MAPWIDTH;
-			break;
-		case 'a':
-		case 'A':
-			moves++;
-			/* set playerMovement to go left one character */
-			playerMovement = -2;
-			break;
-		case 'd':
-		case 'D':
-			moves++;
-			/* set playerMovement to go right one character */
-			playerMovement =  2;
-			break;
-		}
-
-		/* Make sure where the player wants to move is legal */
-
-		if (*(player + playerMovement) != WALL__)
-			player += playerMovement;
-
-		/* if you get the key */
-		if (*player == KEY___)
-		{
-			/*haskey = TRUE;*/
-			map[1][19][49] = FLOOR_;
-			map[1][19][50] = FLOOR_;
-			map[1][19][51] = FLOOR_;
-			printf("You got the key!");
-		}
-
-		/* if they hit stairs*/
-		if ((*player == STAIRS || *player == KEY___) && (previously_stairs == FALSE))
-		{
-			
-			if (currentfloor == 0)
+			printf("WASD = Move \nQ = Quit\n  Moves: %i\n  Time: %li\nPress R to reset, press Q to quit,\n", moves, (long)time(NULL) - timer);
+			/* Accept user input here */
+			do
 			{
-				currentfloor = 1;
-				player += MAPSIZE;
-			}
-			else if (currentfloor == 1) 
-			{
-				currentfloor = 0;
-				player -= MAPSIZE;
-			}
-		}
+				input = getchar();
+			} while (input != 'w' && input != 'W' && input != 'a' && input != 'A' && input != 's' && input != 'S' && input != 'd' && input != 'D' && input != 'q' && input != 'Q' && input != 'r' && input != 'R');
 
-		/* If it is legal move the player (player += playerMovement) */
-
-		/* if the player moves to the exit they win */
-		
-		if (*player == EXIT__)
-			printf("Congradulations! You win!\nTime: %i\nMoves: %i", timer, moves);
-		
-		/* move all enemies in a loop here */
-		/* turns the enemy around*/
-		if (enemydir == 1 && enemypos == 4)
-			enemydir = -1, enemymovement = -2;
-
-		else if (enemydir == -1 && enemypos == -4)
-			enemydir = 1, enemymovement = 2;
-
-		if (enemydir == 1)
-			enemymovement = 2;
-		else
-			enemymovement = -2;
-
-		for (i = 0; i < amntofenemies; i++)
-		{
-			enemies[i] += enemymovement;
-			enemypos += enemymovement;
-		}
-		printf ("enemymovement = %i\n", enemymovement);
-		
-		/* if enemy moves to the player the player loses */
-		if (*player == *enemies[0] || *player == *enemies[1] )
-		{
-			printf ("Owch! You hit an enemy! Better luck next time.\nPress enter to quit.\n");
 			waitForEnter();
-			exitGame = TRUE;
-		}
 
-	} while (!exitGame);
+			/* determine what to do with the input */
+			switch (input)
+			{
+				/* quit the game if q */
+				case 'q':
+				case 'Q':
+					exitGame = TRUE;
+					break;
+				case 'r':
+				case 'R':
+					exitGame = TRUE, Reset = TRUE;
+					break;
+				case 'w':
+				case 'W':
+					moves++;
+					/* set playerMovement to move the character up a line, this means adjusting by a whole array */
+					playerMovement -= MAPWIDTH;
+					break;
+				case 's':
+				case 'S':
+					moves++;
+					/* set playerMovement to move the player down a line */
+					playerMovement += MAPWIDTH;
+					break;
+				case 'a':
+				case 'A':
+					moves++;
+					/* set playerMovement to go left one character */
+					playerMovement = -2;
+					break;
+				case 'd':
+				case 'D':
+					moves++;
+					/* set playerMovement to go right one character */
+					playerMovement =  2;
+					break;
+			}
 
+			/* Make sure where the player wants to move is legal */
+
+			if (*(player + playerMovement) != WALL__)
+				player += playerMovement;
+
+			/* if you get the key */
+			if (*player == KEY___)
+			{
+				/*haskey = TRUE;*/
+				map[1][19][49] = FLOOR_;
+				map[1][19][50] = FLOOR_;
+				map[1][19][51] = FLOOR_;
+				printf("You got the key!");
+			}
+
+			/* if they hit stairs*/
+			if ((*player == STAIRS || *player == KEY___) && (previously_stairs == FALSE))
+			{
+				
+				if (currentfloor == 0)
+				{
+					currentfloor = 1;
+					player += MAPSIZE;
+				}
+				else if (currentfloor == 1) 
+				{
+					currentfloor = 0;
+					player -= MAPSIZE;
+				}
+			}
+
+			/* If it is legal move the player (player += playerMovement) */
+
+			if (*player == Achievment)
+			  printf("\n\nYou got an Achievment!\n\n")
+			/* if the player moves to the exit they win */
+			
+			if (*player == EXIT__)
+			{
+				printf("Congradulations! You win!\nTime: %i\nMoves: %i\n Press R or \'enter\' to reset, press Q to quit,\n", timer, moves);
+				do
+				{
+					input = getchar();
+				} while (input != 'q' && input != 'Q' && input != 'r' && input != 'R');
+				waitForEnter();
+				if (input == 'R' || input == 'r')
+					Reset = TRUE;
+
+				exitGame = TRUE;
+			}
+			/* move all enemies in a loop here */
+			/* turns the enemy around*/
+			if (enemydir == 1 && enemypos == 4)
+				enemydir = -1, enemymovement = -2;
+
+			else if (enemydir == -1 && enemypos == -4)
+				enemydir = 1, enemymovement = 2;
+
+			if (enemydir == 1)
+				enemymovement = 2;
+			else
+				enemymovement = -2;
+
+			for (i = 0; i < amntofenemies; i++)
+			{
+				enemies[i] += enemymovement;
+				enemypos += enemymovement;
+			}
+			
+			/* if enemy moves to the player the player loses */
+			if (player == enemies[0] || player == enemies[1] )
+			{
+				printf ("Owch! You hit an enemy! Better luck next time.\nPress R to reset the game or Q to quit.\n");
+				do
+				{
+					input = getchar();
+				} while (input != 'q' && input != 'Q' && input != 'r' && input != 'R');
+				waitForEnter();
+				if(input == 'R' || input == 'r')
+				Reset = TRUE;
+
+				exitGame = TRUE;
+			}
+
+		}while (!exitGame);
+
+	}while (!Reset);
 	printf("Thanks for playing!\n");
-
+	waitForEnter();
 	return 0;
 }
 /* Waits until it senses a newline from the user input stream*/
