@@ -23,7 +23,7 @@ int randomnum(int low, int high)
 int main(void)
 {
   int address, i;
-  printf("What do you want to do? Use 1 for one address, use 2 if you want to edit a block or a range of addresses.");
+  printf("What do you want to do? Press 1 for one address, press 2 if you want to edit a block or a range of addresses.");
   scanf("%i", i);
   /* One adderess */
   if (i = 1) 
