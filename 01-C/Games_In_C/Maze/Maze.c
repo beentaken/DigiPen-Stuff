@@ -41,8 +41,8 @@ void printMap(char map[][MAPHEIGHT][MAPWIDTH], char *player, char *enemies[], in
 
 int main(void)
 {
-	int Reset = FALSE;
-	int Achievment = 0;
+	/* resets the game  */
+	int reset = FALSE;
 	do
 	{
 		/* map defining where all static things are, access with map[Y][X] */
@@ -75,12 +75,12 @@ int main(void)
 				 {WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__},
 				 {WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, STAIRS, STAIRS, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__},
 				 {WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, ACHVMT, FLOOR_, WALL__},
-				 {WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__},
+				 {WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__},
 				 {WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__},
 				 {WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, STAIRS, STAIRS, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__},
 				 {WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__},
-				 {WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__},
-				 {WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__},
+				 {WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__},
+				 {WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__},
 				 {WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__},
 				 {WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_},
 				 {WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, FLOOR_, WALL__, WALL__, FLOOR_, FLOOR_, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__, WALL__},
@@ -98,6 +98,7 @@ int main(void)
 		int exitGame = FALSE;
 		/* store a character of input */
 		char input = '-';
+		/* timer */
 		int timer;
 		/* prevent instantly going back a floor */
 		int previously_stairs = FALSE;
@@ -110,9 +111,14 @@ int main(void)
 		*******/
 		/* this array stores the location of all our basic enemies */
 		char *enemies[ENEMYSIZE];
+		/* achievement counter */
+		int Achievment = 0;
+		/* Enemy vars */
 		int enemymovement = 2, amntofenemies = 2, enemypos = 0, enemydir = 1;
+		/* counter */
 		int i;
-		int Reset = FALSE;
+		/* resets game */
+		int* Reset = &reset;
 		/* set all enemy locations after the initialization of the arrays */
 		enemies[0] = *(*(map + 0) + 11) + 10;
 		enemies[1] = *(*(map + 1) + 11) + 18;
@@ -134,7 +140,7 @@ int main(void)
 			do
 			{
 				input = getchar();
-			} while (input != 'w' && input != 'W' && input != 'a' && input != 'A' && input != 's' && input != 'S' && input != 'd' && input != 'D' && input != 'q' && input != 'Q' && input != 'r' && input != 'R');
+			} while (input != 'w' && input != 'W' && input != 'a' && input != 'A' && input != 's' && input != 'S' && input != 'd' && input != 'D' && input != 'q' && input != 'Q' && input != 'r' && input != 'R' /*&& input != 'G'*/);
 
 			waitForEnter();
 
@@ -144,12 +150,21 @@ int main(void)
 			/* quit the game if q */
 			case 'q':
 			case 'Q':
-				exitGame = TRUE;
+				exitGame = TRUE, *Reset = FALSE;
 				break;
+			/* resets the game */
 			case 'r':
 			case 'R':
-				exitGame = TRUE, Reset = TRUE;
+				exitGame = TRUE, *Reset = TRUE;
 				break;
+			/* turns a broken-ish ghost mode on */
+			/*case 'G':
+				currentfloor = !currentfloor;
+				if(currentfloor == 0)
+					player += MAPSIZE;
+				else
+					player -= MAPSIZE;
+				break; */
 			case 'w':
 			case 'W':
 				moves++;
@@ -181,29 +196,18 @@ int main(void)
 			if (*(player + playerMovement) != WALL__)
 				player += playerMovement;
 
-			/* if you get the key */
+			/* if you get the key 
 			if (*player == KEY___)
 			{
-				/*haskey = TRUE;*/
+				haskey = TRUE;
 				map[1][19][49] = FLOOR_;
 				map[1][19][50] = FLOOR_;
 				map[1][19][51] = FLOOR_;
 				printf("You got the key!");
-			}
-
-			/* if they get the achievement */
-			if (*player == KEY___)
-			{
-				Achievment++;
-				if (Achievment == 1)
-					printf("Achievement unlocked: Adventurous explorer");
-
-				if (Achievment == 2)
-					printf("Achievement unlocked: You're just going out of your way now.");
-			}
+			} */
 
 			/* if they hit stairs*/
-			if ((*player == STAIRS || *player == KEY___) && (previously_stairs == FALSE))
+			if ((*player == STAIRS) && (previously_stairs == FALSE))
 			{
 
 				if (currentfloor == 0)
@@ -220,36 +224,48 @@ int main(void)
 
 			/* If it is legal move the player (player += playerMovement) */
 
-			if (*player == Achievment)
-				printf("\n\nYou got an Achievment!\n\n");
+			/* if they get the achievement */
+			if (*player == ACHVMT)
+			{
+				if(currentfloor == 0)
+					map[currentfloor][26][3] = FLOOR_;
+				else if(currentfloor == 1)
+					map[currentfloor][54][7] = FLOOR_;
+
+				Achievment++;
+				if (Achievment == 1)
+					printf("Achievement unlocked: Adventurous explorer\n");
+				if (Achievment == 2)
+					printf("Achievement unlocked: You're just going out of your way now.\n");				
+			}
 			/* if the player moves to the exit they win */
 
 			if (*player == EXIT__)
 			{
-				printf("Congradulations! You win!\nTime: %i\nMoves: %i\n Press R or \'enter\' to reset, press Q to quit,\n", timer, moves);
+				timer = time(NULL) - timer;
+				printf("Congradulations! You win!\n Time: %i\n Moves: %i\n Acheivements: %i\nPress R or \'enter\' to reset, press Q to quit,\n", timer, moves, Achievement);
+				/* quit or reset? */
 				do
 				{
 					input = getchar();
 				} while (input != 'q' && input != 'Q' && input != 'r' && input != 'R');
 				waitForEnter();
 				if (input == 'R' || input == 'r')
-					Reset = TRUE;
-
+					*Reset = TRUE;
 				exitGame = TRUE;
 			}
 			/* move all enemies in a loop here */
 			/* turns the enemy around*/
 			if (enemydir == 1 && enemypos == 4)
 				enemydir = -1, enemymovement = -2;
-
 			else if (enemydir == -1 && enemypos == -4)
 				enemydir = 1, enemymovement = 2;
-
+			/* change amount that enemies move */
 			if (enemydir == 1)
 				enemymovement = 2;
 			else
 				enemymovement = -2;
-
+			/* Move all enemies */
 			for (i = 0; i < amntofenemies; i++)
 			{
 				enemies[i] += enemymovement;
@@ -260,21 +276,22 @@ int main(void)
 			if (player == enemies[0] || player == enemies[1])
 			{
 				printf("Owch! You hit an enemy! Better luck next time.\nPress R to reset the game or Q to quit.\n");
+				/* Reset or quit? */
 				do
 				{
 					input = getchar();
 				} while (input != 'q' && input != 'Q' && input != 'r' && input != 'R');
 				waitForEnter();
 				if (input == 'R' || input == 'r')
-					Reset = TRUE;
+					*Reset = TRUE;
 
 				exitGame = TRUE;
 			}
 
 		} while (!exitGame);
 
-	} while (!Reset);
-	printf("Thanks for playing!\n");
+	} while (reset);
+	printf("Thanks for playing!\n(Press enter)\n");
 	waitForEnter();
 	return 0;
 }
@@ -288,13 +305,6 @@ void waitForEnter()
 	}
 	/* shorter version might not be as easy to read but may be more efficient barely */
 	/* while(getchar() != '\n'); */
-}
-
-int randomnum(int low, int high)
-{
-	int RNDNum;
-	RNDNum = rand() % ((high + 1) - low) + low;
-	return RNDNum;
 }
 
 /* Prints out the map with all moving pieces shown on it */
