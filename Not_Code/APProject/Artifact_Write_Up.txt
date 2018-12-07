@@ -1,0 +1,37 @@
+
+https://apcentral.collegeboard.org/courses/ap-computer-science-principles/exam
+
+Guidelines for Topic Selection:
+
+- Does it involve a computer directly?
+
+- Newer = better choice / AKA it is easier to find newer articles for newer topics.
+
+- Can you think of both possible beneficial and harmful effects on culture, society , or economy from the innovation
+
+- Can you identify a purpose or function?
+
+- Can you tell what data it uses and how it uses it?
+
+ 
+
+Competencies: 15
+
+Analyze Beneficial and Harmful Effects of Computers - 3
+
+Global Impact of Technology - 3
+
+Number Systems - 3
+
+Time Management - 3
+
+Documentation and Organization - 3
+
+TOPICS----------------------------------------
+Smart Speakers   Y
+Risc-V           Someday
+RCS              N
+UE4              N
+----------------------------------------------
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Smart Speakers--------------------------------
