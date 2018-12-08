@@ -40,13 +40,43 @@ UE4              N
 | - Speech to text
 | - ANN's
 | - 
-| 
-| 
-| 
+| - 
+| - 
+| - 
+\____________________________________________/
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/ROW 1-----COMP. ARTIFACT---------------------
+| SEE ARTIFACT PDF
+\____________________________________________/
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/ROW 2-----RESPONSE 2A------------------------
+| My innovation is the Smart speaker, which is designed to make it easy for consumers
+| to recieve answers and get help faster from virtual assistants. The Smart speaker 
+| functions as a microphone, and a speaker. When the user asks the speaker a question,
+| it asks a server for the proper answer to the user's question. Then, it recieves a 
+| response from the server that includes what the speaker should say. Then, the speaker 
+| plays a computer generated audio recording of the answer in a humanoid voice.
+| My artifact provides an illustration for each step of the process of the steps that 
+| smart speakers go through to answer the user's question.
+\____________________________________________/
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/ROW _----- ----------------------------------
 | 
 \____________________________________________/
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/ROW 1----------------------------------------
+/ROW _----- ----------------------------------
+| 
+\____________________________________________/
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/ROW _----- ----------------------------------
+| 
+\____________________________________________/
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/ROW _----- ----------------------------------
+| 
+\____________________________________________/
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/ROW _----- ----------------------------------
 | 
 \____________________________________________/
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
