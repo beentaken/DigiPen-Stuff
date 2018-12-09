@@ -93,9 +93,8 @@ UE4              N
 \____________________________________________/
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 /Citations------------------------------------
-| GRAPH ------- Kinsella, Bret. “25 Percent of Smart Speaker Owners Use Them for 11 or More Tasks.” Voicebot, 2 Oct. 2017, voicebot.ai/2017/10/02/25-percent-of-smart-speaker-owners-use-them-for-11-or-more-tasks/.
-| CAULDRON ---- Davenport, Corbin. “Here Are Some Things the Galaxy Home Speaker Looks Like.” Android Police, Android Police - Android News, Reviews, Apps, Games, Phones, Tablets, 12 Aug. 2018, www.androidpolice.com/2018/08/11/things-galaxy-home-speaker-looks-like/.
-| SPEAKERS ---- Middleton, Chris. “Smart Speaker Market 2.5 Times Bigger than 2017, Says Report.” Internet of Business, 10 July 2018, internetofbusiness.com/smart-speaker-market-2-5-times-bigger-than-2017-says-report/.
-| G HOME CONV - Moon, Brad. “10 Cool Things Your Google Home Smart Speaker Can Do.” Www.kiplinger.com, Kiplingers Personal Finance, 6 July 2018, www.kiplinger.com/slideshow/investing/T057-S001-10-cool-things-google-home-smart-speakers/index.html.
-| COCKTAIL ---- Rogers, S. A. “Netflix Smart Socks &amp; Rooftop Bottle Chillers: 4 Fun Innovations by Deeplocal.” Dornob RSS, 2018, dornob.com/netflix-smart-socks-rooftop-bottle-chillers-4-fun-innovations-by-deeplocal/.
+| SPEAKER ----- Middleton, Chris. “Smart Speaker Market 2.5 Times Bigger than 2017, Says Report.” Internet of Business, 10 July 2018, internetofbusiness.com/smart-speaker-market-2-5-times-bigger-than-2017-says-report/.
+| CPU --------- Johnson, Luke. “Qualcomm: Don't Buy a Smartphone Because of a CPU Benchmark.” Trusted Reviews, Trusted Reviews, 28 Jan. 2014, www.trustedreviews.com/news/qualcomm-don-t-by-a-smartphone-because-of-its-cpu-2923002.
+| SERVER ------ Gillespie, Andrew. “How to Keep Your Company Server Room Cool | MTCSS.” MTCSS Cold Storage Solutions, 16 Feb. 2017, mtcss.co.uk/keep-company-server-room-cool/.
+
 \____________________________________________/
