@@ -45,11 +45,11 @@ UE4              N
 | - 
 \____________________________________________/
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/ROW 1-----COMP. ARTIFACT---------------------
+/COMP. ARTIFACT-------------------------------
 | SEE ARTIFACT PDF
 \____________________________________________/
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/ROW 2-----RESPONSE 2A------------------------
+
+/RESPONSE 2A----------------------------------
 | My innovation is the Smart speaker, which is designed to make it easy for consumers
 | to recieve answers and get help faster from virtual assistants. The Smart speaker 
 | functions as a microphone, and a speaker. When the user asks the speaker a question,
@@ -59,24 +59,36 @@ UE4              N
 | My artifact provides an illustration for each step of the process of the steps that 
 | smart speakers go through to answer the user's question.
 \____________________________________________/
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/ROW _----- ----------------------------------
-| 
+
+/RESPONSE 2B----------------------------------
+| I used Microsoft Paint to create my artifact. I gathered relevant images with an online
+| search. I then made captions to explain my images, and made a flowchart with the
+| steps of how smart speakers work. I included extra images to show how the data is
+| processed. This is a new artifact, as I gathered images and wrote the explanations myself.
 \____________________________________________/
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/ROW _----- ----------------------------------
+
+/RESPONSE 2C----------------------------------
+|  A beneficial effect is that smart speakers will save money on financial services
+| infrastructure- since it’s distributed, it is safer by design- and this security will allow the
+| financial sector to decommission expensive systems that are currently used to secure
+| transactions. It would reduce the amount of human resources that are necessary to
+| audit and check the validity of transaction requests, and put that duty into the hands of
+| the computer software. (di Gregorio). Banks and financial security companies would
+| save a lot of money and time that would otherwise be spent training and paying human
+| employees. This has an impact on the economy, because banks save a lot of money
+| in transaction security. This creates more confidence in the US economy as a whole,
+| as stock values for the major banks rise.
 | 
+|  A harmful effect is that smart soeaker manufacturers have access to the voice data
+| of the users. Going through the process uses a lot of computing
+| power, and consequently, electricity. (Fairley). Everyone in the country is impacted,
+| because we all use energy, and soon, we may all be using smart speakers. Society
+| itself, namely the environment, is harmed. If a growing technology uses more energy,
+| we are forced to burn more resources to create electricity. With the growing issue of
+| climate change, this is an issue for all of humankind.
 \____________________________________________/
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/ROW _----- ----------------------------------
-| 
-\____________________________________________/
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/ROW _----- ----------------------------------
-| 
-\____________________________________________/
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/ROW _----- ----------------------------------
+
+/RESPONSE 2E----------------------------------
 | 
 \____________________________________________/
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
