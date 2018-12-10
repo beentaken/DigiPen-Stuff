@@ -35,21 +35,14 @@ Risc-V           Someday
 RCS              N
 UE4              N
 ----------------------------------------------
+
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/Smart Speakers-------------------------------
-| - Speech to text
-| - ANN's
-| - 
-| - 
-| - 
-| - 
-\____________________________________________/
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/COMP. ARTIFACT-------------------------------
+ ____________________________________________
+/COMP. ARTIFACT                              \
 | SEE ARTIFACT PDF
 \____________________________________________/
-
-/RESPONSE 2A----------------------------------
+ _________________________________________________________________________________________________
+/                                         RESPONSE 2A                                             \
 | My innovation is the Smart speaker, which is designed to make it easy for consumers
 | to recieve answers and get help faster from virtual assistants. The Smart speaker 
 | functions as a microphone, and a speaker. When the user asks the speaker a question,
@@ -58,43 +51,50 @@ UE4              N
 | plays a computer generated audio recording of the answer in a humanoid voice.
 | My artifact provides an illustration for each step of the process of the steps that 
 | smart speakers go through to answer the user's question.
-\____________________________________________/
-
-/RESPONSE 2B----------------------------------
+\_________________________________________________________________________________________________/
+ _________________________________________________________________________________________________
+/                                         RESPONSE 2B                                             \
 | I used Microsoft Paint to create my artifact. I gathered relevant images with an online
 | search. I then made captions to explain my images, and made a flowchart with the
 | steps of how smart speakers work. I included extra images to show how the data is
 | processed. This is a new artifact, as I gathered images and wrote the explanations myself.
-\____________________________________________/
-
-/RESPONSE 2C----------------------------------
-|  A beneficial effect is that smart speakers will save money on financial services
-| infrastructure- since it’s distributed, it is safer by design- and this security will allow the
-| financial sector to decommission expensive systems that are currently used to secure
-| transactions. It would reduce the amount of human resources that are necessary to
-| audit and check the validity of transaction requests, and put that duty into the hands of
-| the computer software. (di Gregorio). Banks and financial security companies would
-| save a lot of money and time that would otherwise be spent training and paying human
-| employees. This has an impact on the economy, because banks save a lot of money
-| in transaction security. This creates more confidence in the US economy as a whole,
-| as stock values for the major banks rise.
+\_________________________________________________________________________________________________/
+ _________________________________________________________________________________________________
+/                                         RESPONSE 2C                                             \
+|  A beneficial effect is that smart speakers make information more accessable to people.
+| Smart speakers reduce the amount of effort that it takes to find relavent information. 
+| for example, If I am trying to make cookies for an ugly sweater party, I could ask my smart 
+| speaker for a christmas cookie recipe, and the speaker would step me through how to make
+| the cookies, rather than me having to worry about using my phone while my hands are dirty.
 | 
-|  A harmful effect is that smart soeaker manufacturers have access to the voice data
-| of the users. Going through the process uses a lot of computing
-| power, and consequently, electricity. (Fairley). Everyone in the country is impacted,
-| because we all use energy, and soon, we may all be using smart speakers. Society
-| itself, namely the environment, is harmed. If a growing technology uses more energy,
-| we are forced to burn more resources to create electricity. With the growing issue of
-| climate change, this is an issue for all of humankind.
-\____________________________________________/
-
-/RESPONSE 2E----------------------------------
+|  A harmful effect is that smart speaker creators have access to the voice data
+| of the users. Even though they say what thay do with the data, you can never be sure what
+| actually happens with it. Smart speakers have allowed for information to become more 
+| convinent to people, as a reported 20% of Americans have a smart speaker in their house.
+| Soon, everyone may have a smart speaker. This would grant smart speaker creators 
+| access to all the data they want. With the growing issue of online privacy, this is an 
+| issue for anybody who uses a virtual assistant.
+\_________________________________________________________________________________________________/
+ _________________________________________________________________________________________________
+/                                         RESPONSE 2D                                             \
+|  Smart speakers operate by constantly recording with it's microphones and constantly scanning the
+| recording for a wake command. When the speaker detects the wake command, it listens for the 
+| user's command. When the uset is done giving their command, the speaker uses a neural network to 
+| figure out what the user said and change it into text. Then, the user's command is sent off to a 
+| server where the proper response to the user's command is determined. Once the Server has 
+| determined what the proper response is, the response is sent back to the device to be "read" by 
+| the speaker.
 | 
-\____________________________________________/
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/Citations------------------------------------
-| SPEAKER ----- Middleton, Chris. “Smart Speaker Market 2.5 Times Bigger than 2017, Says Report.” Internet of Business, 10 July 2018, internetofbusiness.com/smart-speaker-market-2-5-times-bigger-than-2017-says-report/.
-| CPU --------- Johnson, Luke. “Qualcomm: Don't Buy a Smartphone Because of a CPU Benchmark.” Trusted Reviews, Trusted Reviews, 28 Jan. 2014, www.trustedreviews.com/news/qualcomm-don-t-by-a-smartphone-because-of-its-cpu-2923002.
-| SERVER ------ Gillespie, Andrew. “How to Keep Your Company Server Room Cool | MTCSS.” MTCSS Cold Storage Solutions, 16 Feb. 2017, mtcss.co.uk/keep-company-server-room-cool/.
+|  A privacy concern is that smart speaker creators have access to user data, and nobody truly 
+| knows how that data is used.
+\_________________________________________________________________________________________________/
 
-\____________________________________________/
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ ______________________________________________________________________________________________...
+/                                          Citations                                              
+| SPEAKER ----------- Middleton, Chris. “Smart Speaker Market 2.5 Times Bigger than 2017, Says Report.” Internet of Business, 10 July 2018, internetofbusiness.com/smart-speaker-market-2-5-times-bigger-than-2017-says-report/.
+| CPU --------------- Johnson, Luke. “Qualcomm: Don't Buy a Smartphone Because of a CPU Benchmark.” Trusted Reviews, Trusted Reviews, 28 Jan. 2014, www.trustedreviews.com/news/qualcomm-don-t-by-a-smartphone-because-of-its-cpu-2923002.
+| SERVER ------------ Gillespie, Andrew. “How to Keep Your Company Server Room Cool | MTCSS.” MTCSS Cold Storage Solutions, 16 Feb. 2017, mtcss.co.uk/keep-company-server-room-cool/.
+| # OF AM'S W/SPKRS - Perez, Sarah. “47.3 Million U.S. Adults Have Access to a Smart Speaker, Report Says.” TechCrunch, TechCrunch, 7 Mar. 2018, techcrunch.com/2018/03/07/47-3-million-u-s-adults-have-access-to-a-smart-speaker-report-says/.
+| TQ - VOICE ASTS --- YouTube. "Voice Recognition As Fast As Possible" Online video clip. Youtube, October 5, 2015. Web. 9 December 2018
+\______________________________________________________________________________________________...
