@@ -85,8 +85,8 @@ UE4              N
 | determined what the proper response is, the response is sent back to the device to be "read" by 
 | the speaker.
 | 
-|  A privacy concern is that smart speaker creators have access to user data, and nobody truly 
-| knows how that data is used.
+|  A privacy concern is that smart speaker creators have access to user data, and nobody except
+| them truly know how they use the data.
 \_________________________________________________________________________________________________/
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
