@@ -1,9 +1,9 @@
 /****************************
 Filename: 2-GuessingGame.c
 Name: Blakely North
-Date Last Edited:
-Brief Description:
-gcc -Wall -Wextra -O -ansi -pedantic -o a 2-GuessingGame.c
+Date Last Edited: 12-11
+Brief Description:A simple guessing game. The computer picks a num, and the user guesses it.
+gcc -Wall -Wextra -O -ansi -pedantic -o 2-GuessingGame 2-GuessingGame.c
 ****************************/
 /*printf, scanf*/
 #include <stdio.h>
