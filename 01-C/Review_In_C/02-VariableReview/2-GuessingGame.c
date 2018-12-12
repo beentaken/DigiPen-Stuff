@@ -15,40 +15,36 @@ gcc -Wall -Wextra -O -ansi -pedantic -o a 2-GuessingGame.c
 /* generate a random number */
 int randomnum(int low, int high)
 {
-    int RNDNum;
-    RNDNum = rand() % ((high + 1) - low) + low;
-    return RNDNum;
+	int RNDNum;
+	RNDNum = rand() % ((high + 1) - low) + low;
+	return RNDNum;
 }
 
 int main(void)
 {
-    /* 
-    /* low and high values*/
-    int low = 0, high;
-    /* rnd output*/
-    int RNDNum;
-    /* user input*/
-    int input;
-    /* when tho exit? */
-    int exit = 0;
-    while (exit == 0)
-    {
-        printf("What is the highest value that you want to guess to?\n");
-        high = getchar();
-        srand(time(NULL));
-        RNDNum = randomnum(low, high);
-        printf("Input your guess:");
-        input = getchar();
+	/* low and high values*/
+	int low = 0, high;
+	/* rnd output*/
+	int RNDNum;
+	/* user input*/
+	int input;
 
-        if (input < RNDNum)
-            printf("Lower.\n");
+	printf("What is the highest value that you want to guess to?\n");
+	scanf("%i", &high);
+	srand(time(NULL));
+	RNDNum = randomnum(low, high);
+	do
+	{
+		input = NULL;
+		printf("Input your guess:");
+		scanf("%i", &input);
+		printf("\n");
+		if (input > RNDNum)
+			printf("Lower.\n");
 
-        else if (input > RNDNum)
-            printf("Higher\n");
-
-        else if (input == RNDNum)
-            exit = printf("Correct!\n");
-    }
-    
-    return 0;
+		else if (input < RNDNum)
+			printf("Higher\n");
+	} while (input != RNDNum);
+	printf("Correct!\n");
+	return 0;
 }
