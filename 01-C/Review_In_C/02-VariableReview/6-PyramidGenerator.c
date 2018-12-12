@@ -1,9 +1,9 @@
 /****************************
-Filename: NumReverse.c
+Filename: 6-PyramidGenerator.c
 Name: Blakely North
 Date Last Edited:
 Brief Description:
-gcc -Wall -Wextra -O -ansi -pedantic -o NumReverse NumReverse.c
+gcc -Wall -Wextra -O -ansi -pedantic -o 6-PyramidGenerator 6-PyramidGenerator.c
 ****************************/
 /*printf, scanf*/
 #include <stdio.h>
