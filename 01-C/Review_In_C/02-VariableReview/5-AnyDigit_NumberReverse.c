@@ -3,7 +3,7 @@ Filename: 5-AnyDigit_NumberReverse.c
 Name: Blakely North
 Date Last Edited:
 Brief Description:
-gcc -Wall -Wextra -O -ansi -pedantic -o 5-AnyDigit_NumberReverse 5-AnyDigit_NumberReverse.c
+gcc -Wall -Wextra -O -ansi -pedantic -o a 5-AnyDigit_NumberReverse.c
 ****************************/
 /*printf, scanf*/
 #include <stdio.h>

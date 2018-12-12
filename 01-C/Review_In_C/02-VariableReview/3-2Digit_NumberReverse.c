@@ -3,7 +3,7 @@ Filename: 3-2Digit_NumberReverse.c
 Name: Blakely North
 Date Last Edited:
 Brief Description:
-gcc -Wall -Wextra -O -ansi -pedantic -o 4-2Digit_NumberReverse 4-2Digit_NumberReverse.c
+gcc -Wall -Wextra -O -ansi -pedantic -o a 4-2Digit_NumberReverse.c
 ****************************/
 /*printf, scanf*/
 #include <stdio.h>

@@ -3,7 +3,7 @@ Filename: GCD.c
 Name: Blakely North
 Date Last Edited:
 Brief Description:
-gcc -Wall -Wextra -O -ansi -pedantic -o GCD GCD.c
+gcc -Wall -Wextra -O -ansi -pedantic -o a GCD.c
 ****************************/
 /*printf, scanf*/
 #include <stdio.h>
