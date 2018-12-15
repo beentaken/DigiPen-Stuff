@@ -18,7 +18,8 @@ int main(void)
 
   int *p = a + 4;
 
-/*   Expression	Type	Value
+  printf("%i\n%i\n%i\n%i\n%i\n%i\n%i\n%i\n")
+  /*   Expression	Type	Value
 /* a)	p		
 /* b)	&*p		
 /* c)	&p		
