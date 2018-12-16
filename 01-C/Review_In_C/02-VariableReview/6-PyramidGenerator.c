@@ -1,9 +1,9 @@
 /****************************
-Filename: 6-PyramidGenerator.c
+Filename: 6.5-PyramidGenerator.c
 Name: Blakely North
 Date Last Edited:
 Brief Description:
-gcc -Wall -Wextra -O -ansi -pedantic -o a 6-PyramidGenerator.c
+gcc -Wall -Wextra -O -ansi -pedantic -o a 6.5-PyramidGenerator.c
 ****************************/
 /*printf, scanf*/
 #include <stdio.h>
@@ -14,28 +14,31 @@ gcc -Wall -Wextra -O -ansi -pedantic -o a 6-PyramidGenerator.c
 
 int main(void)
 {
-    /* i, k, and j are counters, input is for input, exit kills the program */
-    int i = 1, j = 0, k, x = 0, px = x, input, spacesToPut = 0, starsToPut = 0, count = 0, exit = 0;
-    while (exit == 0)
-    {
-        printf("How tall should the pyramid be?");
-        scanf("%i", &input);
-        count = (input * input) + input;
-        for (spacesToPut -= input -1; j < (input * 2 - 1); j++, x++, spacesToPut--, starsToPut += 2)
-        {            
-            /* Puts spaces down */
-            for (i += 2, spacesToPut--, starsToPut = (x * x - px * px); i < spacesToPut; i++)
-            {
-                putchar(' ');
-            }
-            /* Puts *'s down */
-            for (k = i; i < starsToPut; i += 2, count--)
-            {
-                putchar('*');
-            }
-            putchar('\n');
-            px = x;
-        }
-    }
-    return 0;
+	char exit = 'n';
+	do
+	{
+		int starsToPut = -1, spacesToPut = -1, j, i, input, height;
+		printf("How tall should the pyramid be?\n(Enter the number 13579 to quit)\n");
+		scanf("%i", &input);
+		height = input;
+		spacesToPut = height - 1;
+		if (input != 13579)
+		{
+			for (starsToPut = 1, i = 0, j = 0; i < input; i++, height--)
+			{
+				for (j = 0; j < spacesToPut; j++)
+					putchar(' ');
+
+				for (j = 0; j < starsToPut; j++)
+					putchar('*');
+
+				starsToPut += 2;
+				spacesToPut--;
+				putchar('\n');
+			}
+		}
+		if (input == 13579)
+			exit = 'y';
+	} while (exit != 'y');
+	return 0;
 }
