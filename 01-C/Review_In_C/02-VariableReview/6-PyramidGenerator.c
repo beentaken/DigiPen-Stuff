@@ -3,7 +3,7 @@ Filename: 6.5-PyramidGenerator.c
 Name: Blakely North
 Date Last Edited:
 Brief Description:
-gcc -Wall -Wextra -O -ansi -pedantic -o a 6.5-PyramidGenerator.c
+gcc -Wall -Wextra -O -ansi -pedantic -o a 6-PyramidGenerator.c
 ****************************/
 /*printf, scanf*/
 #include <stdio.h>

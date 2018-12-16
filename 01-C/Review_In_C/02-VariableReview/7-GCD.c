@@ -3,7 +3,7 @@ Filename: GCD.c
 Name: Blakely North
 Date Last Edited:
 Brief Description:
-gcc -Wall -Wextra -O -ansi -pedantic -o a GCD.c
+gcc -Wall -Wextra -O -ansi -pedantic -o a 7-GCD.c
 ****************************/
 /*printf, scanf*/
 #include <stdio.h>
@@ -14,19 +14,16 @@ gcc -Wall -Wextra -O -ansi -pedantic -o a GCD.c
 
 /******************************
 Actions to be Performed
-
+=======================
 
 1----------
 Assign the larger number to M, and the smaller number to N.
 
-
 2-----------
 Divide M by N (M/N) and assign the remainder to R.
 
-
 3-----------
 If R is not 0, then assign the value of N to M, assign the value of R to N, and return to step 1.
-
 If R = 0, then the GCD is N and the algorithm terminates.
 
 *****************************************/
@@ -52,3 +49,24 @@ int main(void)
 	} while (R != 0);
 	return 0;
 }
+
+/***************************************************
+ * OTHER METHOD
+{
+    int n1, n2, i, gcd;
+
+    printf("Enter two integers: ");
+    scanf("%d %d", &n1, &n2);
+
+    for(i=1; i <= n1 && i <= n2; ++i)
+    {
+        // Checks if i is factor of both integers
+        if(n1%i==0 && n2%i==0)
+            gcd = i;
+    }
+
+    printf("G.C.D of %d and %d is %d", n1, n2, gcd);
+
+    return 0;
+}
+***************************************************/
