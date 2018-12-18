@@ -1,0 +1,48 @@
+/****************************
+Filename: StatrButton
+Name: Blakely North
+Date Last Edited:12/17/18
+Brief Description:This will go to the next level on click
+****************************/
+
+class StartButton : ZilchComponent
+{
+  [Dependency]
+  var Reactive : Reactive = null;
+  [Property]
+  var NextLevel : Level = null;
+  
+  var ClickedDown : Boolean = false;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+    Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+    Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnLeftMouseDown);
+  }
+  
+  
+    function OnLeftMouseUp(event : ViewportMouseEvent)
+  {
+    //clicked down prepare for possible level change
+    if(this.ClickedDown)
+    {
+      this.Space.LoadLevel(this.NextLevel);
+    }
+  }
+  
+  
+  function OnLeftMouseDown(event : ViewportMouseEvent)
+  {
+    //clicked down prepare for possible level change
+    this.ClickedDown = true;
+  }
+
+
+
+  function OnMouseExit(event : ViewportMouseEvent)
+  {
+    //clicked down prepare for possible level change
+    this.ClickedDown = false;
+  }
+
+}
