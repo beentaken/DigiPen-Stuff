@@ -1,9 +1,8 @@
-/****************************
-Filename: RGBSprite
-Name: Blakely North
-Date Last Edited:12/17/18
-Brief Description:This will RGB -ify an object
-****************************/
+/*****************************
+edited by: Ryan Scheppler
+date: 12/17/18
+brief: this will make a sprite go through a rainboz of color transistions
+*****************************/
 
 class RGBSprite : ZilchComponent
 {
@@ -13,72 +12,85 @@ class RGBSprite : ZilchComponent
   var ColorChangeTime : Real = 0.5;
   [Property]
   var ColorEase : Ease = Ease.QuadInOut;
+  
   function Initialize(init : CogInitializer)
   {
     this.TurnRed();
   }
-  //Turns the sprite red over a period of time
+  //This function turns the sprite red over a period of time
   function TurnRed()
   {
-    //make the sequence  or list of things to happen with actions
+    //make the sequence or list of things to happen with actions
     var seq = Action.Sequence(this.Owner.Actions);
     //change to red over time
-    Action.Property(seq, @this.Sprite.VertexColor, Real4(1,0,0,1),
+    Action.Property(seq, @this.Sprite.VertexColor, Real4(1,0,0,1), 
       this.ColorChangeTime, this.ColorEase);
-    //next color
+    
+    //set to change to the next color
     Action.Call(seq, this.TurnYellow);
   }
-
-  //Turns the sprite Green over a period of time
-  function TurnGreen()
-  {
-    //make the sequence  or list of things to happen with actions
-    var seq = Action.Sequence(this.Owner.Actions);
-    //change to red over time
-    Action.Property(seq, @this.Sprite.VertexColor, Real4(1,0,0,1),
-      this.ColorChangeTime, this.ColorEase);
-    Action.Call(seq, this.TurnCyan);
-  }
-  //Turns the sprite red over a period of time
-  function TurnBlue()
-  {
-    //make the sequenec  or list of things to happen with actions
-    var seq = Action.Sequence(this.Owner.Actions);
-    //change to red over time
-    Action.Property(seq, @this.Sprite.VertexColor, Real4(0,0,1,1),
-      this.ColorChangeTime, this.ColorEase);
-    Action.Call(seq, this.TurnMagenta);
-  }
-
-  //Turns the sprite Yellow over a period of time
+  
+  //This function turns the sprite Yellow over a period of time
   function TurnYellow()
   {
-    //make the sequence  or list of things to happen with actions
+    //make the sequence or list of things to happen with actions
     var seq = Action.Sequence(this.Owner.Actions);
-    //change to Green over time
-    Action.Property(seq, @this.Sprite.VertexColor, Real4(1,1,0,1),
+    //change to yellow over time
+    Action.Property(seq, @this.Sprite.VertexColor, Real4(1,1,0,1), 
       this.ColorChangeTime, this.ColorEase);
+    
+    //set to change to the next color
     Action.Call(seq, this.TurnGreen);
   }
-  //Turns the sprite red over a period of time
+  
+  
+  //This function turns the sprite green over a period of time
+  function TurnGreen()
+  {
+    //make the sequence or list of things to happen with actions
+    var seq = Action.Sequence(this.Owner.Actions);
+    //change to green over time
+    Action.Property(seq, @this.Sprite.VertexColor, Real4(0,1,0,1), 
+      this.ColorChangeTime, this.ColorEase);
+    
+    //set to change to the next color
+    Action.Call(seq, this.TurnCyan);
+  }
+  
+  //This function turns the sprite cyan over a period of time
   function TurnCyan()
   {
-    //make the sequence  or list of things to happen with actions
+    //make the sequence or list of things to happen with actions
     var seq = Action.Sequence(this.Owner.Actions);
-    //change to red over time
-    Action.Property(seq, @this.Sprite.VertexColor, Real4(0,1,1,1),
+    //change to cyan over time
+    Action.Property(seq, @this.Sprite.VertexColor, Real4(0,1,1,1), 
       this.ColorChangeTime, this.ColorEase);
+    
+    //set to change to the next color
     Action.Call(seq, this.TurnBlue);
   }
-    //Turns the sprite red over a period of time
+  //This function turns the sprite blue over a period of time
+  function TurnBlue()
+  {
+    //make the sequence or list of things to happen with actions
+    var seq = Action.Sequence(this.Owner.Actions);
+    //change to blue over time
+    Action.Property(seq, @this.Sprite.VertexColor, Real4(0,0,1,1), 
+      this.ColorChangeTime, this.ColorEase);
+    
+    //set to change to the next color
+    Action.Call(seq, this.TurnMagenta);
+  }
+  //This function turns the sprite magenta over a period of time
   function TurnMagenta()
   {
-    //make the sequence  or list of things to happen with actions
+    //make the sequence or list of things to happen with actions
     var seq = Action.Sequence(this.Owner.Actions);
-    //change to red over time
-    Action.Property(seq, @this.Sprite.VertexColor, Real4(1,0,1,1),
+    //change to magenta. over time
+    Action.Property(seq, @this.Sprite.VertexColor, Real4(1,0,1,1), 
       this.ColorChangeTime, this.ColorEase);
+    
+    //set to change to the next color
     Action.Call(seq, this.TurnRed);
   }
-
 }
