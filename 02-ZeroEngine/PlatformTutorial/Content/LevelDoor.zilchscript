@@ -1,0 +1,14 @@
+class LevelDoor : ZilchComponent
+{
+  [Property] var NextLevel : Level = Level.Level;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+   if(event.OtherObject.PlayerCollision != null)
+      this.Space.LoadLevel(this.NextLevel);
+  }
+}

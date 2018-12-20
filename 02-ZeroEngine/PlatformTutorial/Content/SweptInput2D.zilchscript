@@ -1,6 +1,6 @@
 // Copyright 2017 DigiPen USA Corporation, All Rights Reserved
 // Author: Zero Engine Team
-
+// Editor: Blakely North
 // Simple input for a 2d swept character controller.
 class SweptInput2D : ZilchComponent
 {
@@ -21,9 +21,15 @@ class SweptInput2D : ZilchComponent
     
     // Check for left/right movment
     if (Zero.Keyboard.KeyIsDown(this.LeftKey))
-      movement.X = -1;
+    {
+      movement.X += -1;
+      this.Owner.Sprite.FlipX = true;
+    }
     if (Zero.Keyboard.KeyIsDown(this.RightKey))
-      movement.X = 1;
+    {
+      movement.X += 1;
+      this.Owner.Sprite.FlipX = false;
+    }
     
     if (Zero.Keyboard.KeyIsPressed(this.JumpKey))
     {

@@ -1,0 +1,33 @@
+/************************************
+Blakely North
+12-19-2018
+Detects player collision (no duh)
+************************************/
+class PlayerCollision : ZilchComponent
+{
+  [Dependency]
+  var Transform : Transform = null;
+  function Initialize(init : CogInitializer)
+  {
+    //set the levelvars to initialize styarting location
+    if(this.LevelSettings.LevelVars != null)
+      this.LevelSettings.LevelVars.RespawnLocation = this.Transform.Translation;
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnColisionStarted);
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  function OnDeath()
+  {
+    if(this.LevelSettings.LevelVars != null)
+      this.Transform.Translation = this.LevelSettings.LevelVars.RespawnLocation;
+  }
+  
+  function OnColisionStarted(event : CollisionEvent)
+  {
+    if(event.OtherObject.DeathZone != null)
+      this.OnDeath();
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+  }
+}

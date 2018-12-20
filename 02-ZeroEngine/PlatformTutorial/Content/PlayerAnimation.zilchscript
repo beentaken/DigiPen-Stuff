@@ -1,0 +1,71 @@
+/************************************
+Blakely North
+12-19-2018
+Controlls the player's animation
+************************************/
+
+class PlayerAnimation : ZilchComponent
+{
+  //needed to change sprite source
+  [Dependency] var Sprite : Sprite = null;
+  //are we jumping or not?
+  [Dependency] var SweptController : SweptController = null;
+  //what keys to listen to?
+  [Dependency] var SweptInput2D : SweptInput2D = null;
+  
+  //player idle ani
+  [Property] var PlayerIdle : SpriteSource = SpriteSource.SquareBordered;
+  //player jump ani
+  [Property] var PlayerJump : SpriteSource = SpriteSource.Circle;
+  //player walk ani
+  [Property] var PlayerWalk : SpriteSource = SpriteSource.CircleBordered;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    //get key info
+    var rightDown = Zero.Keyboard.KeyIsDown(this.SweptInput2D.RightKey);
+    var leftDown = Zero.Keyboard.KeyIsDown(this.SweptInput2D.LeftKey);
+    
+    //idle
+    if(this.Sprite.SpriteSource == this.PlayerIdle)
+    {
+      //if L or R button is  
+      if((rightDown || leftDown) && !(rightDown && leftDown))
+      {
+        this.Sprite.SpriteSource = this.PlayerWalk;
+      }
+      //if not on ground switch to jump
+      if(!this.SweptController.Grounded)
+        this.Sprite.SpriteSource = this.PlayerJump;
+    }
+    
+    
+    
+    //walk
+    else  if(this.Sprite.SpriteSource == this.PlayerWalk)
+    {
+      //if not moving left or right, switch to idle
+      if(!(rightDown || leftDown) || (rightDown && leftDown))
+      {
+        this.Sprite.SpriteSource = this.PlayerIdle;
+      }
+
+      //if not on gnd, switch to jump
+      if(!this.SweptController.Grounded)
+        this.Sprite.SpriteSource = this.PlayerJump;
+    }
+    //jumping
+    else  if(this.Sprite.SpriteSource == this.PlayerJump)
+    {
+      //if on gnd, switch to idle
+      if(this.SweptController.Grounded)
+        this.Sprite.SpriteSource = this.PlayerIdle;
+
+    }
+  }
+}
