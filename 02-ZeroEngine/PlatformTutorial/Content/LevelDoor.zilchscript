@@ -1,6 +1,6 @@
 class LevelDoor : ZilchComponent
 {
-  [Property] var NextLevel : Level = Level.Level;
+  [Property] var NextLevel : Level = null;
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);

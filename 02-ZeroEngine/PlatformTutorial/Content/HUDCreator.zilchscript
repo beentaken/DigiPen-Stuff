@@ -1,0 +1,27 @@
+/************************************
+Blakely North
+10-22-2018
+Added to level dettings of min levels, never on HUD levels
+ensure HUD level has a clear bknd, foward Viewport eventd in the cam Viewport
+and are layered correctly
+************************************/
+class HUDCreator : ZilchComponent
+{
+  //mane of hud level
+  [Property] var HUDLevel : Level = null;
+  
+  var HUDSpace : Space = null;
+  function Initialize(init : CogInitializer)
+  {
+    //thi creates a new Spice
+    this.HUDSpace = this.GameSession.CreateNamedSpace("HUDSpace", Archetype.Space);
+    if(this.HUDSpace != null)
+      this.HUDSpace.LoadLevel(this.HUDLevel);
+  }
+
+  function Destroied()
+  {
+    if(this.HUDSpace != null && !this.HUDSpace.MarkedForDestruction)
+      this.HUDSpace.Destroy();
+  }
+}

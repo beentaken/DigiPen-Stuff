@@ -1,0 +1,19 @@
+/************************************
+Blakely North
+12-20-2018
+Add this to the text Object ment to show lives
+************************************/
+class LivesText : ZilchComponent
+{
+  [Dependency] var SpriteText : SpriteText = null;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, "LivesUpdate", this.OnLivesUpdate);
+    this.SpriteText.Text = "Lives: `this.GameSession.GameVars.CurrentLives`";
+  }
+
+  function OnLivesUpdate(event : Event)
+  {
+    this.SpriteText.Text = "Lives: `this.GameSession.GameVars.CurrentLives`";
+  }
+}

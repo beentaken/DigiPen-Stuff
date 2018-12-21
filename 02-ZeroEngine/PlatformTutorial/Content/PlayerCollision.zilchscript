@@ -19,6 +19,12 @@ class PlayerCollision : ZilchComponent
   {
     if(this.LevelSettings.LevelVars != null)
       this.Transform.Translation = this.LevelSettings.LevelVars.RespawnLocation;
+    
+    if(this.GameSession.GameVars != null)
+      this.GameSession.GameVars.CurrentLives -= 1;
+    
+    if(this.LevelSettings.HUDCreator != null && this.LevelSettings.HUDCreator.HUDSpace != null)
+      this.LevelSettings.HUDCreator.HUDSpace.DispatchEvent("LivesUpdate", ZilchEvent());
   }
   
   function OnColisionStarted(event : CollisionEvent)

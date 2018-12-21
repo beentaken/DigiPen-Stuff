@@ -38,6 +38,10 @@ Level
 			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
+		HUDCreator 
+		{
+			var HUDLevel = "null"
+		}
 	}
 	Cog [ContextId:2]
 	{
@@ -314,7 +318,7 @@ Level
 		}
 		StartButton 
 		{
-			var NextLevel = "59097123da28242a:Level"
+			var NextLevel = "5c798988fff67d43:Level1"
 		}
 		RGBSprite 
 		{

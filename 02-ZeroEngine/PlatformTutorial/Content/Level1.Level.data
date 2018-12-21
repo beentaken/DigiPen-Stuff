@@ -41,6 +41,10 @@ Level
 		LevelVars 
 		{
 		}
+		HUDCreator 
+		{
+			var HUDLevel = "5c7c2d4346537bc1:HUDLevel"
+		}
 	}
 	Cog [ContextId:2]
 	{
@@ -80,7 +84,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{5.90682364, 3.74702597, 20}
+			var Translation = Real3{0.093256399, 4.0540905, 30}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -133,7 +137,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 13.4064035
+			var Size = 6.34659529
 		}
 		EditorCameraController 
 		{
@@ -142,7 +146,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{5.90682364, 3.74702597, -1.82973761e-08}
+			var LookTarget = Real3{0.093256399, 4.0540905, 10}
 			var MoveSensitivity = 1
 		}
 	}
@@ -276,7 +280,7 @@ Level
 		var Name = "player"
 		Transform 
 		{
-			var Translation = Real3{0.0319126844, 3.55634713, 3.21933058e-08}
+			var Translation = Real3{0.0319126844, 2.80634713, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -316,7 +320,7 @@ Level
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var Radius = 0.5
+			var Radius = 0.49000001
 		}
 		CustomCollisionEventTracker 
 		{
@@ -353,6 +357,12 @@ Level
 		PlayerCollision 
 		{
 		}
+		PlayerAnimation 
+		{
+			var PlayerIdle = "5c7ad8a8a6509ac8:MonkeyStand"
+			var PlayerJump = "5c7ad8a8a653ebc9:MonkeyJump"
+			var PlayerWalk = "5c7ad9d876e7b556:MonkeyWalk_R"
+		}
 	}
 	Cog [ContextId:7]
 	{
@@ -382,9 +392,6 @@ Level
 			var AnimationSpeed = 1
 			var StartFrame = 0
 		}
-		DeathZone 
-		{
-		}
 		RigidBody 
 		{
 			var Velocity = Real3{0, 0, 0}
@@ -404,14 +411,63 @@ Level
 			var Offset = Real3{0, 0, 0}
 			var Radius = 0.5
 		}
+		MassOverride 
+		{
+			var Active = true
+			var InverseMass = 0.25
+			var Mass = 4
+			var LocalInverseInertiaTensor = Real3x3{2.5, 3.55271368e-13, 0, 3.55271368e-13, 2.5, 0, 0, 0, 2.5}
+			var LocalCenterOfMass = Real3{0, 0, 0}
+		}
 	}
 	Cog [ContextId:8]
 	{
 		var Name = "DeathCube"
 		Transform 
 		{
-			var Translation = Real3{8.26062775, -11.4068108, 0}
+			var Translation = Real3{8.26062775, -7.00877953, 0}
 			var Scale = Real3{86.8249359, 6.84703684, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = false
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5275aa4d802dd6dc:Square"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		DeathZone 
+		{
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
+		}
+	}
+	Cog [ContextId:9]
+	{
+		var Name = "Sprite"
+		Transform 
+		{
+			var Translation = Real3{19.5354023, 2.72698212, 0}
+			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -433,17 +489,90 @@ Level
 			var AnimationSpeed = 1
 			var StartFrame = 0
 		}
-		DeathZone 
+		LevelDoor 
+		{
+			var NextLevel = "59097123da28242a:MainMenu"
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+	}
+	Cog [ContextId:10]
+	{
+		var Name = "Sprite"
+		Transform 
+		{
+			var Translation = Real3{26.2854023, 5.97698212, -1.82973761e-08}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		CheckPoint 
 		{
 		}
-		BoxCollider 
+	}
+	Cog [ContextId:11]
+	{
+		var Name = "blueSkyPixleArt"
+		Transform 
 		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
+			var Translation = Real3{12.4638033, 7.50618553, -10}
+			var Scale = Real3{3.5, 3.5, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c7c33381e02e4b4:blueSkyPixleArt"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
 		}
 	}
 }

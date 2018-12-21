@@ -3,10 +3,9 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "Level"
-		var ResourceId = 0x59097123da28242a
+		var Name = "HUDLevel"
+		var ResourceId = 0x5c7c2d4346537bc1
 		var LoaderType = "Level"
 		var Version = 0
-		var ShowInEditor = true
 	}
 }
