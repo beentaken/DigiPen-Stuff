@@ -1,0 +1,98 @@
+/**************************************************
+Edited By: Blake North
+Last Edited: 12/17/2018
+Description: This script will animate the owner to provide visual feedback
+**************************************************/
+class ButtonAnimator : ZilchComponent
+{
+  [Dependency]
+  var Reactive : Reactive;
+  [Dependency]
+  var Sprite : Sprite;
+  
+  
+  //Variables for the process of how the owner is changed
+    //The amount of time it takes between changes
+    [Property]
+    var ChangeTime : Real = 0.1;
+    //The way the owner will change
+    [Property]
+    var ChangeEase : Ease = Ease.QuadInOut;
+  //Variables for the outcome of the changes
+    //Color to change to
+    [Property]
+    var HoverColor : Real4 = Real4(0, 0, 0, 1);
+    //The percent to increase or decrease owner when the mouse is hovering over the owner
+    [Property]
+    var HoverScalePercet : Real = 1.25;
+    //Color to be changed to if clicked
+    [Property]
+    var ClickColor : Real4 = Real4(0, 0, 0, 1);
+    //Scaling percent when owner is clicked
+    [Property]
+    var ClickScalePercent : Real = 1.5;
+  
+  //Original color of owner
+  var OrigColor : Real4 = Real4();
+  //Original size of owner
+  var OrigScale : Real3 = Real3(4, 2, 1);
+  
+  function Initialize(init : CogInitializer)
+  {
+    //Set OrigColor to be the owners base color
+    this.OrigColor = this.Sprite.VertexColor;
+    //Set OrigScale to be the owners base size
+    this.OrigScale = this.Owner.Transform.Scale;
+    Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnLeftMouseDown);
+    Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+    Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+    Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+  }
+
+  function OnLeftMouseUp(event : ViewportMouseEvent)
+  {
+    this.Owner.Actions.Cancel();
+    
+    var grp = Action.Group(this.Owner.Actions);
+    
+    
+    //Revert color of owner
+    Action.Property(grp, @this.Sprite.VertexColor, this.OrigColor, this.ChangeTime, this.ChangeEase);
+    //Revert scale of owner
+    Action.Property(grp, @this.Owner.Transform.Scale, this.OrigScale, this.ChangeTime, this.ChangeEase);
+  }
+
+  function OnLeftMouseDown(event : ViewportMouseEvent)
+  {
+    this.Owner.Actions.Cancel();
+    var grp = Action.Group(this.Owner.Actions);
+    
+    //Change color of owner
+    Action.Property(grp, @this.Sprite.VertexColor, this.ClickColor, this.ChangeTime, this.ChangeEase);
+    //Change scale of owner
+    Action.Property(grp, @this.Owner.Transform.Scale, this.OrigScale * this.ClickScalePercent, this.ChangeTime, this.ChangeEase);
+  }
+
+  function OnMouseExit(event : ViewportMouseEvent)
+  {
+    this.Owner.Actions.Cancel();
+    
+    var grp = Action.Group(this.Owner.Actions);
+    
+    //Revert color of owner
+    Action.Property(grp, @this.Sprite.VertexColor, this.OrigColor, this.ChangeTime, this.ChangeEase);
+    //Revert scale of owner
+    Action.Property(grp, @this.Owner.Transform.Scale, this.OrigScale, this.ChangeTime, this.ChangeEase);
+  }
+
+  function OnMouseEnter(event : ViewportMouseEvent)
+  {
+    this.Owner.Actions.Cancel();
+    var grp = Action.Group(this.Owner.Actions);
+    
+    //Change color of owner
+    Action.Property(grp, @this.Sprite.VertexColor, this.HoverColor, this.ChangeTime, this.ChangeEase);
+    //Change scale of owner
+    Action.Property(grp, @this.Owner.Transform.Scale, this.OrigScale * this.HoverScalePercet, this.ChangeTime, this.ChangeEase);
+  }
+}

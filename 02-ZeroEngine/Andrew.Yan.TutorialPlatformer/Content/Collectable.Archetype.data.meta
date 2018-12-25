@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Collectable"
+		var ResourceId = 0x5c79a37413d31b84
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

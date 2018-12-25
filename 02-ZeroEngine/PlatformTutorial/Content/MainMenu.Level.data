@@ -81,7 +81,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{0, 0, 20}
+			var Translation = Real3{0.98269707, -0.33114484, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -134,7 +134,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 19.9999905
+			var Size = 14.8163691
 		}
 		EditorCameraController 
 		{
@@ -143,7 +143,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{0, 0, 0}
+			var LookTarget = Real3{0.98269707, -0.33114484, 4.29548308e-08}
 			var MoveSensitivity = 1
 		}
 	}
@@ -243,7 +243,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{0.180392161, 0.180392161, 0.180392161, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Monkey Mondays"
+			var Text = "Super DK Jungle Ultimate"
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 128
 			var PixelsPerUnit = 128
@@ -256,7 +256,7 @@ Level
 		Transform 
 		{
 			var Translation = Real3{0, 0, 0}
-			var Scale = Real3{10, 2, 1}
+			var Scale = Real3{13, 2, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 

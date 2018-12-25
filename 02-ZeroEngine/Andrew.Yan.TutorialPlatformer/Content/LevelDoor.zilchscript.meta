@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "LevelDoor"
+		var ResourceId = 0x5c4182dcb61983e8
+	}
+}

@@ -1,0 +1,25 @@
+/*************************************
+Edited By: Blake North
+Last Edited: 12/20/2018
+Description: This script handles lives and checks to see if the player has lost
+*************************************/
+class Lives : ZilchComponent
+{
+  //Next level to go to on death
+  [Property]
+  var NextLevel : Level = null;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.GameSession.GameVariables.CurrentLives <= 0 && this.NextLevel != null)
+    {
+      //Change next level
+      this.Space.LoadLevel(this.NextLevel);
+    }
+  }
+}
