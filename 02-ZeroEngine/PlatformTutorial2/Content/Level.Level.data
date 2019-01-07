@@ -44,7 +44,7 @@ Level
 		}
 		HUDCreator 
 		{
-			var HUDLevel = "5c475b0a345d3586:HUDLevel"
+			var HUDLevel = "5cae55d8b749fc16:HUDLevel"
 		}
 	}
 	Cog [ContextId:2]
@@ -85,7 +85,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{72.5353165, 3.86429739, 48.3126602}
+			var Translation = Real3{168.390839, -2.38313127, 48.3126602}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -138,7 +138,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 66.4029922
+			var Size = 17.3440018
 		}
 		EditorCameraController 
 		{
@@ -147,7 +147,7 @@ Level
 			var LookDistance = 5.55452061
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{72.5353165, 3.86429739, 42.7581406}
+			var LookTarget = Real3{168.390839, -2.38313127, 42.7581406}
 			var MoveSensitivity = 1
 		}
 	}
@@ -156,7 +156,7 @@ Level
 		var Name = "GameCamera"
 		Transform 
 		{
-			var Translation = Real3{0, 0, 10}
+			var Translation = Real3{0, 0, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -242,6 +242,7 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
+			var Lag = 0.5
 		}
 		Hierarchy 
 		{
@@ -253,7 +254,7 @@ Level
 		Transform 
 		{
 			var Translation = Real3{0, 0, 0}
-			var Scale = Real3{1, 1, 1}
+			var Scale = Real3{1.85113621, 1.85113621, 1.85113621}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		MultiSprite 
@@ -283,7 +284,7 @@ Level
 		var Name = "Player"
 		Transform 
 		{
-			var Translation = Real3{0, 2.31883955, 0}
+			var Translation = Real3{0, 4, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -310,35 +311,38 @@ Level
 		{
 			var Velocity = Real3{0, 0, 0}
 			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Dynamic
+			var DynamicState = RigidBodyDynamicState.Kinematic
 			var AllowSleep = true
 			var Asleep = false
 			var RotationLocked = false
 			var Mode2D = Mode2DStates.InheritFromSpace
 		}
-		BoxCollider 
+		SphereCollider 
 		{
 			var Ghost = false
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "5c799bb083edeb87:Player"
-			var Offset = Real3{-0.100000001, 0, 0}
-			var HalfSize = Real3{0.75, 1, 0.5}
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var Radius = 0.899999976
+		}
+		CustomCollisionEventTracker 
+		{
 		}
 		SweptController 
 		{
 			var WorldUp = Real3{0, 1, 0}
 			var LockZAxis = false
-			var ForwardEvents = true
-			var Gravity = 15
-			var JumpSpeed = 10
+			var ForwardEvents = false
+			var Gravity = 50
+			var JumpSpeed = 15
 			var JumpCancelFactor = 0.5
-			var MaxMoveSpeed = 10
-			var MaxFallSpeed = 100
-			var GroundAcceleration = 50
-			var AirAcceleration = 10
+			var MaxMoveSpeed = 15
+			var MaxFallSpeed = 250
+			var GroundAcceleration = 250
+			var AirAcceleration = 150
 			var GroundDeceleration = 50
-			var AirDeceleration = 20
+			var AirDeceleration = 150
 			var MaxGroundSlope = 45
 			var MaxCeilingSlope = 45
 			var GroundSnapDistance = 0.100000001
@@ -353,9 +357,9 @@ Level
 			var LeftKey = Keys.A
 			var RightKey = Keys.D
 			var JumpKey = Keys.Space
-			var JumpNoise = "5c4735ed3cb14566:Jump2"
+			var JumpNoise = "null"
 		}
-		CustomCollisionEventTracker 
+		PlayerCollision 
 		{
 		}
 		PlayerAnimation 
@@ -364,21 +368,18 @@ Level
 			var WalkingSprite = "5c41a1cbab1061c6:MonkeyWalkAni"
 			var JumpingSprite = "5c41aff968d1e5dc:MonkeyJump"
 		}
-		PlayerCollision 
-		{
-		}
 		Lives 
 		{
-			var NextLevel = "5c434524622ce873:MainMenu"
+			var NextLevel = "5cae55d8b7485db1:MainMenu"
 		}
 	}
 	Cog [ContextId:7]
 	{
-		var Name = "Sprite"
+		var Name = "BlueSky"
 		Transform 
 		{
-			var Translation = Real3{9.70774269, 10, -100}
-			var Scale = Real3{20, 20, 1}
+			var Translation = Real3{149.164825, 53.8269958, -75}
+			var Scale = Real3{18.5113621, 18.5113621, 18.5113621}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -393,7 +394,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c41a1e9affa8313:MonkeyStand"
+			var SpriteSource = "5cae5fdc9421dd9f:blueSkyPixleArt"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
@@ -402,122 +403,6 @@ Level
 		}
 	}
 	Cog [ContextId:8]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{-26.7922573, 10, -100}
-			var Scale = Real3{10, 10, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c41a1e9affa8313:MonkeyStand"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-	}
-	Cog [ContextId:9]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{45.1500473, 10, -50}
-			var Scale = Real3{20, 20, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c41a1e9affa8313:MonkeyStand"
-			var FlipX = true
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-	}
-	Cog [ContextId:10]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{45.1500473, 10, -150}
-			var Scale = Real3{20, 20, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c41a1e9affa8313:MonkeyStand"
-			var FlipX = true
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-	}
-	Cog [ContextId:11]
-	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{75.4000473, 10, -150}
-			var Scale = Real3{10, 10, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c41a1e9affa8313:MonkeyStand"
-			var FlipX = true
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-	}
-	Cog [ContextId:12]
 	{
 		var Name = "Sprite"
 		Transform 
@@ -566,10 +451,10 @@ Level
 		}
 		LevelDoor 
 		{
-			var NextLevel = "5c434524622ce873:MainMenu"
+			var NextLevel = "577d126becbdd810:EmptyLevel"
 		}
 	}
-	Cog [ContextId:13]
+	Cog [ContextId:9]
 	{
 		var Name = "Sprite"
 		Transform 
@@ -614,10 +499,110 @@ Level
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
+			var HalfSize = Real3{0.5, 1, 0.5}
 		}
 		CheckPoint 
 		{
+		}
+	}
+	Cog [ContextId:10]
+	{
+		var Name = "LavaEmitter"
+		Transform 
+		{
+			var Translation = Real3{23, -2, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SoundEmitter 
+		{
+			var Volume = 1
+			var Pitch = 0
+			var Attenuator = "5c473035ee7db506:TestAttenuation"
+			var Directional = false
+			var EmitAngle = 90
+			var RearVolume = 0.200000003
+		}
+		SimpleSound 
+		{
+			var StartPlaying = true
+			var Positional = true
+			var Cue = "5c47358f30a91541:LavaAmbience_1"
+		}
+	}
+	Cog [ContextId:11]
+	{
+		var Name = "LavaEmitter"
+		Transform 
+		{
+			var Translation = Real3{101, -2, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SoundEmitter 
+		{
+			var Volume = 1
+			var Pitch = 0
+			var Attenuator = "5c473035ee7db506:TestAttenuation"
+			var Directional = false
+			var EmitAngle = 90
+			var RearVolume = 0.200000003
+		}
+		SimpleSound 
+		{
+			var StartPlaying = true
+			var Positional = true
+			var Cue = "5c47358f30a91541:LavaAmbience_1"
+		}
+	}
+	Cog [ContextId:12]
+	{
+		var Name = "LavaEmitter"
+		Transform 
+		{
+			var Translation = Real3{121.25, -2, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SoundEmitter 
+		{
+			var Volume = 1
+			var Pitch = 0
+			var Attenuator = "5c473035ee7db506:TestAttenuation"
+			var Directional = false
+			var EmitAngle = 90
+			var RearVolume = 0.200000003
+		}
+		SimpleSound 
+		{
+			var StartPlaying = true
+			var Positional = true
+			var Cue = "5c47358f30a91541:LavaAmbience_1"
+		}
+	}
+	Cog [ContextId:13]
+	{
+		var Name = "LavaEmitter"
+		Transform 
+		{
+			var Translation = Real3{141.75, -2, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SoundEmitter 
+		{
+			var Volume = 1
+			var Pitch = 0
+			var Attenuator = "5c473035ee7db506:TestAttenuation"
+			var Directional = false
+			var EmitAngle = 90
+			var RearVolume = 0.200000003
+		}
+		SimpleSound 
+		{
+			var StartPlaying = true
+			var Positional = true
+			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
 	Cog [ContextId:14]
@@ -625,7 +610,7 @@ Level
 		var Name = "LavaEmitter"
 		Transform 
 		{
-			var Translation = Real3{12.5386162, -2.11118698, 42.7581406}
+			var Translation = Real3{162, -2, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -646,131 +631,6 @@ Level
 		}
 	}
 	Cog [ContextId:15]
-	{
-		var Name = "LavaEmitter"
-		Transform 
-		{
-			var Translation = Real3{54.7459755, -2.11118698, 42.7581406}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SoundEmitter 
-		{
-			var Volume = 1
-			var Pitch = 0
-			var Attenuator = "5c473035ee7db506:TestAttenuation"
-			var Directional = false
-			var EmitAngle = 90
-			var RearVolume = 0.200000003
-		}
-		SimpleSound 
-		{
-			var StartPlaying = true
-			var Positional = true
-			var Cue = "5c47358f30a91541:LavaAmbience_1"
-		}
-	}
-	Cog [ContextId:16]
-	{
-		var Name = "LavaEmitter"
-		Transform 
-		{
-			var Translation = Real3{65.1204529, -2.11118698, 42.7581406}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SoundEmitter 
-		{
-			var Volume = 1
-			var Pitch = 0
-			var Attenuator = "5c473035ee7db506:TestAttenuation"
-			var Directional = false
-			var EmitAngle = 90
-			var RearVolume = 0.200000003
-		}
-		SimpleSound 
-		{
-			var StartPlaying = true
-			var Positional = true
-			var Cue = "5c47358f30a91541:LavaAmbience_1"
-		}
-	}
-	Cog [ContextId:17]
-	{
-		var Name = "LavaEmitter"
-		Transform 
-		{
-			var Translation = Real3{71.6092224, -2.11118698, 42.7581406}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SoundEmitter 
-		{
-			var Volume = 1
-			var Pitch = 0
-			var Attenuator = "5c473035ee7db506:TestAttenuation"
-			var Directional = false
-			var EmitAngle = 90
-			var RearVolume = 0.200000003
-		}
-		SimpleSound 
-		{
-			var StartPlaying = true
-			var Positional = true
-			var Cue = "5c47358f30a91541:LavaAmbience_1"
-		}
-	}
-	Cog [ContextId:18]
-	{
-		var Name = "LavaEmitter"
-		Transform 
-		{
-			var Translation = Real3{76.7021484, -2.11118698, 42.7581406}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SoundEmitter 
-		{
-			var Volume = 1
-			var Pitch = 0
-			var Attenuator = "5c473035ee7db506:TestAttenuation"
-			var Directional = false
-			var EmitAngle = 90
-			var RearVolume = 0.200000003
-		}
-		SimpleSound 
-		{
-			var StartPlaying = true
-			var Positional = true
-			var Cue = "5c47358f30a91541:LavaAmbience_1"
-		}
-	}
-	Cog [ContextId:19]
-	{
-		var Name = "LavaEmitter"
-		Transform 
-		{
-			var Translation = Real3{87.944313, -2.11118698, 42.7581406}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		SoundEmitter 
-		{
-			var Volume = 1
-			var Pitch = 0
-			var Attenuator = "5c473035ee7db506:TestAttenuation"
-			var Directional = false
-			var EmitAngle = 90
-			var RearVolume = 0.200000003
-		}
-		SimpleSound 
-		{
-			var StartPlaying = true
-			var Positional = true
-			var Cue = "5c47358f30a91541:LavaAmbience_1"
-		}
-	}
-	Cog [ContextId:20]
 	{
 		var Name = "SongEmtter"
 		Transform 

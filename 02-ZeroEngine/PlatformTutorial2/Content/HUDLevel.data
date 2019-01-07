@@ -38,10 +38,6 @@ Level
 			var HighlightInterval = 10
 			var FollowEditorCamera = false
 		}
-		LevelVars 
-		{
-			var RespawnLocation = Real3{0, 0, 0}
-		}
 	}
 	Cog [ContextId:2]
 	{
@@ -89,7 +85,7 @@ Level
 		{
 			var RenderInEditor = true
 			var RenderInGame = false
-			var RenderOrder = 1
+			var RenderOrder = 0
 			var CameraPath = CogPath
 			{
 				var Path = "."
@@ -134,7 +130,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 40.2750282
+			var Size = 29.8364697
 		}
 		EditorCameraController 
 		{
@@ -202,7 +198,7 @@ Level
 			}
 			var ResolutionOrAspect = Integer2{1920, 1080}
 			var RenderToViewport = true
-			var ForwardViewportEvents = false
+			var ForwardViewportEvents = true
 			var ViewportScaling = ViewportScaling.Letterbox
 			var MarginColor = Real4{0, 0, 0, 1}
 			var NormalizedSize = Real2{1, 1}
@@ -224,11 +220,11 @@ Level
 	}
 	Cog [ContextId:5]
 	{
-		var Name = "SpriteText"
+		var Name = "LivesText"
 		Transform 
 		{
-			var Translation = Real3{-15.499999, 7.75, 0}
-			var Scale = Real3{4, 4, 1}
+			var Translation = Real3{-16.5, 9.25, 0}
+			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		SpriteText 
@@ -241,13 +237,13 @@ Level
 			var LocalAabbHalfExtents = Real3{1, 1, 1}
 			var GroupSortValue = 0
 			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
+			var VertexColor = Real4{0, 0.701960802, 0, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "Lives: "
+			var Text = "Lives:"
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
-			var FontSize = 32
+			var FontSize = 64
 			var PixelsPerUnit = 128
-			var TextAlign = TextAlign.Left
+			var TextAlign = TextAlign.Center
 		}
 		LivesText 
 		{

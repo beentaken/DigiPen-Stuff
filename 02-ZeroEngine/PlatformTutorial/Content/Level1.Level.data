@@ -40,6 +40,7 @@ Level
 		}
 		LevelVars 
 		{
+			var RespawnLocation = Real3{0, 0, 0}
 		}
 		HUDCreator 
 		{
@@ -84,7 +85,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{0.093256399, 4.0540905, 30}
+			var Translation = Real3{10.673521, -1.52661169, 10}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -137,7 +138,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 6.34659529
+			var Size = 17.2518311
 		}
 		EditorCameraController 
 		{
@@ -146,7 +147,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{0.093256399, 4.0540905, 10}
+			var LookTarget = Real3{10.673521, -1.52661169, -10}
 			var MoveSensitivity = 1
 		}
 	}
@@ -353,15 +354,16 @@ Level
 			var LeftKey = Keys.A
 			var RightKey = Keys.D
 			var JumpKey = Keys.Space
+			var JumpNoise = "null"
 		}
 		PlayerCollision 
 		{
 		}
 		PlayerAnimation 
 		{
-			var PlayerIdle = "5c7ad8a8a6509ac8:MonkeyStand"
-			var PlayerJump = "5c7ad8a8a653ebc9:MonkeyJump"
-			var PlayerWalk = "5c7ad9d876e7b556:MonkeyWalk_R"
+			var BaseSprite = "5275aa4d802dd6dc:Square"
+			var WalkingSprite = "5274db4c2e7c11f9:Circle"
+			var JumpingSprite = "5586f1922250b073:CircleBordered"
 		}
 	}
 	Cog [ContextId:7]
