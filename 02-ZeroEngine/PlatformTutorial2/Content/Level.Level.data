@@ -85,7 +85,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{168.390839, -2.38313127, 48.3126602}
+			var Translation = Real3{178.601532, 4.25867414, 48.3126602}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -138,7 +138,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 17.3440018
+			var Size = 28.5954514
 		}
 		EditorCameraController 
 		{
@@ -147,7 +147,7 @@ Level
 			var LookDistance = 5.55452061
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{168.390839, -2.38313127, 42.7581406}
+			var LookTarget = Real3{178.601532, 4.25867414, 42.7581406}
 			var MoveSensitivity = 1
 		}
 	}
@@ -242,7 +242,7 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Lag = 0.5
+			var Lag = 0.150000006
 		}
 		Hierarchy 
 		{
@@ -279,12 +279,12 @@ Level
 			var MeshThickness = 1.20000005
 		}
 	}
-	Cog [ContextId:5]
+	Cog [ContextId:7]
 	{
 		var Name = "Player"
 		Transform 
 		{
-			var Translation = Real3{0, 4, 0}
+			var Translation = Real3{164, 7, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -333,7 +333,7 @@ Level
 		{
 			var WorldUp = Real3{0, 1, 0}
 			var LockZAxis = false
-			var ForwardEvents = false
+			var ForwardEvents = true
 			var Gravity = 50
 			var JumpSpeed = 15
 			var JumpCancelFactor = 0.5
@@ -370,16 +370,16 @@ Level
 		}
 		Lives 
 		{
-			var NextLevel = "5cae55d8b7485db1:MainMenu"
+			var NextLevel = "5c540249365adeca:Lose"
 		}
 	}
-	Cog [ContextId:7]
+	Cog [ContextId:8]
 	{
 		var Name = "BlueSky"
 		Transform 
 		{
-			var Translation = Real3{149.164825, 53.8269958, -75}
-			var Scale = Real3{18.5113621, 18.5113621, 18.5113621}
+			var Translation = Real3{84.6648254, 48.8269958, -20}
+			var Scale = Real3{4, 4, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -394,7 +394,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5cae5fdc9421dd9f:blueSkyPixleArt"
+			var SpriteSource = "5c53efbfd610a091:OuttheDigiPenwindowOptimized"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
@@ -402,12 +402,12 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [ContextId:8]
+	Cog [ContextId:9]
 	{
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{95.5, 2, 0}
+			var Translation = Real3{172.75, 7, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -447,14 +447,14 @@ Level
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
+			var HalfSize = Real3{0.5, 1, 0.5}
 		}
 		LevelDoor 
 		{
-			var NextLevel = "577d126becbdd810:EmptyLevel"
+			var NextLevel = "5c53f9e9e159a930:Win"
 		}
 	}
-	Cog [ContextId:9]
+	Cog [ContextId:10]
 	{
 		var Name = "Sprite"
 		Transform 
@@ -505,7 +505,7 @@ Level
 		{
 		}
 	}
-	Cog [ContextId:10]
+	Cog [ContextId:11]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -530,7 +530,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:11]
+	Cog [ContextId:12]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -555,7 +555,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:12]
+	Cog [ContextId:13]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -580,7 +580,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:13]
+	Cog [ContextId:14]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -605,7 +605,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:14]
+	Cog [ContextId:15]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -630,7 +630,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:15]
+	Cog [ContextId:16]
 	{
 		var Name = "SongEmtter"
 		Transform 
@@ -653,6 +653,37 @@ Level
 			var StartPlaying = true
 			var Positional = false
 			var Cue = "5c47358f30a7979c:Caveman"
+		}
+	}
+	Cog [ContextId:17]
+	{
+		var Name = "TileMapbkgnd"
+		Transform 
+		{
+			var Translation = Real3{0, 0, -0.5}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		MultiSprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var AnimationActive = true
+			var AnimationSpeed = 1
+		}
+		TileMap 
+		{
+			var Source = "5c53fdd017504d17:Level_TileMap02"
+			var PaletteName = "5c42f0afe892e815:Base"
+			var MeshThickness = 1.20000005
 		}
 	}
 }
