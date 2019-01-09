@@ -1,0 +1,21 @@
+/****************************************
+Edited By: Blake North
+Last Edited: 12/18/2018
+Description: This script will handle hazards
+****************************************/
+class Lava : ZilchComponent
+{
+  [Property]
+  var NextLevelOnDeath : Level = null;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.GroupCollisionStarted, this.OnGroupCollisionStarted);
+  }
+
+  function OnGroupCollisionStarted(event : CollisionGroupEvent)
+  {
+    this.GameSession.GameVariables.CurrentTime = 0;
+    this.Space.LoadLevel(this.NextLevelOnDeath);
+  }
+}

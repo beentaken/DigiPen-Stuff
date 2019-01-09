@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "LavaAmbience_1"
+		var ResourceId = 0x5c47358f30a91541
+		var LoaderType = "SoundCue"
+		var Version = 0
+	}
+}

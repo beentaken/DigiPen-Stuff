@@ -1,0 +1,17 @@
+/*************************************
+Edited By: Blake North
+Last Edited: 12/19/2018
+Description: Add this to objects ment to auto kill the player (can cause other effects if wanted) 
+Notes: There is another script called "lava" that does the same thing. This script is made to follow along in class and get credit.
+*************************************/
+class DeathZone : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+  }
+}

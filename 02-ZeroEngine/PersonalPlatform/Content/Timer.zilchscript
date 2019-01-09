@@ -1,0 +1,47 @@
+/**********************************************************
+Edited By: Blake North
+Last Edited: 12/18/2018
+Description: This script will help keep track of the timer and how to display it
+**********************************************************/
+class Timer : ZilchComponent
+{
+  [Property]
+  var NextLevelOnLoss : Level = null;
+  
+  //This is used to keep track of actual time
+  var Timer : Real = 0;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    //Update timer
+    this.Timer += event.Dt;
+    
+    //Check to see if the timer is up and if there is a level to go to
+    if(this.GameSession.GameVariables.CurrentTime >= this.GameSession.GameVariables.TimeTilLoss && this.NextLevelOnLoss != null)
+    {
+      //Reset timer
+      this.GameSession.GameVariables.CurrentTime = 0;
+      //Load level
+      this.Space.LoadLevel(this.NextLevelOnLoss);
+    }
+    
+    //Check if a second has passed
+    if(this.Timer >= 1)
+    {
+      //Reset timer
+      this.Timer = 0;
+      //Increase CurrentTime
+      this.GameSession.GameVariables.CurrentTime += 1;
+    }
+    
+    if(this.GameSession.GameVariables.CurrentTime < 0)
+    {
+      this.GameSession.GameVariables.CurrentTime = 0;
+    }
+    this.Owner.SpriteText.Text = "Time : `this.GameSession.GameVariables.CurrentTime`/`this.GameSession.GameVariables.TimeTilLoss`";
+  }
+}

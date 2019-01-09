@@ -1,0 +1,8 @@
+[Version:1]
+ContentLibrary 
+{
+	var Name = "PlatformTutorial"
+	var LibraryId = 0x5c4344e17a197e10
+	var SourceControlType = ""
+	var ReadOnly = false
+}

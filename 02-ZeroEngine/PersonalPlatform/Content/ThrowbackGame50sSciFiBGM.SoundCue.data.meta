@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "ThrowbackGame50sSciFiBGM"
+		var ResourceId = 0x5c47358f30aa0fa3
+		var LoaderType = "SoundCue"
+		var Version = 0
+	}
+}

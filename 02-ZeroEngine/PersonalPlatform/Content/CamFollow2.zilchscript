@@ -1,0 +1,28 @@
+/************************************
+Blakely North
+10-22-2018
+Makes the game cam follow an object with lag.
+************************************/
+
+class CameraFollow : ZilchComponent
+{
+  //obj to follow
+  [Property]
+  var Target : CogPath = null;
+  [Property] var Lag : Real = 0.5;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if (this.Target.Cog !=null)
+    {
+      //change cam pos
+      var newPos = this.Target.Cog.Transform.Translation;
+      newPos.Z = this.Owner.Transform.Translation.Z;
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation,newPos, this.Lag);
+    }
+  }
+}

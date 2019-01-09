@@ -1,0 +1,27 @@
+/*****************************************
+Edited By: Blake North
+Last Edited: 12/20/2018
+Description: This script will handle checkpoints for the player
+*****************************************/
+class CheckPoint : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+  }
+  
+  //This function will check to see if it has collided with the player, if so set new respawn
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    //Make sure its colliding with player
+    if(event.OtherObject.PlayerCollision != null)
+    {
+      //Make sure LevelVars is on levelsettings
+      if(this.LevelSettings.LevelVars != null)
+      {
+        //Set the respawn location to the owners posistion
+        this.LevelSettings.LevelVars.RespawnLocation = this.Owner.Transform.Translation;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "DeathTile"
+		var ResourceId = 0x5caea2bfac114b7d
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

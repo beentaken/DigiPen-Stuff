@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Win"
+		var ResourceId = 0x5c53f9e9e159a930
+		var LoaderType = "Level"
+		var Version = 0
+	}
+}

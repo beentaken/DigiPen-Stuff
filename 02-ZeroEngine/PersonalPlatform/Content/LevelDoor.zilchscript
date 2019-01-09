@@ -1,0 +1,23 @@
+/*************************************
+Edited By: Blake North
+Last Edited: 12/19/2018
+Description: This will send the player to the next level if touched
+*************************************/
+class LevelDoor : ZilchComponent
+{
+  [Property]
+  var NextLevel : Level = null;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    if(this.NextLevel != null && event.OtherObject.PlayerCollision != null)
+    {
+      this.Space.LoadLevel(this.NextLevel);
+    }
+  }
+}

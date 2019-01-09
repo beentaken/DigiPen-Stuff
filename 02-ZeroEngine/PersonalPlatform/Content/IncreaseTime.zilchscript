@@ -1,0 +1,19 @@
+/****************************************
+Edited By: Blake North
+Last Edited: 12/18/2018
+Description: This script will handle the pickups
+****************************************/
+
+class IncreaseTime : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.GroupCollisionStarted, this.OnGroupCollisionStarted);
+  }
+
+  function OnGroupCollisionStarted(event : CollisionGroupEvent)
+  {
+    this.GameSession.GameVariables.CurrentTime -= 1;
+    this.Owner.Destroy();
+  }
+}

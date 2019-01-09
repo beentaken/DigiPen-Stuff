@@ -1,0 +1,14 @@
+[Version:1]
+Cog 
+{
+	var Name = "DeathTile"
+	Transform 
+	{
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	DeathZone 
+	{
+	}
+}

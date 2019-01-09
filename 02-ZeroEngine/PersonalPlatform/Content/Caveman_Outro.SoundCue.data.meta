@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Caveman_Outro"
+		var ResourceId = 0x5c47358f30a8372a
+		var LoaderType = "SoundCue"
+		var Version = 0
+	}
+}
