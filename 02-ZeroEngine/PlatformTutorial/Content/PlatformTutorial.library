@@ -1,8 +1,0 @@
-[Version:1]
-ContentLibrary 
-{
-	var Name = "PlatformTutorial"
-	var LibraryId = 0x5c78337ec519fec8
-	var SourceControlType = ""
-	var ReadOnly = false
-}

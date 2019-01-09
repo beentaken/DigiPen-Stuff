@@ -1,9 +1,0 @@
-[Version:1]
-TextContent 
-{
-	ZilchScriptBuilder 
-	{
-		var Name = "DeathZone"
-		var ResourceId = 0x5c7ae9e259f96230
-	}
-}
