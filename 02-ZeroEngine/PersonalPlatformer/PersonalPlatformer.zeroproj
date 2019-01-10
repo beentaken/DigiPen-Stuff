@@ -4,7 +4,7 @@ Cog
 	var Name = ""
 	ProjectSettings 
 	{
-		var ProjectName = "PlatformTutorial"
+		var ProjectName = "PersonalPlatformer"
 		var ProjectOwner = ""
 		var DefaultLevel = "Level"
 		var ProjectSpace = "Space"

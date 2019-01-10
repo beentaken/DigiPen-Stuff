@@ -1,0 +1,178 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright 2017 DigiPen USA Corporation, All Rights Reserved
+// Author: Zero Engine Team
+// Last updated by: Joshua Davis
+// Last update: 1/27/2017
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[RunInEditor]
+// A spline that builds its control points from all child cogs that have Transforms.
+class ScriptHierarchySpline : ZilchComponent
+{
+  // Does the spline loop back on itself?
+  [Property] var Closed : Boolean
+  {
+    get { return this.Spline.Closed; }
+    set { this.Spline.Closed = value; }
+  }
+  // The kind of spline (Linear, BSpline, CatmullRom).
+  // Determines how the control points affect the curve.
+  [Property] var SplineType : SplineType
+  {
+    get { return this.Spline.SplineType; } 
+    set { this.Spline.SplineType = value; } 
+  }
+  // The max number of units that a line segment is
+  // allowed to deviate from the curve.
+  [Property] var Error : Real
+  {
+    get { return this.Spline.Error; }
+    set { this.Spline.Error = value; }
+  }
+  // Should the spline draw every frame? Mainly used for debugging purposes.
+  [Property] var DebugDrawSpline : Boolean = true;
+  // What color should that spline be drawn with
+  [Property] var SplineColor : Real4 = Real4(0, 0, 0, 1);
+  
+  // The spline used to convert control points into baked curve points.
+  // Also used to sample positions on the curve. Currently, splines must be
+  // created through a static function on the spline class.
+  var Spline : Spline = Spline.Create();
+  // Mark if the contained spline has been modified. Used to avoid rebuilding the underlying spline
+  // and visiting child objects multiple times during transformations.
+  var IsModified : Boolean = true;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(init, Events.AllObjectsInitialized, this.OnAllObjectsInitialized);
+    Zero.Connect(this.Owner, Events.QuerySpline, this.OnQuerySpline);
+    Zero.Connect(this.Owner, Events.ChildAttached, this.OnChildAttached);
+    Zero.Connect(this.Owner, Events.ChildDetached, this.OnChildDetached);
+    Zero.Connect(this.Owner, Events.ChildrenOrderChanged, this.MarkModified);
+    Zero.Connect(this.Spline, Events.SplineModified, this.OnSplineModified);
+    Zero.Connect(this.Space, Events.FrameUpdate, this.OnFrameUpdate);
+    
+    // Hook up the initial control points (done here due to some issues with
+    // patching run-time components as well as in AllObjectsInitialized)
+    this.GetChildrenConnections();
+    this.IsModified = true;
+    
+  }
+  
+  function OnAllObjectsInitialized(event : CogInitializerEvent)
+  {
+    // Hook up the initial control points
+    this.GetChildrenConnections();
+    this.IsModified = true;
+  }
+  
+  function OnQuerySpline(event : SplineEvent)
+  {
+    // Someone asked for our spline
+    event.Spline = this.Spline;
+  }
+  
+  function OnSplineModified(event : SplineEvent)
+  {
+    // Forward the spline modification event out so other
+    // components can listen to us instead of the spline
+    this.Owner.DispatchEvent(Events.SplineModified, event);
+  }
+
+  function OnFrameUpdate(event : UpdateEvent)
+  {
+    // To avoid traversing children multiple times during transform updates, 
+    // we rebuild every frame. The user can also manually rebuild if they desire
+    this.RebuildIfModified();
+    this.DebugDraw();
+  }
+
+  function OnChildAttached(event : HierarchyEvent)
+  {
+    // A new child was added to us, connect all the required evens and mark ourself as modified
+    this.ConnectChildEvents(event.Child);
+    this.IsModified = true;
+  }
+  
+  function OnChildDetached(event : HierarchyEvent)
+  {
+    // A child was removed, stop listening to it and mark ourself as modified
+    Zero.DisconnectAll(event.Child, this);
+    this.IsModified = true;
+  }
+  
+  // Event connection to just mark ourself as modified
+  function MarkModified(event : Event)
+  {
+    this.IsModified = true;
+  }
+  
+  function ConnectChildEvents(child : Cog)
+  {
+    // Disconnect any connections we have to this child (so we don't get duplicate events)
+    Zero.DisconnectAll(child, this);
+    // Listen for transform update so we can rebuild the spline when a child moves
+    Zero.Connect(child, Events.TransformUpdated, this.MarkModified);
+    // Listen for when destroy is called on a child so we can rebuild the spline
+    Zero.Connect(child, Events.CogDestroy, this.MarkModified);
+  }
+  
+  // Add connections for all child objects so we know when they're updated (moved, destroyed, etc...)
+  function GetChildrenConnections()
+  {
+    // Add connections for all children
+    foreach(var child in this.Owner.Children)
+      this.ConnectChildEvents(child);
+  }
+  
+  function RebuildIfModified()
+  {
+    if(!this.IsModified)
+      return;
+      
+    this.ForceRebuild();
+  }
+  
+  function ForceRebuild()
+  {
+    this.IsModified = false;
+    // Remove all of the old control points
+    this.Spline.ControlPoints.Clear();
+    // Add all children's positions as control points
+    foreach(var child in this.Owner.Children)
+    {
+      // When we're rebuilding because of a child being destroyed, the child
+      // still exists until the end of the function call. To avoid this we simply
+      // skip any child that is being destroyed.
+      if(child.MarkedForDestruction)
+        continue;
+      
+      // Add the world translation of this cog (if it has a transform)
+      var transform = child.Transform;
+      if(transform != null)
+        this.Spline.ControlPoints.Add(SplineControlPoint(transform.WorldTranslation));
+    }
+    
+    this.Spline.ForceRebuild();
+  }
+  
+  // The total arc-length of the curve. Use to normalize the curve if you wish.
+  var TotalDistance : Real
+  {
+    get { return this.Spline.TotalDistance; }
+  }
+  
+  // Samples the curve at a given arc-length distance.
+  function SampleDistance(distance : Real) : SplineSampleData
+  {
+    return this.Spline.SampleDistance(distance);
+  }
+  
+  function DebugDraw()
+  {
+    if(!this.DebugDrawSpline)
+      return;
+    
+    this.Spline.DebugDraw(this.SplineColor);
+  }
+}

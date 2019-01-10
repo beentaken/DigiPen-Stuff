@@ -1,0 +1,16 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "ScriptHierarchySpline"
+		var ResourceId = 0x59248b0f435b4778
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"SampleSplines[1.0]"
+		}
+	}
+}

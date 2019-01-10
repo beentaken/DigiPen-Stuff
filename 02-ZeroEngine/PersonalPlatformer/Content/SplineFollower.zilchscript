@@ -1,0 +1,214 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright 2016 DigiPen USA Corporation, All Rights Reserved
+// Author: Zero Engine Team
+// Last updated by: Joshua Davis
+// Last update: 1/27/2017
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Loop mode for the simple spline follower. Determines what the
+// object should do when it reaches the end of the spline.
+enum SimpleLoopMode {Stop, Continue, Reverse}
+
+// Makes an object interpolate its position along a spline.
+class SimpleSplineFollower : ZilchComponent
+{
+  [Dependency]
+  var Transform : Transform;
+  
+  [Dependency]
+  var Orientation : Orientation;
+  
+  // Should we follow the spline at all?
+  [Property]
+  var Active : Boolean = true;
+  
+  //Should we rotate while on the spline?
+  [Property]
+  var RotateOn = false;
+  
+  // The object to query for a spline. If its spline exists we will grab and follow it.
+  [Property]
+  var SplineCogPath : CogPath = CogPath();
+  
+  // How fast will we move along the spline. Currently we only move with a constant velocity.
+  [Property]
+  var Speed : Real = 5.0;
+  
+  // The local point that should follow along the spline.
+  [Property]
+  var LocalFollowPoint : Real3 = Real3(0.0, 0.0, 0.0);
+  
+  // How we follow the spline, primarily what we do when we reach the end.
+  [Property]
+  var LoopMode : SimpleLoopMode = SimpleLoopMode.Reverse;
+  
+  // Locally following a spline means that we take the spline and orient and
+  // translate it so that it starts at our position and the first tangent
+  // direction of the spline is aligned with our current forward.
+  [Property]
+  var LocalFollow : Boolean = false;
+  
+  // How far along the current spline we are. This can be modified
+  // initially to start a certain distance along the spline.
+  [Property]
+  var CurrentDistance : Real = 0.0;
+  
+  // Are we traveling forwards or backwards along the spline? (1 or -1)
+  [Property]
+  var Direction : Real = 1.0;
+  
+  // The forward direction we had last frame. Used to smooth out rotations.
+  var OldForward : Real3 = Real3(0.0, 1.0, 0.0);
+  
+  // Used to calculte the delta movement vector so that we can more easily perform local following.
+  var PrevPoint : Real3 = Real3(0.0, 0.0, 0.0);
+  // The rotation that takes us from the spline's frame to our initial following frame.
+  var InvSplineRotation : Quaternion = Quaternion();
+  
+  // The current spline we are following.
+  var Spline : Spline;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(init, Events.AllObjectsInitialized, this.OnAllObjectsInitialized);
+    Zero.Connect(this.SplineCogPath, Events.CogPathCogChanged, this.OnCogPathCogChanged);
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  
+  function OnAllObjectsInitialized(event : CogInitializerEvent)
+  {
+    // Find a spline via our target path to follow
+    this.FindSpline();
+  }
+  
+  function OnCogPathCogChanged(event : CogPathEvent)
+  {
+    // The cog we get a spline from changed, find if it has a spline and start following it anew
+    this.FindSpline();
+  }
+  
+  function InitializeSplineData()
+  {
+    if(this.Spline == null)
+      return;
+    
+    // Grab the first point from the spline along with its tangent direction
+    var firstPoint = this.Spline.SampleDistance(0.0);
+    var startTangent = firstPoint.WorldTangent;
+    // Also get our starting forward
+    var startDir = this.Orientation.WorldForward;
+    
+    // To properly follow a spline in local mode, we have to rotate the spline
+    // into our local frame. To do this we need to calculate the rotation
+    // from our the spline's starting tangent to our forward. We can do this by
+    // calculating the axis angle rotation between these two vectors.
+    var axis = Math.Cross(startTangent, startDir);
+    var angle = Math.ACos(Math.Dot(startTangent, startDir));
+    axis = Math.Normalize(axis);
+    this.InvSplineRotation = Math.ToQuaternion(axis, angle);
+    
+    // To smooth out the rotation, we need to store the first forward direction we had,
+    // however if we are in local follow mode we need to take that first direction and
+    // rotate it back into our local frame.
+    var forward = firstPoint.WorldTangent;
+    if(this.LocalFollow == true)
+    {
+      forward = Math.Multiply(this.InvSplineRotation, forward);
+    }
+    this.OldForward = forward;
+    // Also cache the first point so we can properly update with delta movements
+    this.PrevPoint = firstPoint.WorldPoint;
+  }
+  
+  function FindSpline()
+  {
+    var target = this.SplineCogPath.Cog;
+    // If our target cog exists, send an event to it to find a spline
+    if(target != null)
+    {
+      var toSend = SplineEvent();
+      target.DispatchEvent(Events.QuerySpline, toSend);
+      this.Spline = toSend.Spline;
+      this.InitializeSplineData();
+    }
+  }
+  
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(!this.Active || this.Spline == null)
+      return;
+    
+    // Update how far along the spline we are
+    this.UpdateDistance(event.Dt);
+    
+    var sampleData = this.Spline.SampleDistance(this.CurrentDistance);
+    
+    var worldFollowOffset = this.Owner.Transform.TransformNormal(this.LocalFollowPoint);
+    
+    // Calculate where our object should be so that our follow point is on the spline
+    var pos = sampleData.WorldPoint - worldFollowOffset;
+    // Reverse our forward if we're traveling backwards on the spline
+    var forward = sampleData.WorldTangent * this.Direction;
+    
+    // If we're following a spline in local mode, we have to update the forward and
+    // the position to be relative instead of where the spline actually is
+    if(this.LocalFollow)
+    {
+      // Calculate the vector that takes us from where we were to our new position
+      var delta = pos - this.PrevPoint;
+      this.PrevPoint = pos;
+      
+      // Now since we're in a local follow mode, we can't just
+      // move to the new position we calculated. Instead, take the
+      // delta movement and the forward vector and rotate them back
+      // into the "local" space for following.
+      delta = Math.Multiply(this.InvSplineRotation, delta);
+      forward = Math.Multiply(this.InvSplineRotation, forward);
+      pos = delta + this.Owner.Transform.WorldTranslation;
+    }
+    
+    this.Owner.Transform.Translation = pos;
+    if(this.RotateOn)
+    this.UpdateOrientation(forward);
+  }
+  
+  function UpdateOrientation(forward : Real3)
+  {
+    var currForward = Math.Slerp(this.OldForward, forward, 0.1);
+    this.Orientation.LookAtDirection(currForward);
+    this.OldForward = currForward;
+  }
+  
+  function UpdateDistance(dt : Real)
+  {
+      this.CurrentDistance += dt * this.Speed * this.Direction;
+      
+      var totalDistance = this.Spline.TotalDistance;
+      
+      // If we reverse when we reach the end of the spline
+      if(this.LoopMode == SimpleLoopMode.Reverse)
+      {
+        // If we're at the end of the spline then reverse our direction and properly
+        // accumulate the remaining distance we went past the end of the spline
+        if(this.CurrentDistance > totalDistance)
+        {
+          this.Direction = -1.0;
+          this.CurrentDistance -= (this.CurrentDistance - totalDistance) * 2.0;
+        }
+        // Otherwise if we went off the beginning do the same thing
+        else if(this.CurrentDistance < 0.0)
+        {
+          this.Direction = 1.0;
+          this.CurrentDistance *= -1.0;
+        }
+      }
+      // If we stop when we reach the end then just clamp our
+      // distance to the max distance of the spline
+      else if(this.LoopMode == SimpleLoopMode.Stop)
+        this.CurrentDistance = Math.Clamp(this.CurrentDistance, 0.0, totalDistance);
+      else if(this.LoopMode == SimpleLoopMode.Continue)
+        this.CurrentDistance = Math.FMod(this.CurrentDistance, totalDistance);
+        
+        
+  }
+}

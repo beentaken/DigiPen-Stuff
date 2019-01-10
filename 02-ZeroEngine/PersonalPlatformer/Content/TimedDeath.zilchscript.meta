@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "TimedDeath"
+		var ResourceId = 0x5c56a1a2479786b6
+	}
+}

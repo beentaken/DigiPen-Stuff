@@ -85,7 +85,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{0.545298159, 7.17752075, 48.3126602}
+			var Translation = Real3{40.0097237, -23.4459457, 48.3126602}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -138,7 +138,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 14.2001305
+			var Size = 35.2476845
 		}
 		EditorCameraController 
 		{
@@ -147,7 +147,7 @@ Level
 			var LookDistance = 5.55452061
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{0.545298159, 7.17752075, 42.7581406}
+			var LookTarget = Real3{40.0097237, -23.4459457, 42.7581406}
 			var MoveSensitivity = 1
 		}
 	}
@@ -274,7 +274,7 @@ Level
 		}
 		TileMap 
 		{
-			var Source = "5c42fa7c117723b9:Level_TileMap00"
+			var Source = "5c56887550b037e6:Level2_TileMap00"
 			var PaletteName = "5c42f0afe892e815:Base"
 			var MeshThickness = 1.20000005
 		}
@@ -284,7 +284,7 @@ Level
 		var Name = "Player"
 		Transform 
 		{
-			var Translation = Real3{0, 2.75, -9.99999997e-07}
+			var Translation = Real3{0, 3, -9.99999997e-07}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -341,7 +341,7 @@ Level
 			var MaxFallSpeed = 250
 			var GroundAcceleration = 250
 			var AirAcceleration = 150
-			var GroundDeceleration = 50
+			var GroundDeceleration = 400
 			var AirDeceleration = 150
 			var MaxGroundSlope = 45
 			var MaxCeilingSlope = 45
@@ -375,39 +375,10 @@ Level
 	}
 	Cog [ContextId:7]
 	{
-		var Name = "BlueSky"
-		Transform 
-		{
-			var Translation = Real3{84.6648254, 48.8269958, -20}
-			var Scale = Real3{4, 4, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c53efbfd610a091:OuttheDigiPenwindowOptimized"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-	}
-	Cog [ContextId:8]
-	{
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{173.25, 7, 0}
+			var Translation = Real3{-4.89089966, 16.2827797, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -454,12 +425,63 @@ Level
 			var NextLevel = "5c53f9e9e159a930:Win"
 		}
 	}
+	Cog [ContextId:8]
+	{
+		var Name = "Sprite"
+		Transform 
+		{
+			var Translation = Real3{-10.9239502, 12.2792587, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c42fc4e53bd46a8:Door001"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Kinematic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = true
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 1, 0.5}
+		}
+		CheckPoint 
+		{
+		}
+	}
 	Cog [ContextId:9]
 	{
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{59.8019638, -2.75, 0}
+			var Translation = Real3{-4.83892822, 12.0327797, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -510,7 +532,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{173.301971, 2.75, 0}
+			var Translation = Real3{193.801971, -2.75, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -558,57 +580,6 @@ Level
 	}
 	Cog [ContextId:11]
 	{
-		var Name = "Sprite"
-		Transform 
-		{
-			var Translation = Real3{193.801971, -2.75, 0}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c42fc4e53bd46a8:Door001"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Kinematic
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-		BoxCollider 
-		{
-			var Ghost = true
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 1, 0.5}
-		}
-		CheckPoint 
-		{
-		}
-	}
-	Cog [ContextId:12]
-	{
 		var Name = "LavaEmitter"
 		Transform 
 		{
@@ -632,7 +603,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:13]
+	Cog [ContextId:12]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -657,7 +628,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:14]
+	Cog [ContextId:13]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -682,7 +653,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:15]
+	Cog [ContextId:14]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -707,7 +678,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:16]
+	Cog [ContextId:15]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -732,7 +703,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:17]
+	Cog [ContextId:16]
 	{
 		var Name = "SongEmtter"
 		Transform 
@@ -757,43 +728,12 @@ Level
 			var Cue = "5c47358f30a7979c:Caveman"
 		}
 	}
-	Cog [ContextId:18]
-	{
-		var Name = "TileMapbkgnd"
-		Transform 
-		{
-			var Translation = Real3{0, 0, -0.5}
-			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		MultiSprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var AnimationActive = true
-			var AnimationSpeed = 1
-		}
-		TileMap 
-		{
-			var Source = "5c53fdd017504d17:Level_TileMap02"
-			var PaletteName = "5c42f0afe892e815:Base"
-			var MeshThickness = 1.20000005
-		}
-	}
-	Cog [ContextId:19]
+	Cog [ContextId:17]
 	{
 		var Name = "Cube"
 		Transform 
 		{
-			var Translation = Real3{94.4427719, -93.7227478, 42.7581406}
+			var Translation = Real3{9.06576157, -345.391052, 42.7581406}
 			var Scale = Real3{521, 40, 521}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
