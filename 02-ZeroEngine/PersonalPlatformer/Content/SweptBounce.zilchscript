@@ -1,0 +1,25 @@
+class SweptBounce : ZilchComponent
+{
+  [Property]
+  var JumpStrength : Real = 10;
+  [Property]
+  var JumpDirection : Real3 = Real3(0,1,0);
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    if(event.OtherObject.SweptController != null)
+    {
+      event.OtherObject.SweptController.JumpDirectionally(this.JumpStrength * this.JumpDirection - 
+        event.OtherObject.SweptController.JumpSpeed * event.OtherObject.SweptController.WorldUp);
+    }
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+  }
+}
