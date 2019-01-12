@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "Outthedidgipenwindow2"
+		var ResourceId = 0x5c593c4669359a2e
+		var FrameSizeX = 2048
+		var FrameSizeY = 1152
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 1024
+		var OriginY = 576
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

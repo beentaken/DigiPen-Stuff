@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Lose3H"
+		var ResourceId = 0x5c593c9033d53388
+		var LoaderType = "Level"
+		var Version = 0
+	}
+}
