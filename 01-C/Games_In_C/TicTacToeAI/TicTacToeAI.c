@@ -21,6 +21,8 @@ gcc -Wall -Wextra -O -ansi -pedantic -o TicTacToeAI TicTacToeAI.c
 int CheckGrid(int board[][3]);
 /*print out the board for the players*/
 void printBoard(int board[][3]);
+/*what the ai does on its turn.*/
+int AITurn(int board[][3]);
 
 int main(void)
 {
@@ -41,7 +43,7 @@ int main(void)
 		if (playerTurn == 1)
 			printf("Your turn, %s", playerName);
 		else
-			AITurn(board[3][3]);
+			input = AITurn(board[3][3]);
 		do
 		{
 			scanf("%i", &input);
@@ -133,4 +135,11 @@ void printBoard(int board[][3])
 		printf("\n\n");
 	}
 	return;
+}
+
+/*what the ai does on its turn.*/
+int AITurn(int board[][3])
+{
+	
+  return 0;
 }
