@@ -107,7 +107,7 @@ int CheckGrid(int Grid[3][3])
 		return Grid[1][1];
 	}
 
-	/*other diagnol*/
+	/*other diagonal*/
 	if(Grid[0][2] != -1 && Grid[0][2] == Grid[1][1] && Grid[1][1] == Grid[2][0])
 	{
 		return Grid[1][1];
