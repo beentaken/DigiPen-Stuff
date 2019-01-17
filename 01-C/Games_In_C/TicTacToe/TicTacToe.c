@@ -156,3 +156,68 @@ void printBoard(int Grid[][3])
 	}
 	return;
 }
+void AImove(char tempboard[3][3], int *rows,  int *columns)
+{
+    int points=-1, temppoints, i, i2;
+
+    for(i=0;i<3;i++)
+    {
+        for(i2=0;i2<3;i2++)
+        {
+            if(tempboard[i][i2]=='\0')
+            {
+                tempboard[i][i2]='O';
+                temppoints = MinMax(tempboard, 1);
+                if(temppoints > points)
+                {
+                    points=temppoints;
+                    *rows = i;
+                    *columns = i2;
+                }
+                tempboard[i][i2]='\0';
+            }
+        }
+    }
+}
+
+int MinMax(char tempboard[3][3], int player)
+{
+    int winner, points, temppoints, i, i2;
+    winner=didwin(tempboard);
+    if(winner=='X') return(0);
+    else if (winner=='O') return(999);
+    else
+    {
+        for(i=0;i<3;i++)
+        {
+            for(i2=0;i2<3;i2++)
+            {
+                if(tempboard[i][i2]='\0')
+                {
+                    if (player==1)
+                    {
+                        tempboard[i][i2]='X';
+                    }
+                    else
+                    {
+                        tempboard[i][i2]='O';
+                    }
+                    if (player==1)
+                    {
+                        temppoints=MinMax(tempboard, 2);
+                    }
+                    else
+                    {
+                        temppoints=MinMax(tempboard, 1);
+                    }
+                    if(temppoints>points)
+                    {
+                        points=temppoints;
+                    }
+                    tempboard[i][i2]='\0';
+                }
+            }
+        }
+    }
+    return(points);
+}
