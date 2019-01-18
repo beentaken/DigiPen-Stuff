@@ -85,7 +85,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{15.3599796, -2.51422167, 48.3126602}
+			var Translation = Real3{-4.61378813, -1.52440834, 48.3126602}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -138,7 +138,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 89.5528259
+			var Size = 30.2637253
 		}
 		EditorCameraController 
 		{
@@ -147,7 +147,7 @@ Level
 			var LookDistance = 5.55452061
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{15.3599796, -2.51422167, 42.7581406}
+			var LookTarget = Real3{-4.61378813, -1.52440834, 42.7581406}
 			var MoveSensitivity = 1
 		}
 	}
@@ -156,7 +156,7 @@ Level
 		var Name = "GameCamera"
 		Transform 
 		{
-			var Translation = Real3{10, 2.5, 20}
+			var Translation = Real3{8.75, 2.75, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -284,7 +284,7 @@ Level
 		var Name = "Player"
 		Transform 
 		{
-			var Translation = Real3{10, 2.75, -0.00100000005}
+			var Translation = Real3{8.75, 2.75, -0.00100000005}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -422,7 +422,7 @@ Level
 		}
 		LevelDoor 
 		{
-			var NextLevel = "5c593d5220bb4774:Level3"
+			var NextLevel = "5ca5473b5d154752:Level3"
 		}
 	}
 	Cog [ContextId:8]
@@ -430,7 +430,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-21.7064381, 4.71191502, 0}
+			var Translation = Real3{-39, 39.8753242, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -727,7 +727,7 @@ Level
 		var Name = "EasyHardSign"
 		Transform 
 		{
-			var Translation = Real3{9.75, 6.5, 0}
+			var Translation = Real3{9, 1.5, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -743,7 +743,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var Text = "<--  HARD ROUTE         EASY ROUTE -->"
+			var Text = "HARD ROUTE                                                                                                                                                                                              EASY ROUTE"
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 79
 			var PixelsPerUnit = 128
@@ -839,7 +839,7 @@ Level
 		var Name = "atlas001"
 		Transform 
 		{
-			var Translation = Real3{-36, -14.6244221, 0}
+			var Translation = Real3{-36, -18.3744221, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -874,7 +874,7 @@ Level
 		}
 		SweptBounce 
 		{
-			var JumpStrength = 41.7999992
+			var JumpStrength = 51.3737984
 			var JumpDirection = Real3{0, 1, 0}
 		}
 		BoxCollider 
@@ -945,8 +945,8 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{0, 4.5, -20}
-			var Scale = Real3{5, 5, 1}
+			var Translation = Real3{-23.25, 4.5, -20}
+			var Scale = Real3{6, 6, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -967,6 +967,108 @@ Level
 			var AnimationActive = true
 			var AnimationSpeed = 1
 			var StartFrame = 0
+		}
+	}
+	Cog [ContextId:24]
+	{
+		var Name = "Sprite"
+		Transform 
+		{
+			var Translation = Real3{-57.4480286, 32.4564285, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c57ed0aa77c25c1:atlas000"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Kinematic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = true
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 1, 0.5}
+		}
+		CheckPoint 
+		{
+		}
+	}
+	Cog [ContextId:25]
+	{
+		var Name = "Sprite"
+		Transform 
+		{
+			var Translation = Real3{-35.9480286, -17.5, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c57ed0aa77c25c1:atlas000"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Kinematic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = true
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 1, 0.5}
+		}
+		CheckPoint 
+		{
 		}
 	}
 }

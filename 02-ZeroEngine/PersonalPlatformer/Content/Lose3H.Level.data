@@ -324,7 +324,7 @@ Level
 		}
 		NextLevelOnClick 
 		{
-			var NextLevelOnClick = "null"
+			var NextLevelOnClick = "5c5935a4a6b22149:Level3H"
 		}
 		RGBSprite 
 		{
@@ -366,6 +366,34 @@ Level
 			var Text = "Play again"
 			var Font = "57343753bb4eaaec:NotoSans-Regular"
 			var FontSize = 128
+			var PixelsPerUnit = 128
+			var TextAlign = TextAlign.Center
+		}
+	}
+	Cog [ContextId:9]
+	{
+		var Name = "SpriteText"
+		Transform 
+		{
+			var Translation = Real3{0.0427321084, -5.20165348, 1}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SpriteText 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "(Press Space.)"
+			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var FontSize = 32
 			var PixelsPerUnit = 128
 			var TextAlign = TextAlign.Center
 		}
