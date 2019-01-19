@@ -85,7 +85,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{27.719511, 9.59182549, 48.3126602}
+			var Translation = Real3{139.22583, 1.74570763, 48.3126602}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -138,7 +138,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 23.8514042
+			var Size = 118.136703
 		}
 		EditorCameraController 
 		{
@@ -147,7 +147,7 @@ Level
 			var LookDistance = 5.55452061
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{27.719511, 9.59182549, 42.7581406}
+			var LookTarget = Real3{139.22583, 1.74570763, 42.7581406}
 			var MoveSensitivity = 1
 		}
 	}
@@ -510,7 +510,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{173.301971, 2.75, 0}
+			var Translation = Real3{158.301971, 2.75, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -978,7 +978,7 @@ Level
 		}
 		SweptBounce 
 		{
-			var JumpStrength = 18.2373447
+			var JumpStrength = 20.0669594
 			var JumpDirection = Real3{1, 1, 0}
 		}
 		BoxCollider 
