@@ -17,7 +17,9 @@ gcc -Wall -Wextra -O -ansi -pedantic -o TicTacToeAI TicTacToeAI.c
 /* Max length of the player's name*/
 #define NAMEMAXLENGTH 10
 int board[3][3] = {{-1, -1, -1}, {-1, -1, -1}, {-1, -1, -1}};
-
+int o0_or_x1 = 0, i, j;
+/* possible input for ai */
+int pinput [3][3];
 /*function will need to look at the board and determine if there is a winner or if it is a tie*/
 int CheckGrid(int board[][3]);
 /*print out the board for the players*/
@@ -26,10 +28,10 @@ void printBoard(int board[][3]);
 int AITurn(void);
 
 /* board checkers */
-int Horizontal(int o1, board[][3]);
-int Vertical(int o1, board[][3]);
-int DiagonalRight(int o1, board[][3]);
-int DiagonalLeft(int o1, board[][3]);
+int Horizontal();
+int Vertical();
+int DiagonalRight();
+int DiagonalLeft();
 int board[3][3] = {{-1, -1, -1}, {-1, -1, -1}, {-1, -1, -1}};
 
 int main(void)
@@ -66,7 +68,7 @@ int main(void)
 				;
 		} while (0 != 0);
 		playerTurn = !playerTurn;
-		gamestate = CheckGrid(board);
+		gamestate = CheckGrid();
 	}
 	printBoard(board);
 	/* Who's the winner? */
@@ -86,7 +88,7 @@ int main(void)
 }
 
 /*function will need to look at the board and determine if there is a winner or if it is a tie*/
-int CheckGrid(int board[3][3])
+int CheckGrid()
 {
 	int i, j;
 
@@ -149,14 +151,14 @@ void printBoard(int board[][3])
 /*what the ai does on its turn.*/
 int AITurn()
 {
-	int o1 = 1;
+	int o0_or_x1 = 1;
 	/* c means x o means o, h means horizimtal, v means verticle, dl/dr means diagonal left (/) or diagonal right (\) */
 	int x_h_count, o_h_count;
 	int x_v_count, o_v_count;
 	int x_dl_count, o_dl_count;
 	int x_dr_count, o_dr_count;
 
-	int pinput[3][3]; /* possible input, 0 means horizontal, 1 means vertical, 2 means (\) 3 means (/) */
+	
 	int input;
 	int i, j;
 
@@ -164,46 +166,46 @@ int AITurn()
 	{
 		/*See if there are 2 in a row*/
 		/*horizontal loop through all on one row*/
-		if (o1)
+		if (o0_or_x1)
 		{
 			for (i = 0; i < 3; i++)
-				o_h_count = Horizontal(o1, i, board[3][3]);
+				o_h_count = Horizontal(o0_or_x1, i, board[3][3]);
 		}
 		else
 			for (i = 0; i < 3; i++)
-				x_h_count = Horizontal(o1, i, board[3][3]);
+				x_h_count = Horizontal(o0_or_x1, i, board[3][3]);
 
 		/*verticle loop through all on one column*/
-		if (o1)
+		if (o0_or_x1)
 		{
 			for (j = 0; j < 3; j++)
 				if (board[0][j] != -1 && board[0][j] == board[1][j] && board[1][j] == board[2][j])
-					Vertical(o1, i, board[3][3]);
+					Vertical(o0_or_x1, i, board[3][3]);
 		}
 		else
 		{
 			for (j = 0; j < 3; j++)
 				if (board[0][j] != -1 && board[0][j] == board[1][j] && board[1][j] == board[2][j])
-					Vertical(o1, i, board[3][3]);
+					Vertical(o0_or_x1, i, board[3][3]);
 		}
 		/*diagonal check (\)*/
-		if (o1)
-			o_dr_count = DiagonalRight(o1, board[3][3]);
+		if (o0_or_x1)
+			o_dr_count = DiagonalRight(o0_or_x1, board[3][3]);
 		else
-			x_dr_count = DiagonalRight(o1, board[3][3]);
+			x_dr_count = DiagonalRight(o0_or_x1, board[3][3]);
 
 		/*other diagonal (/)*/
-		if (o1)
-			o_dl_count = DiagonalLeft(o1, board[3][3]);
+		if (o0_or_x1)
+			o_dl_count = DiagonalLeft(o0_or_x1, board[3][3]);
 		else
-			x_dl_count = DiagonalLeft(o1, board[3][3]);
+			x_dl_count = DiagonalLeft(o0_or_x1, board[3][3]);
 		/*processing the results*/
-		o1 = 2, i = 0;
+		o0_or_x1 = 2, i = 0;
 
 		if (x_h_count == 2)
 		{
 			for (i = 0; i < 3; i++)
-				if (Horizontal(o1, i, board[][3]) = 
+				if (Horizontal() = 
 					pinput[i][j]++;
 		}
 		if (x_h_count == 2)
@@ -228,18 +230,18 @@ int AITurn()
 }
 
 /* Checks what it says */
-int Horizontal(int o1, i, board[][3])
+int Horizontal()
 {
 	int x_h_count = 0,
 		o_h_count = 0;
 	/*horizontal loop through all on one row*/
 	if (board[i][0] != -1 && board[i][0] == board[i][1] && board[i][1] == board[i][2])
 	{
-		if (board[i][0] != 1 && board[i][0] == board[i][1] && board[i][1] == board[i][2] && o1 == 0)
+		if (board[i][0] != 1 && board[i][0] == board[i][1] && board[i][1] == board[i][2] && o0_or_x1 == 0)
 		{
 			return x_h_count++;
 		}
-		else if (board[i][0] != 0 && board[i][0] == board[i][1] && board[i][1] == board[i][2] && o1 == 1)
+		else if (board[i][0] != 0 && board[i][0] == board[i][1] && board[i][1] == board[i][2] && o0_or_x1 == 1)
 		{
 			return o_h_count++;
 		}
@@ -248,18 +250,18 @@ int Horizontal(int o1, i, board[][3])
 
 /* Checks what it says */
 
-int Vertical(int o1, i, board[][3])
+int Vertical(int o0_or_x1, i, board[][3])
 {
 	int x_v_count = 0,
 		o_v_count = 0;
 	for (j = 0; j < 3; j++)
 		if (board[0][j] != -1 && board[0][j] == board[1][j] && board[1][j] == board[2][j])
 		{
-			if (board[0][j] != 1 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o1 == 0)
+			if (board[0][j] != 1 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 0)
 			{
 				return x_v_count++;
 			}
-			else if (board[0][j] != 0 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o1 == 1)
+			else if (board[0][j] != 0 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 1)
 
 			{
 				return o_v_count++;
@@ -269,17 +271,17 @@ int Vertical(int o1, i, board[][3])
 
 /* Checks what it says */
 
-int DiagonalRight(int o1, board[][3])
+int DiagonalRight(int o0_or_x1, board[][3])
 {
 	int x_dr_count = 0,
 		o_dr_count = 0;
 	if (board[0][0] != -1 && board[0][0] == board[1][1] && board[1][1] == board[2][2])
 	{
-		if (board[0][j] != 1 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o1 == 0)
+		if (board[0][j] != 1 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 0)
 		{
 			return x_dr_count++;
 		}
-		else if (board[0][j] != 0 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o1 == 1)
+		else if (board[0][j] != 0 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 1)
 
 		{
 			return o_dr_count++;
@@ -289,17 +291,17 @@ int DiagonalRight(int o1, board[][3])
 
 /* Checks what it says */
 
-int DiagonalLeft(int o1, board[][3])
+int DiagonalLeft(int o0_or_x1, board[][3])
 {
 	int x_dl_count = 0,
 		o_dl_count = 0;
 	if (board[0][2] != -1 && board[0][2] == board[1][1] && board[1][1] == board[2][0])
 	{
-		if (board[0][j] != 1 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o1 == 0)
+		if (board[0][j] != 1 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 0)
 		{
 			return x_dl_count++;
 		}
-		else if (board[0][j] != 0 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o1 == 1)
+		else if (board[0][j] != 0 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 1)
 
 		{
 			return o_dl_count++;
