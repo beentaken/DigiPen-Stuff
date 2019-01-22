@@ -4,3 +4,8 @@
 *.tgz
 *.log
 *.sig
+
+*.tns
+*.elf
+Makefile
+Timer.cpp
