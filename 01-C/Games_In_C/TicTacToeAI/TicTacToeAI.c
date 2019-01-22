@@ -18,8 +18,6 @@ gcc -Wall -Wextra -O -ansi -pedantic -o TicTacToeAI TicTacToeAI.c
 #define NAMEMAXLENGTH 10
 int board[3][3] = {{-1, -1, -1}, {-1, -1, -1}, {-1, -1, -1}};
 int o0_or_x1 = 0, i, j;
-/* possible input for ai */
-int pinput [3][3];
 /*function will need to look at the board and determine if there is a winner or if it is a tie*/
 int CheckGrid(int board[][3]);
 /*print out the board for the players*/
@@ -158,11 +156,13 @@ int AITurn()
 	int x_dl_count, o_dl_count;
 	int x_dr_count, o_dr_count;
 
-	
+	/* possible input for ai */
+	int pinput[3][3];
+
 	int input;
 	int i, j;
 
-	for (pinput)
+	for ()
 	{
 		/*See if there are 2 in a row*/
 		/*horizontal loop through all on one row*/
@@ -235,17 +235,18 @@ int Horizontal()
 	int x_h_count = 0,
 		o_h_count = 0;
 	/*horizontal loop through all on one row*/
-	if (board[i][0] != -1 && board[i][0] == board[i][1] && board[i][1] == board[i][2])
-	{
-		if (board[i][0] != 1 && board[i][0] == board[i][1] && board[i][1] == board[i][2] && o0_or_x1 == 0)
+	for (i = 0; i < 3; i++)
+		if (board[i][0] != -1 && board[i][0] == board[i][1] && board[i][1] == board[i][2])
 		{
-			return x_h_count++;
+			if (board[i][0] != 1 && board[i][0] == board[i][1] && board[i][1] == board[i][2] && o0_or_x1 == 0)
+			{
+				return x_h_count++;
+			}
+			else if (board[i][0] != 0 && board[i][0] == board[i][1] && board[i][1] == board[i][2] && o0_or_x1 == 1)
+			{
+				return o_h_count++;
+			}
 		}
-		else if (board[i][0] != 0 && board[i][0] == board[i][1] && board[i][1] == board[i][2] && o0_or_x1 == 1)
-		{
-			return o_h_count++;
-		}
-	}
 }
 
 /* Checks what it says */
@@ -268,7 +269,7 @@ int Vertical(int o0_or_x1, i, board[][3])
 			}
 		}
 }
-
+/*
 /* Checks what it says */
 
 int DiagonalRight(int o0_or_x1, board[][3])
