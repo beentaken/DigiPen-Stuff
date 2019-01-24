@@ -174,7 +174,7 @@ int Horizontal()
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
-			if (board[i][j] == 1 && (board[i][j] == board[i][j + 1] || board[i][j + 1] == board[i][j + 2]|| board[i][j] == board[i][j + 2]))
+			if ((board[i][j %3] == 1 && (board[i][j] == board[i][/*if j = 0, this num is 1; if j = 1, this num is 2, if j = 2, this num is 1*/j%3(j+1%3)j+2%3])) && board[i][j + (j % 3)] !=
 				pinput[i][j]++;
 	}
 }
