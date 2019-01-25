@@ -154,88 +154,57 @@ int AITurn()
 	int x_dl_count, o_dl_count;
 	int x_dr_count, o_dr_count;
 
-	int input;
+	int* input;
 
-	/* chk all possible plays */
-	for (j = 0; i < 2; j++)
-		for (i = 0; i < 2; i++)
-		{
-			if (board[i][j] == -1)
-				pinput[i][j] = 0;
-			Horizontal();
-		}
+	/* check all possible plays */
+	Horizontal();
+	Vertical();
+	DiagonalRight();
+	DiagonalLeft();
+
+	if(1)
+	{}
 }
-/* Checks what it says */
+
+/* Checks what it says for 2 in a rows */
 int Horizontal()
 {
-	int x_h_count = 0,
-		o_h_count = 0;
 	/*horizontal loop through all on one row*/
 	for (i = 0; i < 3; i++)
-	{
 		for (j = 0; j < 3; j++)
-			if ((board[i][j %3] == 1 && (board[i][j] == board[i][/*if j = 0, this num is 1; if j = 1, this num is 2, if j = 2, this num is 1*/j%3(j+1%3)j+2%3])) && board[i][j + (j % 3)] !=
-				pinput[i][j]++;
-	}
+			if ((board[i][j % 3] == 1 && /**/ (board[i][j % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 1) % 3] == -1)
+				pinput[i][(j + 1) % 3]++;
+	return 0;
 }
 
-/* Checks what it says */
+/* Checks what it says for 2 in a rows */
 
 int Vertical()
 {
-	int x_v_count = 0,
-		o_v_count = 0;
-	for (j = 0; j < 3; j++)
-		if (board[0][j] != -1 && board[0][j] == board[1][j] && board[1][j] == board[2][j])
-		{
-			if (board[0][j] != 1 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 0)
-			{
-				return x_v_count++;
-			}
-			else if (board[0][j] != 0 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 1)
-
-			{
-				return o_v_count++;
-			}
-		}
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 3; j++)
+			if ((board[j][i % 3] == 1 && /**/ (board[j][i % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 1) % 3] == -1)
+				pinput[j][(i + 1) % 3]++;
+	return 0;
 }
-/*
-/* Checks what it says */
+/* Checks what it says for 2 in a rows */
 
 int DiagonalRight()
 {
-	int x_dr_count = 0,
-		o_dr_count = 0;
-	if (board[0][0] != -1 && board[0][0] == board[1][1] && board[1][1] == board[2][2])
-	{
-		if (board[0][j] != 1 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 0)
-		{
-			return x_dr_count++;
-		}
-		else if (board[0][j] != 0 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 1)
-
-		{
-			return o_dr_count++;
-		}
-	}
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 3; j++)
+			if ((board[i % 3][j % 3] == 1 && /**/ (board[i % 3][j % 3] == /**/ board[(i + 2) % 3][(j + 2) % 3])) && /**/ board[(i + 1) % 3][(j + 1) % 3] == -1)
+				pinput[(i + 1) % 3][(j + 1) % 3]++;
+	return 0;
 }
 
-/* Checks what it says */
+/* Checks what it says for 2 in a rows */
 
 int DiagonalLeft()
 {
-	int x_dl_count = 0,
-		o_dl_count = 0;
-	if (board[0][2] != -1 && board[0][2] == board[1][1] && board[1][1] == board[2][0])
-	{
-		if (board[0][j] != 1 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 0)
-		{
-			return x_dl_count++;
-		}
-		else if (board[0][j] != 0 && board[0][j] == board[1][j] && board[1][j] == board[2][j] && o0_or_x1 == 1)
-
-		{
-			return o_dl_count++;
-		}
-	}
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 3; j++)
+			if ((board[(i + 2) % 3][j % 3] == 1 && /**/ (board[(i + 2) % 3][j % 3] == /**/ board[(i + 2) % 3][(j + 2) % 3])) /**/ && board[(i % 3][(j + 2) % 3] == -1)
+				pinput[(i + 1) % 3][(j + 1) % 3]++;
+	return 0;
 }
