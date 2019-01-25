@@ -1,0 +1,28 @@
+class StrTest : ZilchComponent
+{
+  [Dependency]
+  var SpriteText : SpriteText = null;
+  
+  var Text : String = "";
+  var Imt : Integer = 5;
+  function Initialize(init : CogInitializer)
+  {
+    this.SpriteText.Text = "Your number is `this.Imt`";
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    var bob = StringBuilder();
+    var iter = this.SpriteText.Text.Begin;
+    while(iter.IsNotEmpty)
+    {
+      Console.WriteLine(iter.Current);
+      if(iter.Current.Value >= 122)
+        bob.Write(Rune(32));
+      else
+        bob.Write(Rune(iter.Current.Value + 1));
+      iter.MoveNext();
+    }
+    this.SpriteText.Text = bob.ToString();
+  }
+}
