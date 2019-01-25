@@ -59,10 +59,11 @@ int main(void)
 	printf("Welcome to TicTacToe AI edition.\nPlease enter a player name with less than %i characters: ", NAMEMAXLENGTH);
 	scanf("%s", playerName);
 	/* */
+	printBoard();
 	while (gamestate == -1)
 	{
 		if (playerTurn == 1)
-			printf("Your turn, %s", playerName);
+			printf("Your turn, %s: ", playerName);
 		else
 			input = AITurn();
 		scanf("%i", &input);
@@ -78,12 +79,11 @@ int main(void)
 		playerTurn = !playerTurn;
 		gamestate = CheckGrid();
 	}
-	printBoard();
 	/* Who's the winner? */
 	switch (gamestate)
 	{
 	case 0:
-		printf("AI Wins.\n");
+		printf("AI Wins!!!\n");
 		break;
 	case 1:
 		printf("%s Wins!\n", playerName);
@@ -159,7 +159,7 @@ void printBoard()
 int pinputReset()
 {
 	int* p = &pinput[0][0];
-	for(i = 0; i < 8; i++, p++)
+	for(i = 0; i < 9; i++, p++)
 		*p = 0;
 	return 0;
 }
@@ -184,8 +184,8 @@ int AITurn()
 	/* Search pinput for the highest score */
 	for (i = 0; i < 8; i++, comp++)
 		if(*biggest < *comp)
-			*biggest = comp;
-	return (*biggest - &pinput[0][0]);
+			biggest = comp;
+	return (biggest - &pinput[0][0]);
 }
 
 /* Checks what it says for 2 in a rows */
