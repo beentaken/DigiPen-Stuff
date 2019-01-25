@@ -28,11 +28,12 @@ int Horizontal();
 int Vertical();
 int DiagonalRight();
 int DiagonalLeft();
+int pinputReset();
 
 int board[3][3] = {{-1, -1, -1}, {-1, -1, -1}, {-1, -1, -1}};
-int o0_or_x1 = 0, i, j = 0;
 /* input array for AI */
 int pinput[3][3];
+int i = 0, j = 0;
 int main(void)
 {
 	/* Keeps track of who's turn it is. 0 means it's not the player's turn (AI's turn). 1 Means it is the player's turn (not the AI's turn).*/
@@ -144,26 +145,35 @@ void printBoard()
 	return;
 }
 
+int pinputReset()
+{
+	int* p = pinput[0][0];
+	for(i = 0; i < 8; i++, p++)
+		*p = 0;
+	return 0;
+}
+
 /*what the ai does on its turn.*/
 int AITurn()
 {
-	int o0_or_x1 = 1;
 	/* c means x o means o, h means horizimtal, v means verticle, dl/dr means diagonal left (/) or diagonal right (\) */
-	int x_h_count, o_h_count;
-	int x_v_count, o_v_count;
-	int x_dl_count, o_dl_count;
-	int x_dr_count, o_dr_count;
 
 	int* input;
-
+	/* Current biggest num and uor compairison */
+	int biggest = 0, comp = 0, u;
+	/* Reset pinput */
+	pinputReset();
 	/* check all possible plays */
 	Horizontal();
 	Vertical();
 	DiagonalRight();
 	DiagonalLeft();
-
-	if(1)
-	{}
+	/* Search pinput for the highest score */
+	for(i = 0, j = 0, u = 0; i < 8; i++)
+	{
+		
+	}
+	return 0;
 }
 
 /* Checks what it says for 2 in a rows */
@@ -172,8 +182,12 @@ int Horizontal()
 	/*horizontal loop through all on one row*/
 	for (i = 0; i < 3; i++)
 		for (j = 0; j < 3; j++)
-			if ((board[i][j % 3] == 1 && /**/ (board[i][j % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 1) % 3] == -1)
+		{
+			if (((board[i][j % 3] == 1 && /**/ (board[i][j % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 1) % 3] != -1) /****/ )
+				pinput[i][(j + 1) % 3] += 2;
+			if ((((board[i][j % 3] == -1 && /**/ (board[i][j % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 1) % 3] == 1)))
 				pinput[i][(j + 1) % 3]++;
+		}
 	return 0;
 }
 
@@ -183,9 +197,13 @@ int Vertical()
 {
 	for (i = 0; i < 3; i++)
 		for (j = 0; j < 3; j++)
-			if ((board[j][i % 3] == 1 && /**/ (board[j][i % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 1) % 3] == -1)
+		{
+			if (((board[j][i % 3] == 1 && /**/ (board[j][i % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 1) % 3] != -1) /****/ )
+				pinput[j][(i + 1) % 3] += 2;
+			if ((((board[j][i % 3] == -1 && /**/ (board[j][i % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 1) % 3] == 1)))
 				pinput[j][(i + 1) % 3]++;
-	return 0;
+		}
+		return 0;
 }
 /* Checks what it says for 2 in a rows */
 
@@ -193,8 +211,13 @@ int DiagonalRight()
 {
 	for (i = 0; i < 3; i++)
 		for (j = 0; j < 3; j++)
-			if ((board[i % 3][j % 3] == 1 && /**/ (board[i % 3][j % 3] == /**/ board[(i + 2) % 3][(j + 2) % 3])) && /**/ board[(i + 1) % 3][(j + 1) % 3] == -1)
-				pinput[(i + 1) % 3][(j + 1) % 3]++;
+			{
+				if (((board[i % 3][j % 3] == 1 && /**/ (board[i % 3][j % 3] == /**/ board[(i + 2) % 3][(j + 2) % 3])) && /**/ board[(i + 1) % 3][(j + 1) % 3] != -1) /****/ )
+					pinput[(i + 1) % 3][(j + 1) % 3] += 2;
+				if ((((board[i % 3][j % 3] == -1 && /**/ (board[i % 3][j % 3] == /**/ board[(i + 2) % 3][(j + 2) % 3])) && /**/ board[(i + 1) % 3][(j + 1) % 3] == 1)))
+					pinput[(i + 1) % 3][(j + 1) % 3]++;
+			}
+
 	return 0;
 }
 
@@ -204,7 +227,11 @@ int DiagonalLeft()
 {
 	for (i = 0; i < 3; i++)
 		for (j = 0; j < 3; j++)
-			if ((board[(i + 2) % 3][j % 3] == 1 && /**/ (board[(i + 2) % 3][j % 3] == /**/ board[(i + 2) % 3][(j + 2) % 3])) /**/ && board[(i % 3][(j + 2) % 3] == -1)
-				pinput[(i + 1) % 3][(j + 1) % 3]++;
+		{
+			if (((board[(i + 2) % 3][j % 3] == 1 && /**/ (board[(i + 2) % 3][j % 3] == /**/ board[(i + 2) % 3][(j + 2) % 3])) /**/ && board[(i % 3)][(j + 2) % 3] != -1) /****/ )
+				pinput[(i % 3)][(j + 2) % 3] += 2;
+			if ((((board[(i + 2) % 3][j % 3] == -1 && /**/ (board[(i + 2) % 3][j % 3] == /**/ board[(i + 2) % 3][(j + 2) % 3])) /**/ && board[(i % 3)][(j + 2) % 3] == 1)))
+				pinput[(i % 3)][(j + 2) % 3]++;
+		}
 	return 0;
 }
