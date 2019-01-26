@@ -59,23 +59,28 @@ int main(void)
 	printf("Welcome to TicTacToe AI edition.\nPlease enter a player name with less than %i characters: ", NAMEMAXLENGTH);
 	scanf("%s", playerName);
 	/* */
-	printBoard();
 	while (gamestate == -1)
 	{
 		if (playerTurn == 1)
+		{
+			printBoard();
 			printf("Your turn, %s: ", playerName);
+			scanf("%i", &input);
+		}
 		else
 			input = AITurn();
-		scanf("%i", &input);
-		if (input > 0 && input <= 9 && board[input / 3][input % 3] == -1)
+
+		if (input >= 0 && input <= 9 && board[input / 3][input % 3] == -1)
 		{
 			/*legal input found*/
 			board[input / 3][input % 3] = playerTurn;
-			break;
 		}
-		while (getchar() != '\n')
-
+		else
+		{
 			printf("Invalid Input\n");
+			continue;
+		}
+
 		playerTurn = !playerTurn;
 		gamestate = CheckGrid();
 	}
@@ -208,7 +213,7 @@ int Horizontal()
 			/* same check, but for player's moves */
 			if ((((board[i][(j + 1) % 3] == -1 && /**/ (board[i][(j + 1) % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 3) % 3] == 0)))
 				pinput[i][(j + 1) % 3] += 2, pinput[i][(j + 2) % 3] += 2;
-			
+
 			/*check for 3 in a row blanks*/
 			if ((((board[i][(j + 1) % 3] == -1 && /**/ (board[i][(j + 1) % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 3) % 3] == -1)))
 				pinput[i][(j + 1) % 3]++, pinput[i][(j + 2) % 3]++, pinput[i][(j + 3) % 3]++;
@@ -224,7 +229,7 @@ int Vertical()
 		for (j = 0; j < 3; j++)
 		{
 			/* Check for 2 plays in a row */
-			if (((board[j][(i + 1) % 3] == 1 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == -1) /****/ )
+			if (((board[j][(i + 1) % 3] == 1 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == -1) /****/)
 				pinput[j][(i + 2) % 3] += 1000;
 			/* same check, but for player's moves */
 			if ((((board[j][(i + 1) % 3] == 0 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == -1)))
@@ -235,7 +240,7 @@ int Vertical()
 				pinput[j][(i + 1) % 3] += 3, pinput[j][(i + 2) % 3] += 3;
 			/* same check, but for player's moves */
 			if (((board[j][(i + 1) % 3] == -1 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == 0) /****/)
-				pinput[j][(i + 1) % 3] +=2, pinput[j][(i + 2) % 3] += 2;
+				pinput[j][(i + 1) % 3] += 2, pinput[j][(i + 2) % 3] += 2;
 
 			/*check for 3 in a row blanks*/
 			if (((board[j][(i + 1) % 3] == -1 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == -1) /****/)
