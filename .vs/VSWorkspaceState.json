@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\01-C",
+    "\\01-C\\Games_In_C",
+    "\\01-C\\Games_In_C\\TicTacToeAI"
   ],
+  "SelectedNode": "\\01-C\\Games_In_C\\TicTacToeAI\\TicTacToeAI.c",
   "PreviewInSolutionExplorer": false
 }
