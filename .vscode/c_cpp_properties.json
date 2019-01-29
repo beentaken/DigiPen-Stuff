@@ -17,6 +17,17 @@
             "defines": [],
             "cStandard": "c11",
             "cppStandard": "c++17"
+        },
+        {
+            "name": "Cygwin",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "C:/cygwin64/bin/gcc.exe",
+            "includePath": [
+                "${workspaceFolder}"
+            ],
+            "defines": [],
+            "cStandard": "c11",
+            "cppStandard": "c++17"
         }
         
     ],
