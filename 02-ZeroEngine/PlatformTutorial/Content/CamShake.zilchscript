@@ -1,0 +1,62 @@
+/******************************
+ * Filename: CamShake.zilchscript
+ * Name: Blakely North
+ * Date Last Edited: 1-28-2019
+ * Brief Description: Does camara/screen shake
+ ******************************/
+// Event to send Shake info
+class ShakeEvent : ZilchEvent
+{
+  var Magnitude : Real = 1;
+  var Duration : Real = 0.5;
+
+
+}
+class CamShake : ZilchComponent
+{
+  sends ShakeEvent : ShakeEvent;
+  [Property]
+  var Target : CogPath = null;
+  var Magnitude : Real = 1;
+    //shake duration
+  var ShakeDuration : Real = 0;
+  //random var
+  var RandGen : Random = Random();
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Space, Events.ShakeEvent, this.OnShakeEvent);
+  }
+
+  function OnShakeEvent(event : ShakeEvent)
+  {
+    //set vars using 
+    this.ShakeDuration = event.Duration;
+    this.Magnitude = event.Magnitude;
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(Zero.Keyboard.KeyIsPressed(Keys.One))
+    {
+      var shakeEvent = ShakeEvent();
+      shakeEvent.Magnitude = 1;
+      shakeEvent.Duration = 0.5;
+      this.Space.DispatchEvent(Events.ShakeEvent, shakeEvent);
+    }
+    // Ensure there is a target
+    if(this.Target.Cog != null)
+    {
+      var newPos = this.Target.Cog.Transform.Translation;
+      newPos.Z = this.Owner.Transform.Translation.Z;
+      //Check for screen shake here
+      if(this.ShakeDuration > 0)
+      {
+        newPos += Real3(this.RandGen.Real2(0, this.Magnitude),0);
+        this.ShakeDuration -= event.Dt;
+      }
+      //Move to new calculated pos.
+      this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, newPos, 0.6);
+    }
+  }
+}
