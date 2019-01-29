@@ -85,7 +85,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{173.035034, 1.39104474, 48.4483032}
+			var Translation = Real3{122.776276, 3.79944134, 46.6179924}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0.00261753891, -0.018324893, 4.79744049e-05, 0.999828696}
 		}
@@ -138,7 +138,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 54.3165627
+			var Size = 98.9711685
 		}
 		EditorCameraController 
 		{
@@ -147,7 +147,7 @@ Level
 			var LookDistance = 5.55452061
 			var VerticalAngle = -0.00523596257
 			var HorizontalAngle = 0.0366519131
-			var LookTarget = Real3{173.238571, 1.42012787, 42.8975906}
+			var LookTarget = Real3{122.979813, 3.82852435, 41.0672798}
 			var MoveSensitivity = 1
 		}
 	}
@@ -378,7 +378,7 @@ Level
 		var Name = "BlueSky"
 		Transform 
 		{
-			var Translation = Real3{84.6648254, 3.82699585, -20}
+			var Translation = Real3{84.6648254, 62.8269958, -20}
 			var Scale = Real3{4, 4, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -404,57 +404,6 @@ Level
 	}
 	Cog [ContextId:8]
 	{
-		var Name = "Checkpoint"
-		Transform 
-		{
-			var Translation = Real3{27.5, 12, -0.100000001}
-			var Scale = Real3{0.125, 0.125, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5cd3e69a5875c4a4:FlagPole"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Kinematic
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-		BoxCollider 
-		{
-			var Ghost = true
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{3.98624992, 7.89249992, 0.5}
-		}
-		CheckPoint 
-		{
-		}
-	}
-	Cog [ContextId:9]
-	{
 		var Name = "LavaEmitter"
 		Transform 
 		{
@@ -478,7 +427,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:10]
+	Cog [ContextId:9]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -503,7 +452,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:11]
+	Cog [ContextId:10]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -528,7 +477,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:12]
+	Cog [ContextId:11]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -553,7 +502,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:13]
+	Cog [ContextId:12]
 	{
 		var Name = "LavaEmitter"
 		Transform 
@@ -578,7 +527,7 @@ Level
 			var Cue = "5c47358f30a91541:LavaAmbience_1"
 		}
 	}
-	Cog [ContextId:14]
+	Cog [ContextId:13]
 	{
 		var Name = "SongEmtter"
 		Transform 
@@ -603,7 +552,7 @@ Level
 			var Cue = "5c47358f30a7979c:Caveman"
 		}
 	}
-	Cog [ContextId:15]
+	Cog [ContextId:14]
 	{
 		var Name = "TileMapbkgnd"
 		Transform 
@@ -634,7 +583,7 @@ Level
 			var MeshThickness = 1.20000005
 		}
 	}
-	Cog [ContextId:16]
+	Cog [ContextId:15]
 	{
 		var Name = "Cube"
 		Transform 
@@ -678,7 +627,7 @@ Level
 		{
 		}
 	}
-	Cog [ContextId:17]
+	Cog [ContextId:16]
 	{
 		var Name = "atlas001"
 		Transform 
@@ -729,6 +678,58 @@ Level
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, -0.0599999987, 0}
 			var HalfSize = Real3{0.439999998, 0.125, 0.5}
+		}
+	}
+	Cog [ContextId:17]
+	{
+		var Name = "Sprite"
+		Transform 
+		{
+			var Translation = Real3{183.75, 8.31306458, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5c42fc4e53badfa5:Door000"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Kinematic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = true
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 1, 0.5}
+		}
+		LevelDoor 
+		{
+			var NextLevel = "5c53f9e9e159a930:Win"
 		}
 	}
 }
