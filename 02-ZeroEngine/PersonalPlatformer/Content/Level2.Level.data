@@ -85,7 +85,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-4.61378813, -1.52440834, 48.3126602}
+			var Translation = Real3{-6.07183981, 1.52830839, 48.3126602}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -138,7 +138,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 30.2637253
+			var Size = 135.632538
 		}
 		EditorCameraController 
 		{
@@ -147,7 +147,7 @@ Level
 			var LookDistance = 5.55452061
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{-4.61378813, -1.52440834, 42.7581406}
+			var LookTarget = Real3{-6.07183981, 1.52830839, 42.7581406}
 			var MoveSensitivity = 1
 		}
 	}
@@ -974,7 +974,7 @@ Level
 		var Name = "Sprite"
 		Transform 
 		{
-			var Translation = Real3{-57.4480286, 32.4564285, 0}
+			var Translation = Real3{-35.9480286, -17.5, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -1022,11 +1022,11 @@ Level
 	}
 	Cog [ContextId:25]
 	{
-		var Name = "Sprite"
+		var Name = "Checkpoint"
 		Transform 
 		{
-			var Translation = Real3{-35.9480286, -17.5, 0}
-			var Scale = Real3{1, 1, 1}
+			var Translation = Real3{-58.75, 32.3849983, -0.100000001}
+			var Scale = Real3{0.125, 0.125, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -1041,7 +1041,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5c57ed0aa77c25c1:atlas000"
+			var SpriteSource = "5cd3e69a5875c4a4:FlagPole"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
@@ -1065,7 +1065,7 @@ Level
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 1, 0.5}
+			var HalfSize = Real3{3.98624992, 7.89249992, 0.5}
 		}
 		CheckPoint 
 		{
