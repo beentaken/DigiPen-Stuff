@@ -17,7 +17,7 @@ int is_palindrome2(const char *phrase, int length);
 int is_palindrome1(const char phrase[], int length)
 {
     int i, j;
-    for (i = 0, j = length; i < (length / 2); i++, j--)
+    for (i = 0, j = length; i < (length / 2); ++i, --j)
         if (!(phrase[i] == phrase[j]))
             return 0;
     return 1;
@@ -27,7 +27,7 @@ int is_palindrome1(const char phrase[], int length)
 int is_palindrome2(const char *phrase, int length)
 {
     int *i, *j;
-    for (i = phrase, j = phrase + length; i != j; i++, j--)
+    for (i = phrase, j = phrase + length; i != j; ++i, --j)
         if (!(*i == *j))
             return 0;
     return 1;
@@ -38,7 +38,7 @@ int is_palindrome2(const char *phrase, int length)
 void print_array(const char a[], int size)
 {
     int i;
-    for (i = 0; i < size; i++)
+    for (i = 0; i < size; ++i)
         printf("%c", a[i]);
 }
 
