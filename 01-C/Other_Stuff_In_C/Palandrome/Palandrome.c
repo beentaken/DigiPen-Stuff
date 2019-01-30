@@ -12,38 +12,26 @@
 int is_palindrome1(const char phrase[], int length);
 int is_palindrome2(const char *phrase, int length);
 
-
-
 /******* My work *******/
 /* Array method */
 int is_palindrome1(const char phrase[], int length)
 {
     int i, j;
-    for (i = 0; phrase[i] != '\0'; )
-        ++i;
-    do{
-        char test[i / 2.001], tset[i / 2];
-        
-        i = 1, j = 2;
-    }while(i = j);
+    for (i = 0, j = length; i < (length / 2); i++, j--)
+        if (!(phrase[i] == phrase[j]))
+            return 0;
+    return 1;
 }
 
 /* Pointer method */
 int is_palindrome2(const char *phrase, int length)
 {
-    /*
-    int i, j;
-    for (i = 0; str[i] != '\0'; )
-        ++i;
-    do{
-        char test[i/2], tset[i/2];
-
-
-        i = 1, j = 2;
-    }while(i = j);*/
+    int *i, *j;
+    for (i = phrase, j = phrase + length; i != j; i++, j--)
+        if (!(*i == *j))
+            return 0;
+    return 1;
 }
-
-
 
 /******* Not my work *******/
 /* print all elements of an array */
