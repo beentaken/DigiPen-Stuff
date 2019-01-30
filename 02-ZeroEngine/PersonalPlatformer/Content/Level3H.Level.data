@@ -85,7 +85,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{122.776276, 3.79944134, 46.6179924}
+			var Translation = Real3{53.889595, 21.480217, 44.1846237}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0.00261753891, -0.018324893, 4.79744049e-05, 0.999828696}
 		}
@@ -138,7 +138,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 98.9711685
+			var Size = 109.380051
 		}
 		EditorCameraController 
 		{
@@ -147,7 +147,7 @@ Level
 			var LookDistance = 5.55452061
 			var VerticalAngle = -0.00523596257
 			var HorizontalAngle = 0.0366519131
-			var LookTarget = Real3{122.979813, 3.82852435, 41.0672798}
+			var LookTarget = Real3{54.093132, 21.5093002, 38.6339111}
 			var MoveSensitivity = 1
 		}
 	}
@@ -378,7 +378,7 @@ Level
 		var Name = "BlueSky"
 		Transform 
 		{
-			var Translation = Real3{84.6648254, 62.8269958, -20}
+			var Translation = Real3{84.6648254, 55.8269958, -20}
 			var Scale = Real3{4, 4, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
