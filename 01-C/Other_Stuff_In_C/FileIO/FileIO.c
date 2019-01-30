@@ -14,7 +14,7 @@
 
 int main(void)
 {
-  unsigned char string = [256];
+  unsigned char string[256];
   FILE *file = 0;
   file = fopen("foo.txt", "rt"); /* read text mode */
   if(file != 0) /*successfully opened filr */
@@ -27,8 +27,7 @@ int main(void)
     file = fopen("bar.txt", "wt"); /* Open for write */
     if(file!=0)
     {
-      
-      fprintf(file, "%s", string);
+      fprintf(file, "%d", string);
       fputc('A', file);
       fputs("Foobar", file);
       fclose(file);
