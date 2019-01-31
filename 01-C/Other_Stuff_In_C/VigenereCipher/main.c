@@ -1,10 +1,10 @@
 /******************************
- * Filename: NewFile.c
+ * Filename: main.c
  * Name: Blakely North
  * Date Last Edited: 1-22-2019
  * Brief: The test file to use with vigenereCipher.c.  You will need to set it up to take input from the console for both the string to encrypt and the key to encrypt with, please use the provided arrays!  After encrypting also test the decrypting! 
  * Brief Description: Program shows printing out a string with a pointer
- * gcc -Wall -Wextra -O -ansi -pedantic -o NewFile NewFile.c
+   gcc -Wall -Wextra -O -ansi -pedantic -o main main.c
  ******************************/
 #include "vigenereCipher.h"
 
@@ -12,32 +12,97 @@ int main(void)
 {
 	unsigned char string[256];
 	unsigned char key[32];
-	int i, passes, *k, keylen, stringlen;
+	int i = 0, passes, keylen, stringlen, method;
+	char _case;
 
-	/*ask for the string to encrypt and store it in string*/
-	printf("What phrase do you want to encrypt?\n>");
-	scanf(" %s", string);
+	printf("Encode (0) or decode (1)?");
+	scanf(" %i", &method);
+	if (method == ENCODE)
+	{
+		/*ask for the string to encrypt and store it in string*/
+		printf("What phrase do you want to encrypt?\n>");
+		fgets((char*)string, 256, stdin);
 
-	/*ask for the key to encrypt with and store it in key*/
-	printf("What encryption key do you want to use?\n>");
-	scanf(" %s", key);
-	*k = key;
-	for (i = 0; *k != '\0'; ++keylen, ++k);
+		/*ask for the key to encrypt with and store it in key*/
+		printf("What encryption key do you want to use?\n>");
+		fgets((char *)key, 32, stdin);
 
-	/*ask for how many passes to encrypt with*/
-	printf("How many passes to do?\n>");
-	scanf(" %i", passes);
-	*k = string;
-	for (i = 0; *k != '\0'; ++stringlen, ++k);
-	/*encrypt string with the key, make sure set to encode!*/
-	for (i = 0; i < passes; i++, string[i] = ((string[i] + key[i % keylen]) % 26) + 'A');
-	/*print out the encoded string*/
-	printf("The encrypted phrase is:\n%s", string);
-	/*now reverse it back to normal by setting it to decode and print it out again*/
+		/*ask for how many passes to encrypt with*/
+		printf("How many passes to do?\n>");
+		scanf(" %i", &passes);
 
-/******* Not my work below - Just a sample to work off incase I need help that I found on the Internet *******/
+		stringlen = strlen((char *)string);
+		keylen = strlen((char *)key);
+		/*encrypt string with the key, make sure set to encode!*/
+		if (string[i] >= 'a')
+			_case = 'a';
+		else
+			_case = 'A';
 
-/*#include<stdio.h>
+		for (passes *= stringlen; i < passes; string[i % stringlen] += ((key[i % keylen] - _case) % 26) + _case, ++i)
+		{
+			if ((string[i % stringlen] >= 'a') && ((string[i % stringlen] <= 'z')))
+				_case = 'a';
+			else if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
+				_case = 'A';
+			else if (string[i % stringlen] == ' ')
+				_case = ' ';
+			else
+			{
+				printf("Error. Only capital letters, lowercase letters, and spaces are allowed.");
+				break;
+			}
+		}
+		printf("The encrypted phrase is:\n%s", string);
+		/*now reverse it back to normal by setting it to decode and print it out again*/
+	}
+	else if(method == DECODE)
+	{
+		/*ask for the string to decrypt and store it in string*/
+		printf("What phrase do you want to decrypt?\n>");
+		scanf(" %s", string);
+		
+		/*ask for the key to decrypt with and store it in key*/
+		printf("What encryption key do you want to use?\n>");
+		scanf(" %s", key);
+
+		/*ask for how many passes to decrypt with*/
+		printf("How many passes to do?\n>");
+		scanf(" %i", passes);
+
+		stringlen = strlen(string);
+		keylen = strlen(key);
+		/*decrypt string with the key, make sure set to encode!*/
+
+		if (string[i] >= 'a')
+			_case = 'a';
+		else
+			_case = 'A';
+
+		for (passes *= stringlen; i < passes; string[i % stringlen] -= ((key[i % keylen] - _case) % 26) + _case, ++i)
+		{
+			if ((string[i % stringlen] >= 'a') && ((string[i % stringlen] <= 'z')))
+				_case = 'a';
+			else if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
+				_case = 'A';
+			else if (string[i % stringlen] == ' ')
+				_case = ' ';
+			else
+			{
+				printf("Error. Only capital letters, lowercase letters, and spaces are allowed.");
+				break;
+			}
+			
+		}		
+		printf("The decrypted phrase is:\n%s", string);
+	}
+	else
+	printf("error")
+	
+
+	/******* Not my work below - Just a sample to work off incase I need help that I found on the Internet *******/
+
+	/*#include<stdio.h>
  *#include<string.h>
  *
  *int main(){
