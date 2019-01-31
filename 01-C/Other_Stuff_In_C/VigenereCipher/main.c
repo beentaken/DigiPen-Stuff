@@ -13,92 +13,134 @@ int main(void)
 	unsigned char string[256];
 	unsigned char key[32];
 	int i = 0, passes, keylen, stringlen, method;
+	/* Capital or lowercase for key and string */
 	char _case;
+	char _kcase;
 
-	printf("Encode (0) or decode (1)?");
+	printf("Encode (0) or decode (1)?\n");
 	scanf(" %i", &method);
 	if (method == ENCODE)
 	{
 		/*ask for the string to encrypt and store it in string*/
-		printf("What phrase do you want to encrypt?\n>");
-		fgets((char*)string, 256, stdin);
-
+		do
+		{
+			printf("\nWhat phrase do you want to encrypt?\n>");
+			fgets((char *)string, 256, stdin);
+		} while (string[0] != '\n');
 		/*ask for the key to encrypt with and store it in key*/
-		printf("What encryption key do you want to use?\n>");
-		fgets((char *)key, 32, stdin);
+		do
+		{
+			printf("\nWhat encryption key do you want to use?\n>");
+			fgets((char *)key, 32, stdin);
+		} while (key[0] != '\n');
 
 		/*ask for how many passes to encrypt with*/
-		printf("How many passes to do?\n>");
+		printf("\nHow many passes to do?\n>");
 		scanf(" %i", &passes);
-
 		stringlen = strlen((char *)string);
 		keylen = strlen((char *)key);
 		/*encrypt string with the key, make sure set to encode!*/
-		if (string[i] >= 'a')
+		/* deal with capital and lowercase letters */
+		if ((string[i % stringlen] >= 'a') && ((string[i % stringlen] <= 'z')))
 			_case = 'a';
-		else
+		else if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
 			_case = 'A';
-
-		for (passes *= stringlen; i < passes; string[i % stringlen] += ((key[i % keylen] - _case) % 26) + _case, ++i)
+		else if (string[i % stringlen] == ' ')
+			_case = ' ';
+		else
 		{
+			printf("Error. Only capital letters, lowercase letters, and spaces are allowed.");
+		}
+
+		if ((key[i % keylen] >= 'a') && ((key[i % keylen] <= 'z')))
+			_kcase = 'a';
+		else if ((key[i % keylen] >= 'A') && (key[i % keylen] <= 'Z'))
+			_kcase = 'A';
+		else if (key[i % keylen] == ' ')
+			_kcase = ' ';
+		else
+		{
+			printf("Error. Only capital letters, lowercase letters, and spaces are allowed.");
+		}
+
+		for (passes *= stringlen; i < passes; string[i % stringlen] = (((string[i % stringlen] - _case) + (((key[i % keylen] - _kcase) % 26) + _kcase) % 26) + _case), ++i)
+		{
+			/* deal with capital and lowercase letters */
 			if ((string[i % stringlen] >= 'a') && ((string[i % stringlen] <= 'z')))
 				_case = 'a';
 			else if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
 				_case = 'A';
 			else if (string[i % stringlen] == ' ')
 				_case = ' ';
-			else
-			{
-				printf("Error. Only capital letters, lowercase letters, and spaces are allowed.");
-				break;
-			}
+
+			if ((key[i % keylen] >= 'a') && ((key[i % keylen] <= 'z')))
+				_kcase = 'a';
+			else if ((key[i % keylen] >= 'A') && (key[i % keylen] <= 'Z'))
+				_kcase = 'A';
+			else if (key[i % keylen] == ' ')
+				_kcase = ' ';
 		}
-		printf("The encrypted phrase is:\n%s", string);
-		/*now reverse it back to normal by setting it to decode and print it out again*/
+		if (i != -1)
+			printf("The encrypted phrase is:\n%s", string);
 	}
-	else if(method == DECODE)
+	else if (method == DECODE)
 	{
 		/*ask for the string to decrypt and store it in string*/
-		printf("What phrase do you want to decrypt?\n>");
-		scanf(" %s", string);
-		
+		do
+		{
+			printf("\nWhat phrase do you want to decrypt?\n>");
+			fgets((char *)string, 256, stdin);
+		} while (string[0] != '\n');
 		/*ask for the key to decrypt with and store it in key*/
-		printf("What encryption key do you want to use?\n>");
-		scanf(" %s", key);
-
+		do
+		{
+			printf("\nWhat encryption key do you want to use?\n>");
+			fgets((char *)key, 32, stdin);
+		} while (key[0] != '\n');
 		/*ask for how many passes to decrypt with*/
-		printf("How many passes to do?\n>");
-		scanf(" %i", passes);
-
-		stringlen = strlen(string);
-		keylen = strlen(key);
+		printf("\nHow many passes to do?\n>");
+		scanf(" %i", &passes);
+		stringlen = strlen((char *)string);
+		keylen = strlen((char *)key);
 		/*decrypt string with the key, make sure set to encode!*/
 
-		if (string[i] >= 'a')
+		/* deal with capital and lowercase letters */
+		if ((string[i % stringlen] >= 'a') && ((string[i % stringlen] <= 'z')))
 			_case = 'a';
-		else
+		else if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
 			_case = 'A';
+		else if (string[i % stringlen] == ' ')
+			_case = ' ';
 
+		if ((key[i % keylen] >= 'a') && ((key[i % keylen] <= 'z')))
+			_kcase = 'a';
+		else if ((key[i % keylen] >= 'A') && (key[i % keylen] <= 'Z'))
+			_kcase = 'A';
+		else if (key[i % keylen] == ' ')
+			_kcase = ' ';
+
+		/* Decrypt */
 		for (passes *= stringlen; i < passes; string[i % stringlen] -= ((key[i % keylen] - _case) % 26) + _case, ++i)
 		{
+		/* deal with capital and lowercase letters */
 			if ((string[i % stringlen] >= 'a') && ((string[i % stringlen] <= 'z')))
 				_case = 'a';
 			else if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
 				_case = 'A';
 			else if (string[i % stringlen] == ' ')
 				_case = ' ';
-			else
-			{
-				printf("Error. Only capital letters, lowercase letters, and spaces are allowed.");
-				break;
-			}
-			
-		}		
-		printf("The decrypted phrase is:\n%s", string);
+
+			if ((key[i % keylen] >= 'a') && ((key[i % keylen] <= 'z')))
+				_kcase = 'a';
+			else if ((key[i % keylen] >= 'A') && (key[i % keylen] <= 'Z'))
+				_kcase = 'A';
+			else if (key[i % keylen] == ' ')
+				_kcase = ' ';
+		}
+		printf("\nThe decrypted phrase is:\n%s", string);
 	}
 	else
-	printf("error")
-	
+		printf("error");
 
 	/******* Not my work below - Just a sample to work off incase I need help that I found on the Internet *******/
 
