@@ -22,17 +22,11 @@ int main(void)
 	if (method == ENCODE)
 	{
 		/*ask for the string to encrypt and store it in string*/
-		do
-		{
-			printf("\nWhat phrase do you want to encrypt?\n>");
-			fgets((char *)string, 256, stdin);
-		} while (string[0] != '\n');
+		printf("\nWhat phrase do you want to encrypt?\n>");
+		scanf("%s", string);
 		/*ask for the key to encrypt with and store it in key*/
-		do
-		{
-			printf("\nWhat encryption key do you want to use?\n>");
-			fgets((char *)key, 32, stdin);
-		} while (key[0] != '\n');
+		printf("\nWhat encryption key do you want to use?\n>");
+		scanf("%s", key);
 
 		/*ask for how many passes to encrypt with*/
 		printf("\nHow many passes to do?\n>");
@@ -86,17 +80,11 @@ int main(void)
 	else if (method == DECODE)
 	{
 		/*ask for the string to decrypt and store it in string*/
-		do
-		{
-			printf("\nWhat phrase do you want to decrypt?\n>");
-			fgets((char *)string, 256, stdin);
-		} while (string[0] != '\n');
+		printf("\nWhat phrase do you want to decrypt?\n>");
+		scanf("%s", string);
 		/*ask for the key to decrypt with and store it in key*/
-		do
-		{
-			printf("\nWhat encryption key do you want to use?\n>");
-			fgets((char *)key, 32, stdin);
-		} while (key[0] != '\n');
+		printf("\nWhat encryption key do you want to use?\n>");
+		scanf("%s", key);
 		/*ask for how many passes to decrypt with*/
 		printf("\nHow many passes to do?\n>");
 		scanf(" %i", &passes);
@@ -122,7 +110,7 @@ int main(void)
 		/* Decrypt */
 		for (passes *= stringlen; i < passes; string[i % stringlen] -= ((key[i % keylen] - _case) % 26) + _case, ++i)
 		{
-		/* deal with capital and lowercase letters */
+			/* deal with capital and lowercase letters */
 			if ((string[i % stringlen] >= 'a') && ((string[i % stringlen] <= 'z')))
 				_case = 'a';
 			else if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
