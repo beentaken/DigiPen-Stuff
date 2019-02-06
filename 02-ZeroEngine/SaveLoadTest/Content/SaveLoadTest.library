@@ -1,0 +1,8 @@
+[Version:1]
+ContentLibrary 
+{
+	var Name = "SaveLoadTest"
+	var LibraryId = 0x5c3b70c321d1ecc7
+	var SourceControlType = ""
+	var ReadOnly = false
+}
