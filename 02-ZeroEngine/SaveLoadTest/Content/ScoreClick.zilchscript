@@ -1,0 +1,28 @@
+class ScoreClick : ZilchComponent
+{
+  [Dependency]
+  var SpriteText : SpriteText = null;
+  [Property]
+  [Serialized]
+  
+  var Score : Integer = 0;
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Space, Events.LeftClick, this.OnLeftClick);
+    this.SpriteText.Text = "Score: `this.Score`";
+  }
+
+  function OnLeftClick(event : ViewportMouseEvent)
+  {
+    //Console.WriteLine("We've gotta clock!");
+    this.Score += 1;
+    this.SpriteText.Text = "Score: `this.Score`";
+    
+    Zero.ObjectStore.Store("Score", this.Owner);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+  }
+}

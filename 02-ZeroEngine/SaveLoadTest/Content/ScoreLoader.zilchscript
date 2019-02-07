@@ -1,0 +1,14 @@
+class ScoreLoader : ZilchComponent
+{
+  [Property]
+  var ArchetypeToLoad : Archetype = Archetype.Score;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.ObjectStore.RestoreOrArchetype("Score", this.ArchetypeToLoad, this.Space);
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+  }
+}
