@@ -41,45 +41,16 @@ int main(void)
 		keylen = strlen((char *)key);
 		/*encrypt string with the key, make sure set to encode!*/
 		/* deal with capital and lowercase letters */
-		if ((string[i % stringlen] >= 'a') && ((string[i % stringlen] <= 'z')))
-			_scase = 'a';
-		else if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
-			_scase = 'A';
-		else if (string[i % stringlen] == ' ')
-			_scase = ' ';
-		else
-		{
-			printf("Error. Only capital letters, lowercase letters, and spaces are allowed.");
-		}
-		/* Same but for the key */
-		if ((key[i % keylen] >= 'a') && ((key[i % keylen] <= 'z')))
-			_kcase = 'a';
-		else if ((key[i % keylen] >= 'A') && (key[i % keylen] <= 'Z'))
-			_kcase = 'A';
-		else if (key[i % keylen] == ' ')
-			_kcase = ' ';
-		else
-		{
-			printf("Error. Only capital letters, lowercase letters, and spaces are allowed.");
-		}
-		for (j = 0; j < passes; ++j)
-			for (i = 0; i < passes; string[i % stringlen] += (((((key[i % keylen] - _kcase) % 26) + _kcase) % 26) + _scase), ++i)
-			{
-				/* deal with capital and lowercase letters */
-				if ((string[i % stringlen] >= 'a') && ((string[i % stringlen] <= 'z')))
-					_scase = 'a';
-				else if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
-					_scase = 'A';
-				else if (string[i % stringlen] == ' ')
-					_scase = ' ';
 
-				if ((key[i % keylen] >= 'a') && ((key[i % keylen] <= 'z')))
-					_kcase = 'a';
-				else if ((key[i % keylen] >= 'A') && (key[i % keylen] <= 'Z'))
-					_kcase = 'A';
-				else if (key[i % keylen] == ' ')
-					_kcase = ' ';
-			}
+		/*KILL ALL CAPITAL LETTERS*/
+		for (i = 0; i < stringlen; ++i)
+			if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
+				string[i % stringlen] -= 32;
+
+		for (j = 0; j < passes; ++j)
+			for (i = 0; i < stringlen; string[i % stringlen] += key[i % keylen], ++i)
+				;
+
 		if (i != -1)
 			printf("The encrypted phrase is:\n%s", string);
 	}
