@@ -27,7 +27,7 @@ int is_palindrome1(const char phrase[], int length)
 int is_palindrome2(const char *phrase, int length)
 {
     int *i, *j;
-    for (i = phrase, j = phrase + length - 1; *i != *j && j >= i; ++i, --j)
+    for (i = &phrase, j = phrase + length - 1; j > i; ++i, --j)
         if (!(*i == *j))
             return 0;
     return 1;
