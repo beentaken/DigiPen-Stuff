@@ -3,7 +3,7 @@
  * Name: Blakely North
  * Date Last Edited: 1-22-2019
  * Brief Description: Program shows printing out a string with a pointer
- * gcc -Wall -Wextra -O -ansi -pedantic -o Palandrome Palandrome.c
+   gcc -Wall -Wextra -O -ansi -o Palandrome Palandrome.c
  ******************************/
 #include <stdio.h>  /* printf */
 #include <string.h> /* strlen */
@@ -26,8 +26,8 @@ int is_palindrome1(const char phrase[], int length)
 /* Pointer method */
 int is_palindrome2(const char *phrase, int length)
 {
-    int *i, *j;
-    for (i = &phrase, j = phrase + length - 1; j > i; ++i, --j)
+    const char *i, *j;
+    for (i = phrase, j = phrase + length - 1; j > i; ++i, --j)
         if (!(*i == *j))
             return 0;
     return 1;
