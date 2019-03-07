@@ -35,6 +35,22 @@ enum ROOMS
     BOARDWALK,
     ARCADE
 };
+// Info stored about the game
+typedef struct ROOM
+{
+    int roomID;
+    char* name;
+
+    char description[356];
+    // this is a collection of tobjs in the room. 0 means it's not there 1 means it's there.
+    int objects[OBJNUM];
+    // this stores all direstional options
+    struct ROOM* north;
+    struct ROOM* east;
+    struct ROOM* south;
+    struct ROOM* west;
+}Room;
+
 
 /*This function will look through "input" to try to find the first instance of any string in the "phraselist". Priority is given to the earlier phrases.  pnum is how many phrases are in phrase list, and i is the starting index in input.  i is updated to just after the phrase was found to allow it to be run multiple times on one line.*/
 int findPhrase(const char *phraselist[], int pnum, const char input[], int *i);
@@ -47,13 +63,49 @@ int main(void)
     const char *objList[OBJNUM] = {"cake", "corgi", "can"};
 
     char input[INBUFF];
-
-    int map[3][1] = {{ARCADE},
-                     {BOARDWALK},
-                     {BEACH}};
+    Room locations[ROOMNUM];
+    Room* CurrentLocation = locations + BEACH;
+    // int map[3][1] = {{"ARCADE"},
+    //                  {"BOARDWALK"},
+    //                  {"BEACH"}};
 
     int commandID = -1;
     int objID = -1;
+
+    // load level info
+    for(i = 0; i < ROOMNUM; ++i)
+    {
+        char* description = "";
+        Room* south = NULL;
+        Room* north = NULL;
+        Room* west = NULL;
+        Room* east = NULL;
+
+        int objects[OBJNUM] = {0};
+
+        // switch to spesific room info
+        switch(i)
+        {
+            case BEACH:
+            description = "You find yourself at a beach. To the north, you see a boardwalk or pier of some kind.";
+            north = locations + BOARDWALK;
+            break;
+        
+            case BOARDWALK:
+            description = "You make your way to the boardwalk. You see a lot of abandoned shops surrounding you. To your south, you see the beach, and to the west, you see an arcade.";
+            south = locations + BEACH;
+            west = locations + ARCADE;
+            break;
+        
+            case ARCADE:
+            description = "This Arcade appears to not have any functional games.";
+            east = locations + BOARDWALK;
+            objects[CORGI] = 1;
+            break;
+        }
+        // use function to fill struct fully
+    }
+
     /* loop until quit is found */
     do
     {
@@ -91,8 +143,7 @@ int main(void)
 
     return 0;
 }
-/*function that tells where to move if north is chosen.  Returns same place if you cannot move!*/
-}
+
 
 /*This function will look through "input" to try to find the first instance of any string in the "phraselist". Priority is given to the earlier phrases.  pnum is how many phrases are in phrase list, and i is the starting index in input.  i is updated to just after the phrase was found to allow it to be run multiple times on one line.*/
 int findPhrase(const char *phraselist[], int pnum, const char input[], int *i)
