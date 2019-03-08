@@ -3,10 +3,11 @@
  * Name: Blakely North
  * Date Last Edited: 1-22-2019
  * Brief Description: A sample and standard new file
-   gcc -Wall -Wextra -O -ansi -o StringParser StringParser.c
+   gcc -Wall -Wextra -O -pedantic -o StringParser StringParser.c
  ******************************/
 #include <ctype.h> /* tolower */
 #include <stdio.h> /* fgets */
+#include <string.h> /* strcpy */
 /* Definitions are here to set array sizes */
 #define INBUFF 256
 #define COMMANDNUM 7
@@ -35,11 +36,11 @@ enum ROOMS
     BOARDWALK,
     ARCADE
 };
-// Info stored about the game
+/* Info stored about the game*/
 typedef struct ROOM
 {
     int roomID;
-    char* name;
+    const char* name;
 
     char description[356];
     // this is a collection of tobjs in the room. 0 means it's not there 1 means it's there.
@@ -55,13 +56,16 @@ typedef struct ROOM
 /*This function will look through "input" to try to find the first instance of any string in the "phraselist". Priority is given to the earlier phrases.  pnum is how many phrases are in phrase list, and i is the starting index in input.  i is updated to just after the phrase was found to allow it to be run multiple times on one line.*/
 int findPhrase(const char *phraselist[], int pnum, const char input[], int *i);
 
+//this function fills a room struct with all necessessary /*lol spelling*/ data.
+Room *fillRoom(Room *roomToFill, int RoomID, const char *name, const char *description, const int objects[], Room *north, Room *south, Room *west, Room *east);
+
 int main(void)
 {
     int i = 0;
     /* these 2 arrays are to store the strings to check input for */
     const char *commandList[COMMANDNUM] = {"quit", "north", "east", "south", "west", "take", "use"};
     const char *objList[OBJNUM] = {"cake", "corgi", "can"};
-
+    char *roomList[ROOMNUM];
     char input[INBUFF];
     Room locations[ROOMNUM];
     Room* CurrentLocation = locations + BEACH;
@@ -104,6 +108,7 @@ int main(void)
             break;
         }
         // use function to fill struct fully
+        fillRoom(locations + i, i, roomList[i], description, objects, north, east, south, west);
     }
 
     /* loop until quit is found */
@@ -125,12 +130,59 @@ int main(void)
         {
             printf("Command is '%s' id is '%i'\n", commandList[commandID], commandID);
             if (objID != -1)
-            {
                 printf("Object is '%s' id is '%i'\n", objList[objID], objID);
-            }
             else
-            {
                 puts("No legal object found.");
+            switch(commandID)            
+            {
+                case NORTH:
+                // check if we can go this way
+                if(CurrentLocation->north != NULL)
+                {
+                    CurrentLocation = CurrentLocation->north;
+                    puts(CurrentLocation->description);
+                }
+                else
+                    puts("You cannot go that way!");
+                
+                break;
+
+                case EAST:
+                // check if we can go this way
+                if(CurrentLocation->east != NULL)
+                {
+                    CurrentLocation = CurrentLocation->east;
+                    puts(CurrentLocation->description);
+                }
+                else
+                    puts("You cannot go that way!");
+                
+                break;
+
+                case SOUTH:
+                // check if we can go this way
+                if(CurrentLocation->south != NULL)
+                {
+                    CurrentLocation = CurrentLocation->south;
+                    puts(CurrentLocation->description);
+                }
+                else
+                    puts("You cannot go that way!");
+                
+                break;
+
+                case WEST:
+                // check if we can go this way
+                if(CurrentLocation->west != NULL)
+                {
+                    CurrentLocation = CurrentLocation->west;
+                    puts(CurrentLocation->description);
+                }
+                else
+                    puts("You cannot go that way!");
+                
+                break;
+
             }
         }
         else
@@ -144,9 +196,26 @@ int main(void)
     return 0;
 }
 
-
-/*This function will look through "input" to try to find the first instance of any string in the "phraselist". Priority is given to the earlier phrases.  pnum is how many phrases are in phrase list, and i is the starting index in input.  i is updated to just after the phrase was found to allow it to be run multiple times on one line.*/
-int findPhrase(const char *phraselist[], int pnum, const char input[], int *i)
+//this function fills a room struct with all necessessary /*lol spelling*/ data.
+Room *fillRoom(Room *roomToFill, int RoomID, const char *name, const char *description, const int objects[], Room *north, Room *south, Room *west, Room *east)
+{
+    int i;
+    roomToFill -> roomID = RoomID;
+    roomToFill -> name = name;
+    strcpy(roomToFill -> description, description);
+    // fill the object array one at a tome
+    for(i = 0; i < OBJNUM; ++i)
+    {
+        roomToFill->objects[i] = objects[i];
+    }
+    roomToFill->north = north;
+    roomToFill->east = east;
+    roomToFill->south = north;
+    roomToFill->west = north;
+    return roomToFill;
+}
+    /*This function will look through "input" to try to find the first instance of any string in the "phraselist". Priority is given to the earlier phrases.  pnum is how many phrases are in phrase list, and i is the starting index in input.  i is updated to just after the phrase was found to allow it to be run multiple times on one line.*/
+    int findPhrase(const char *phraselist[], int pnum, const char input[], int *i)
 {
     /*saves starting point*/
     int startingIndex = *i;
