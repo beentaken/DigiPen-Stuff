@@ -44,7 +44,6 @@ int main(void)
 
 		/*KILL ALL CAPITAL LETTERS*/
 		for (i = 0; i < stringlen; ++i)
-			if ((string[i % stringlen] >= 'A') && (string[i % stringlen] <= 'Z'))
 				string[i % stringlen] -= 32;
 
 		for (j = 0; j < passes; ++j)
