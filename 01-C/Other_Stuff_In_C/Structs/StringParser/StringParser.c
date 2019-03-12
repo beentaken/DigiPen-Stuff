@@ -65,7 +65,7 @@ int main(void)
     /* these 2 arrays are to store the strings to check input for */
     const char *commandList[COMMANDNUM] = {"quit", "north", "east", "south", "west", "take", "use"};
     const char *objList[OBJNUM] = {"cake", "corgi", "can"};
-    char *roomList[ROOMNUM];
+    char *roomList[ROOMNUM] = {"beach", "boardwalk", "arcade"};
     char input[INBUFF];
     Room locations[ROOMNUM];
     Room* CurrentLocation = locations + BEACH;
@@ -117,7 +117,7 @@ int main(void)
         /*reset variable area*/
         i = 0;
         /* ask and accept input from the user */
-        puts("Please input your commands!");
+        puts("Please input your commands:");
 
         fgets(input, INBUFF, stdin);
 
@@ -210,8 +210,8 @@ Room *fillRoom(Room *roomToFill, int RoomID, const char *name, const char *descr
     }
     roomToFill->north = north;
     roomToFill->east = east;
-    roomToFill->south = north;
-    roomToFill->west = north;
+    roomToFill->south = south;
+    roomToFill->west = west;
     return roomToFill;
 }
     /*This function will look through "input" to try to find the first instance of any string in the "phraselist". Priority is given to the earlier phrases.  pnum is how many phrases are in phrase list, and i is the starting index in input.  i is updated to just after the phrase was found to allow it to be run multiple times on one line.*/
