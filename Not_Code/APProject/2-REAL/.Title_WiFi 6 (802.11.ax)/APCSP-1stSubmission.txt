@@ -1,0 +1,12 @@
+ _______________________________________________
+/                    Topic                      \
+| WiFi 6 (802.11.ax)
+\_______________________________________________/
+
+ _______________________________________________________________________________________________...
+/                                            Sources                                              
+| https://pocketnow.com/what-is-wifi-6
+| https://www.lightreading.com/mobile/carrier-wifi/cisco-ceo-wifi-6-shouldnt-be-ignored-amid-5g-hype/d/d-id/749769
+| https://www.theverge.com/2019/2/21/18232026/wi-fi-6-speed-explained-router-wifi-how-does-work
+| https://www.digitaltrends.com/computing/what-is-wi-fi-6/
+\_______________________________________________________________________________________________...
