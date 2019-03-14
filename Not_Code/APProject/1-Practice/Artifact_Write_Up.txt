@@ -11,12 +11,9 @@ https://apcentral.collegeboard.org/courses/ap-computer-science-principles/exam
 \____________________________________________/
  _________________________________________________________________________________________________
 /                                         RESPONSE 2A                                             \
-|  My innovation is the Smart speaker, which is designed to make it easy for consumers
-| to recieve answers and get help faster from virtual assistants. The Smart speaker 
-| functions as a microphone, and a speaker. When the user asks the speaker a question,
-| it asks a server for the proper answer to the user's question. Then, it recieves a 
-| response from the server that includes what the speaker should say. Then, the speaker 
-| plays a computer generated audio recording of the answer in a humanoid voice.
+|  My innovation is <innovation name>, which is designed to make it easy for consumers
+| to <benificial for consumers>. The <innovation name> functions as a <parts needed to make it work>. When <thing that user does>,
+| <what innovation does>. Then, <what the server does>. Then, <what the innovation does with the server's data.
 | My artifact provides an illustration for each step of the process of the steps that 
 | smart speakers go through to answer the user's question.
 \_________________________________________________________________________________________________/
