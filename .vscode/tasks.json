@@ -9,11 +9,11 @@
             "command": "gcc",
             "args": [
                 "-Wall",
-                "${fileBasename}",
                 "-O",
                 "-o",
                 "-pedantic",
-                "${fileBasenameNoExtension}"
+                "${fileBasenameNoExtension}",
+                "${workspaceFolder}\\${fileBasename}",
             ],
             "problemMatcher": {
                 "owner": "cpp",
