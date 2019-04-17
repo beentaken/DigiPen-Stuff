@@ -20,7 +20,8 @@ int main(void)
   int i, j;
   //input
   char input;
+
   
-  
+
   return 0;
 }
