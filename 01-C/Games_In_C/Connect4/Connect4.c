@@ -21,10 +21,10 @@
 //prints the board (duh)
 int printBoard();
 //Returns an int between 1 and 7 based on what the player's move was. Also checks if it is a valid move
-int playerTurn(player);
-//Reurns 1 for player X (one), 2 for player O (two), 0 for draw, and -1 when nobody has won
+int playerTurn();
+//Reurns 1 for player X (one), 2 for player O (two), 0 for draw, and -1 when nobody has won yet
 int whoWon();
-//game loop
+//Game loop
 int gameloop();
 
 //Counters
@@ -32,14 +32,47 @@ int i, j, x, y;
 //player input
 int input;
 //game board
-int board[WIDTH][HEIGHT];
+char board[WIDTH][HEIGHT];
+//To exit or not to exit
+int exit = 0;
+//Who's turn is it? 1 = X, 2 = O
+int currentPlayerTurn = 1;
+
+//Game loop
+int gameloop()
+{
+  printBoard();
+  playerTurn();
+  return whoWon();
+}
+
+
+//prints the board (duh)
+int printBoard()
+{
+  for (i = 0; i < (WIDTH + WIDTH); i++, putchar('i + 1'))
+   for (i = 0; i < HEIGHT; ++i, putchar('\n'))
+     for (j = 0; j < (WIDTH + WIDTH); ++j, putchar(board[j][i]), putchar(' '))
+       ;
+  return 0;
+}
+
+//Returns an int between 1 and 7 based on what the player's move was. Also checks if it is a valid move
+int playerTurn()
+{
+  puts("Where do you ewant to play?")
+  return 0;
+}
+
+//Reurns 1 for player X (one), 2 for player O (two), 0 for draw, and -1 when nobody has won yet
+int whoWon()
+{
+  return 0;
+}
 
 int main(void)
 {
-  int turn = 0;
-  while
-  printBoard();
-  playerTurn();
-  turn = !turn;
+  //keep going until there is a winner
+  while (gameloop() == -1);
   return 0;
 }
