@@ -1,10 +1,13 @@
 PowerPoint:
 /*link*/
 
+Sample proj:
+https://secure-media.collegeboard.org/ap/video_audio/ap18-explore-sample-a-written.pdf
+
 Rubric:
 https://apcentral.collegeboard.org/courses/ap-computer-science-principles/exam
 
-Scoring Guidelines and Notes
+Scoring Guidelines and Notes:
 https://apcentral.collegeboard.org/pdf/ap-csp-explore-performance-task-scoring-guidelines-2019.pdf
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -21,11 +24,20 @@ https://apcentral.collegeboard.org/pdf/ap-csp-explore-performance-task-scoring-g
 \_________________________________________________________________________________________________/
  _________________________________________________________________________________________________
 /                                         RESPONSE 2A                                             \
-|
+| My innovation is the Raspberry Pi, which is a small project computer that has special pins that 
+| you can use to control things like motors. The Raspberry Pi functions like a normal computer,
+| except it has a small form factor and a small price tag. The Raspberry Pi costs a meer $35.
+| This makes it an easy choice for robot building and home automation, because it is both small and 
+| easy to replace. If sombody wanted to make something using the Raspberry Pi's GPIO pins, they 
+| simply have to write a program in python using the GPIO Zero library.
+| My artifact provides an illustration of how the Raspberry Pi can be hooked up to various 
+| electronics to control them.
 \_________________________________________________________________________________________________/
  _________________________________________________________________________________________________
 /                                         RESPONSE 2B                                             \
-|
+| I used Pinta for Linux to make my artifact. I gathered relevant images with an online search. I
+| then made laied out a simple wireing diagram for a small electric car with two motors. This is a 
+| new artifact, as I gathered images and wrote the explanations myself.
 \_________________________________________________________________________________________________/
  _________________________________________________________________________________________________
 /                                         RESPONSE 2C                                             \
