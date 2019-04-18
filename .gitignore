@@ -1,11 +1,12 @@
 *.exe
+*.out
 *.msi
 *.zip
 *.tgz
 *.log
 *.sig
 
+\.vscode/launch\.json
+
 *.tns
 *.elf
-Makefile
-Timer.cpp
