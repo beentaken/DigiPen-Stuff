@@ -1,0 +1,17 @@
+ _______________________________________________
+/                    Topic                      \
+| WiFi 6 (802.11.ax)
+\_______________________________________________/
+
+ _______________________________________________________________________________________________...
+/                                            Sources                                              
+| https://pocketnow.com/what-is-wifi-6
+| https://www.lightreading.com/mobile/carrier-wifi/cisco-ceo-wifi-6-shouldnt-be-ignored-amid-5g-hype/d/d-id/749769
+| https://www.theverge.com/2019/2/21/18232026/wi-fi-6-speed-explained-router-wifi-how-does-work
+| https://www.digitaltrends.com/computing/what-is-wi-fi-6/
+| 
+| Images:
+| Kylo Ren Ship ------- https://www.turbosquid.com/3d-models/kylo-rens-ship-3d-model/1000185
+| Router -------------- https://www.androidcentral.com/sites/androidcentral.com/files/styles/large/public/article_images/2019/03/netgear-nighthawk.png?itok=_WdXcl0o
+| WiFi 6 Icon --------- https://www.wi-fi.org/discover-wi-fi/wi-fi-certified-6
+\_______________________________________________________________________________________________...
