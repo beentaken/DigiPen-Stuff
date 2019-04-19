@@ -41,7 +41,16 @@ https://apcentral.collegeboard.org/pdf/ap-csp-explore-performance-task-scoring-g
 \_________________________________________________________________________________________________/
  _________________________________________________________________________________________________
 /                                         RESPONSE 2C                                             \
-|
+| A beneficial effect is that the Raspberry Pi allows anybody to make things that you can't make
+| with your averade desktop. The Raspberry Pi is a small single board computer that has an easy 
+| method to get an output from, making it ideal for making anything from a robot to a home media
+| center (Raspberry Pi). 
+| 
+| A harmful effect of the Raspberry Pi is that it can be used to hack. Due to it's small size, it
+| would be easy for an attacker to hide a Raspberry Pi in a place like a coffe shop that has 
+| public wifi and capture all of the internet traffic from that day (Kentaro). This is a big issue
+| because the Pi is so small that it could go unnoticed and be used to steal passwords and other
+| sensative information that anybody sends over unsecured WiFi.
 \_________________________________________________________________________________________________/
  _________________________________________________________________________________________________
 /                                         RESPONSE 2D                                             \
