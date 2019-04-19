@@ -26,6 +26,8 @@ int playerTurn();
 int whoWon();
 //Game loop
 int gameloop();
+//Check the move and add it to the board
+int move();
 
 //Counters
 int i, j, x, y;
@@ -34,7 +36,7 @@ int input;
 //game board
 char board[WIDTH][HEIGHT];
 //To exit or not to exit
-int exit = 0;
+//int exit = 0;
 //Who's turn is it? 1 = X, 2 = O
 int currentPlayerTurn = 1;
 
@@ -46,21 +48,30 @@ int gameloop()
   return whoWon();
 }
 
-
 //prints the board (duh)
 int printBoard()
 {
-  for (i = 0; i < (WIDTH + WIDTH); i++, putchar('i + 1'))
-   for (i = 0; i < HEIGHT; ++i, putchar('\n'))
-     for (j = 0; j < (WIDTH + WIDTH); ++j, putchar(board[j][i]), putchar(' '))
-       ;
+  for (i = 0; i < (WIDTH + WIDTH); i++, putchar(i + 1))
+    ;
+  for (i = 0; i < HEIGHT; ++i, putchar('\n'))
+    for (j = 0; j < (WIDTH + WIDTH); ++j, putchar(board[j][i]), putchar(' '))
+      ;
   return 0;
 }
 
 //Returns an int between 1 and 7 based on what the player's move was. Also checks if it is a valid move
 int playerTurn()
 {
-  puts("Where do you ewant to play?")
+  puts("Where do you ewant to play?");
+  input = getchar() - 61;
+  move();
+  return 0;
+}
+
+//Check the move and add it to the board
+int move()
+{
+  
   return 0;
 }
 
@@ -72,7 +83,10 @@ int whoWon()
 
 int main(void)
 {
+  puts("Welcome to Connect 4!\nPre");
+  while(getchar() != '\n');
   //keep going until there is a winner
-  while (gameloop() == -1);
+  while (gameloop() == -1)
+    ;
   return 0;
 }
