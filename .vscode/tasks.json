@@ -13,7 +13,7 @@
                 "-O",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
-                "${workspaceFolder}/${relativeFile}",
+                "${relativeFile}",
             ],
             "problemMatcher": {
                 "owner": "cpp",
