@@ -71,7 +71,11 @@ int playerTurn()
 //Check the move and add it to the board
 int move()
 {
-  
+  for(i = 6, j = 5; j > 0; --i, --j)
+  //Check if there is a blank beneath this space
+    if (board[input][i] == 0 && (board[input][j] == 1 || board[input][j] == 2))
+      board[input][i] = playerTurn;
+      
   return 0;
 }
 
@@ -86,7 +90,7 @@ int main(void)
   puts("Welcome to Connect 4!\nPre");
   while(getchar() != '\n');
   //keep going until there is a winner
-  while (gameloop() == -1)
+  while (gameloop() == -1 && playerTurn = !playerTurn)
     ;
   return 0;
 }
