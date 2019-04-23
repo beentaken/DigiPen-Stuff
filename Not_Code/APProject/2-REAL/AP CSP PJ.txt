@@ -54,7 +54,26 @@ https://apcentral.collegeboard.org/pdf/ap-csp-explore-performance-task-scoring-g
 \_________________________________________________________________________________________________/
  _________________________________________________________________________________________________
 /                                         RESPONSE 2D                                             \
-|
+|The system of blockchain operates with a distributed ledger. According to Coindesk,
+| “a distributed ledger is a database held and updated independently by each participant
+| (or node) in a large network.” (Bauerle)The computers use metadata from transaction
+| requests. Each block of data contains a pointer to the previous block, a timestamp, and
+| transaction data. Then, this chain of blocks is held in the storage of each node.
+| The data it produces is the blockchain itself, which is a stream of transaction data
+| separated into blocks by set intervals of time. This data is kept in a ledger, which does
+| not need to be verified by a central authority. (Siegel)
+|  It computes by taking the data and runs it through algorithms to verify the identity of
+| the request. “In the case of blockchain technology, private key cryptography provides a
+| powerful ownership tool that fulfills authentication requirements. Possession of a
+| private key is ownership.” (Bauerle). So essentially, the blockchain computes by
+| running transaction data through algorithms that verify private key ownership.
+|  A privacy concern is that “Bitcoin relies on a public blockchain, a system of recording
+| transactions that allows anyone to read or write transactions. Anyone can aggregate
+| and publish those transactions, provided they can show that a sufficient amount of
+| effort went into doing so.” (Berke) This means that anyone who really wanted to could
+| 
+| see transactions being made on the blockchain, and with a little effort and computing
+| ability, they’d have access to transaction amounts, time, and other data.
 \_________________________________________________________________________________________________/
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
