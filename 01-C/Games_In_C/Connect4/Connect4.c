@@ -34,12 +34,12 @@ int i, j, x, y;
 //player input
 int input;
 //game board
-char board[WIDTH][HEIGHT] = {{'\0', '\0', '\0', '\0', '\0', '\0'}, {'\0', '\0', '\0', '\0', '\0', '\0'}, {'\0', '\0', '\0', '\0', '\0', '\0'}, {'\0', '\0', '\0', '\0', '\0', '\0'}, {'\0', '\0', '\0', '\0', '\0', '\0'}, {'\0', '\0', '\0', '\0', '\0', '\0'}, {'\0', '\0', '\0', '\0', '\0', '\0'}};
+char board[WIDTH][HEIGHT] = {{' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}};
 //To exit or not to exit
 //int exit = 0;
 //Who's turn is it? 1 = X, 2 = O
-int currentPlayerTurn;
-char chcurrentPlayerTurn;
+int currentPlayerTurn = 1;
+char chcurrentPlayerTurn = 'X';
 //Game loop
 int gameloop()
 {
@@ -53,7 +53,7 @@ int gameloop()
   return whoWon();
 }
 //                                                  1 2 3 4 5 6 7
-//                                                  X O 
+//                                                  X O
 //prints the board (duh)
 int printBoard()
 {
@@ -71,7 +71,8 @@ int playerTurn()
 {
   puts("Where do you want to play?");
   input = getchar() - 61;
-  while (getchar() != '\n' && (getchar() == '1' || getchar() == '2' || getchar() == '3' || getchar() == '4' || getchar() == '5' || getchar() == '6' || getchar() == '7'))
+  while (getchar() != '\n' && (input <= '7' || input >= '0' ))
+    ;
   move();
   return 0;
 }
@@ -79,10 +80,16 @@ int playerTurn()
 //Check the move and add it to the board
 int move()
 {
-  for (i = 6, j = 5; j > 0; --i, --j)
+  for (i = 5, j = 4; j > 0; --i, --j)
+  {
     //Check if there is a blank beneath this space
-    if (board[input][i] == 0 && (board[input][j] != 0))
+    if (board[input][i] == ' ' && (board[input][j] == ' '))
       board[input][i] = chcurrentPlayerTurn;
+    else if (i == j)
+      board[input][i] = chcurrentPlayerTurn;
+    if (j == 0)
+      j = 1;
+  }
   return 0;
 }
 
