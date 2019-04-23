@@ -10,6 +10,7 @@
             "args": [
                 "-Wall",
                 "-pedantic",
+                "-g",
                 "-O",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.exe",

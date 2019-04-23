@@ -1,12 +1,23 @@
 {
-    "env" : {
+    "env": {
         "myDefaultIncludePath": [
             "${workspaceFolder}",
             "${workspaceFolder}/include"
         ],
-        "myCompilerPath": "/usr/local/bin/gcc-7"
+        "myCompilerPath": "/usr/bin/gcc"
     },
     "configurations": [
+        {
+            "name": "Linux",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "includePath": [
+                "${workspaceFolder}"
+            ],
+            "defines": [],
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        },
         {
             "name": "MinGW",
             "intelliSenseMode": "gcc-x64",
@@ -21,7 +32,7 @@
         {
             "name": "Cygwin",
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:/cygwin64/bin/gcc.exe",
+            "compilerPath": "/usr/bin/gcc",
             "includePath": [
                 "${workspaceFolder}"
             ],
@@ -29,7 +40,6 @@
             "cStandard": "c11",
             "cppStandard": "c++17"
         }
-        
     ],
     "version": 4
 }
