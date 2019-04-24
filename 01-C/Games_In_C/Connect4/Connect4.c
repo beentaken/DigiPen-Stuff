@@ -111,10 +111,10 @@ int whoWon()
   for (i = 0; i < 3; i++)
     for (j = 0; j < 3; j++)
     {
-      Horizontal();
-      Vertical();
-      DiagonalRight(); /* (\) */
-      DiagonalLeft();  /* (/) */
+      Horizontal();    // (-)
+      Vertical();      // (|)
+      DiagonalRight(); // (\)
+      DiagonalLeft();  // (/)
     }
   return 0;
 }
@@ -124,7 +124,7 @@ int Horizontal()
 {
   /*horizontal loop through all on one row*/
   /* Check for 2 plays in a row */
-  if ((board[input][(j + 1) % 3] == currentPlayerTurn) && /**/)
+  if ((board[input + 1 % 3][row] == currentPlayerTurn) && /**/(1))
 
     /* same check, but for player's moves */
     if (((board[i][(j + 1) % 3] == 0 && /**/ (board[i][(j + 1) % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 3) % 3] == -1) /****/)
@@ -137,7 +137,6 @@ int Horizontal()
 
           /*check for 3 in a row blanks*/
           if ((((board[i][(j + 1) % 3] == -1 && /**/ (board[i][(j + 1) % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 3) % 3] == -1)))
-
             return 0;
 }
 
@@ -158,6 +157,7 @@ int Vertical()
 
           /*check for 3 in a row blanks*/
           if (((board[j][(i + 1) % 3] == -1 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == -1) /****/)
+          return 1;
 }
 /* Checks what it says for 2 in a rows */
 int DiagonalRight()
