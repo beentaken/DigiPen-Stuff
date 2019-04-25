@@ -84,11 +84,11 @@ int playerTurn()
 {
   puts("Where do you want to play?");
   input = 9999;
-  input = getchar() - 48;
   while (getchar() != '\n' && (input + 48 <= '1' && input >= '7'))
     ;
-  move();
-  return 0;
+  if (move())
+    return 0;
+  return 4234;
 }
 
 //Check the move and add it to the board
@@ -108,97 +108,65 @@ int move()
 //Reurns 1 for player X (one), 2 for player O (two), 0 for draw, and -1 when nobody has won yet
 int whoWon()
 {
-  for (i = 0; i < 3; i++)
-    for (j = 0; j < 3; j++)
-    {
-      Horizontal();    // (-)
-      Vertical();      // (|)
-      DiagonalRight(); // (\)
-      DiagonalLeft();  // (/)
-    }
-  return 0;
+  if (Horizontal() || Vertical() || DiagonalRight() || DiagonalLeft())
+    return currentPlayerTurn;
+  else
+    return -1;
 }
 
 /* Checks what it says for 2 in a rows */
 int Horizontal()
 {
-  /*horizontal loop through all on one row*/
-  /* Check for 2 plays in a row */
-  if ((board[input + 1 % 3][row] == currentPlayerTurn) && /**/(1))
+  /* Check for 4 plays in a row */
+  for (x = 0, y = board[input + x % 5][row]; x < 5 && i == y; ++x, y = board[input + x % 5][row])
+    if (y == board[input + x % 5][row])
+      i = y;
 
-    /* same check, but for player's moves */
-    if (((board[i][(j + 1) % 3] == 0 && /**/ (board[i][(j + 1) % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 3) % 3] == -1) /****/)
-
-      /* Check for a move with 2 blanks around it */
-      if ((((board[i][(j + 1) % 3] == -1 && /**/ (board[i][(j + 1) % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 3) % 3] == 1)))
-
-        /* same check, but for player's moves */
-        if ((((board[i][(j + 1) % 3] == -1 && /**/ (board[i][(j + 1) % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 3) % 3] == 0)))
-
-          /*check for 3 in a row blanks*/
-          if ((((board[i][(j + 1) % 3] == -1 && /**/ (board[i][(j + 1) % 3] == /**/ board[i][(j + 2) % 3])) && /**/ board[i][(j + 3) % 3] == -1)))
-            return 0;
+  if (x == 5)
+    return 1;
+  else
+    return 0;
 }
 
 /* Checks what it says for 2 in a rows */
 int Vertical()
 {
-  /* Check for 2 plays in a row */
-  if (((board[j][(i + 1) % 3] == 1 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == -1) /****/)
+  /* Check for 4 plays in a row */
+  for (x = 0, y = board[input][row + x % 5]; x < 5 && i == y; ++x, y = board[input + x % 5][row])
+    if (y == board[input][row + x % 5])
+      i = y;
 
-    /* same check, but for player's moves */
-    if ((((board[j][(i + 1) % 3] == 0 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == -1)))
-
-      /* Check for 2 plays in a row */
-      if (((board[j][(i + 1) % 3] == -1 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == 1) /****/)
-
-        /* same check, but for player's moves */
-        if (((board[j][(i + 1) % 3] == -1 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == 0) /****/)
-
-          /*check for 3 in a row blanks*/
-          if (((board[j][(i + 1) % 3] == -1 && /**/ (board[j][(i + 1) % 3] == /**/ board[j][(i + 2) % 3])) && /**/ board[j][(i + 3) % 3] == -1) /****/)
-          return 1;
+  if (x == 5)
+    return 1;
+  else
+    return 0;
 }
 /* Checks what it says for 2 in a rows */
 int DiagonalRight()
 {
-  /* Check for 2 plays in a row */
-  if (((board[(i + 1) % 3][(j + 1) % 3] == 1 && /**/ (board[(i + 1) % 3][(j + 1) % 3] == /**/ board[(i + 2) % 3][(j + 3) % 3])) && /**/ board[(i + 3) % 3][(j + 2) % 3] == -1) /****/)
+  /* Check for 4 plays in a row */
+  for (x = 0, y = board[input + x % 5][row + x % 5]; x < 5 && i == y; ++x, y = board[input + x % 5][row])
+    if (y == board[input + x % 5][row + x % 5])
+      i = y;
 
-    /* same check, but for player's moves */
-    if (((board[(i + 1) % 3][(j + 1) % 3] == 0 && /**/ (board[(i + 1) % 3][(j + 1) % 3] == /**/ board[(i + 2) % 3][(j + 3) % 3])) && /**/ board[(i + 3) % 3][(j + 2) % 3] == -1) /****/)
-
-      /* Check for a move with 2 blanks around it */
-      if ((((board[(i + 1) % 3][(j + 1) % 3] == -1 && /**/ (board[(i + 1) % 3][(j + 1) % 3] == /**/ board[(i + 2) % 3][(j + 3) % 3])) && /**/ board[(i + 3) % 3][(j + 2) % 3] == 1)))
-
-        /* same check, but for player's moves */
-        if ((((board[(i + 1) % 3][(j + 1) % 3] == -1 && /**/ (board[(i + 1) % 3][(j + 1) % 3] == /**/ board[(i + 2) % 3][(j + 3) % 3])) && /**/ board[(i + 3) % 3][(j + 2) % 3] == 0)))
-
-          /*check for 3 in a row blanks*/
-          if ((((board[(i + 1) % 3][(j + 1) % 3] == -1 && /**/ (board[(i + 1) % 3][(j + 1) % 3] == /**/ board[(i + 2) % 3][(j + 3) % 3])) && /**/ board[(i + 3) % 3][(j + 2) % 3] == -1)))
-
-            return 0;
+  if (x == 5)
+    return 1;
+  else
+    return 0;
 }
 
 /* Checks what it says for 2 in a rows */
 int DiagonalLeft()
 {
-  /* Check for 2 plays in a row */
-  if (((board[(i + 3) % 3][(j + 1) % 3] == 1) && /**/ (board[(i + 3) % 3][(j + 1) % 3] == /**/ board[(i + 2) % 3][(j + 3) % 3])) /**/ && board[(i + 1) % 3][(j + 3) % 3] == -1)
+  /* Check for 4 plays in a row */
+  for (x = 0, y = board[input + x % 5][row - x % 5]; x < 5 && i == y; ++x, y = board[input + x % 5][row])
+    if (y == board[input + x % 5][row - x % 5])
+      i = y;
 
-    /* same check, but for player's moves */
-    if (((board[(i + 3) % 3][(j + 1) % 3] == 0) && /**/ (board[(i + 3) % 3][(j + 1) % 3] == /**/ board[(i + 2) % 3][(j + 3) % 3])) /**/ && board[(i + 1) % 3][(j + 3) % 3] == -1)
-
-      /* Check for a move with 2 blanks around it */
-      if (((board[(i + 3) % 3][(j + 1) % 3] == -1) && /**/ (board[(i + 3) % 3][(j + 1) % 3] == /**/ board[(i + 2) % 3][(j + 3) % 3])) /**/ && board[(i + 1) % 3][(j + 3) % 3] == 1)
-
-        /* same check, but for player's moves */
-        if (((board[(i + 3) % 3][(j + 1) % 3] == -1) && /**/ (board[(i + 3) % 3][(j + 1) % 3] == /**/ board[(i + 2) % 3][(j + 3) % 3])) /**/ && board[(i + 1) % 3][(j + 3) % 3] == 0)
-
-          /*check for 3 in a row blanks*/
-          if (((board[(i + 3) % 3][(j + 1) % 3] == -1) && /**/ (board[(i + 3) % 3][(j + 1) % 3] == /**/ board[(i + 2) % 3][(j + 3) % 3])) /**/ && board[(i + 1) % 3][(j + 3) % 3] == -1)
-
-            return 0;
+  if (x == 5)
+    return 1;
+  else
+    return 0;
 }
 
 int main(void)
