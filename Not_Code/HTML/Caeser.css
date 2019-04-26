@@ -1,0 +1,22 @@
+/******************************
+ * Filename: Caeser.css
+ * Author: Blakely North
+ * Date Last Edited: 4-25-2019
+ * Brief Description: A style guide for Caeser.html
+ ******************************/
+
+ body{
+    /* Color options from https://www.w3schools.com/cssref/css_colors.asp */
+    background-color: darkseagreen;
+    font-family:'Comic Sans';
+ }
+
+ h1{
+     color: hotpink;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ }
+ 
+ p{
+     color: rgb(160, 255, 131);
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ }

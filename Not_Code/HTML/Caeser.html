@@ -1,0 +1,66 @@
+<!--
+ * Filename: Caeser.html
+ * Author: Blakely North
+ * Date Last Edited: 4-25-2019
+ * Brief Description: A style guide for This site can do simple caeser cypher stuff
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="Caeser.css">
+</head>
+
+<body>
+    <h1>
+        Caeser Cypher:
+    </h1>
+    <br>
+    <input type="text" id="message" value="Type here">
+    <br>
+    <input type="number" id="key" value=5>
+    <br>
+    <button onclick="cypher()">
+        Run
+    </button>
+    <br>
+    <p id="demo">
+
+    </p>
+    <script>
+        function cypher() {
+            // grab data from text fields
+            var message = document.getElementById("message").value;
+            var key = Number(document.getElementById("key").value);
+            var i;
+            var encoded = "";
+            var letter = 0;
+
+            // change the input and adjust based on the key
+            for (i = 0; i < message.length; ++i) {
+                letter = message.charCodeAt(i);
+                if (letter >= 65 && letter <= 90) {
+                     letter += key;
+                    while (letter < 65)
+                        letter += 26;
+                    while (letter > 90)
+                        letter -= 26;
+                }
+                if (letter >= 97 && letter <= 122) {
+                    letter += key;
+                    while (letter < 97)
+                        letter += 26;
+                    while (letter > 122)
+                        letter -= 26;
+                }
+
+                encoded += String.fromCharCode(letter);
+            }
+            document.getElementById("demo").innerHTML = encoded;
+        }
+    </script>
+    <img src="X Button meme.jpg" alt="X Button meme.jpg">
+
+</body>
+
+</html>
