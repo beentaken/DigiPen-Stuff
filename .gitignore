@@ -10,8 +10,4 @@
 
 *.tns
 *.elf
-01-C/LICENSE\.md
-01-C/README\.md
-01-C/\.gitignore
-01-C/.git
-01-C/\.vscode/
+01-C/
