@@ -17,7 +17,8 @@
 #define WIDTH 7
 //Board height
 #define HEIGHT 6
-
+//Distance to chech for 4-in-a-rows
+#define searchDistance 7
 //prints the board (duh)
 int printBoard();
 //Returns an int between 1 and 7 based on what the player's move was. Also checks if it is a valid move
@@ -30,6 +31,7 @@ int gameloop();
 int move();
 
 /* board checkers */
+//int Check(int dx, int dy);
 int Horizontal();
 int Vertical();
 int DiagonalRight(); /* (\) */
@@ -43,8 +45,6 @@ int input;
 int row;
 //game board
 char board[WIDTH][HEIGHT] = {{' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}, {' ', ' ', ' ', ' ', ' ', ' '}};
-//To exit or not to exit
-//int exit = 0;
 //Who's turn is it? 1 = X, 2 = O
 int currentPlayerTurn = 1;
 char chcurrentPlayerTurn = 'X';
@@ -61,7 +61,7 @@ int gameloop()
   return whoWon();
 }
 //                                                  1 2 3 4 5 6 7
-//
+//                                                  x x x x x x x
 //
 //
 //
@@ -83,7 +83,7 @@ int printBoard()
 int playerTurn()
 {
   input = -3;
-  while (move() == 0)
+  while (!(move() /* <-- basically input*/ > '0' && input < '8'))
     puts("Invalid move");
   return 0;
 }
@@ -97,14 +97,13 @@ int move()
     input = getchar();
 
   pos = input - '1';
-  for (i = 0; i < HEIGHT; ++i)
+  for (i = HEIGHT - 1; i >= 0; --i)
   {
     //Check if there is a blank beneath this space
     if (board[pos][i] == ' ')
     {
-      puts("O");
       board[pos][i] = chcurrentPlayerTurn;
-      return 1;
+      return input;
     }
   }
   return 0;
@@ -119,42 +118,78 @@ int whoWon()
     return -1;
 }
 
+//int Check(int dx, int dy)
+//{
+//  int xT;
+//  int yT;
+//  for (x = 0; x < )
+//    for (y)
+//      for (d)
+//      {
+//        xT = x + d * dx;
+//        yT = y + d * dy;
+//      }
+//}
 /* Checks what it says for 2 in a rows */
 int Horizontal()
 {
-  /* Check for 4 plays in a row */
-  for (x = 0, y = board[input + x % 5][row]; x < 5 && i == y; ++x, y = board[input + x % 5][row])
-    if (y == board[input + x % 5][row])
-      i = y;
+  int dx;
+  int pos;
+  int count = 0;
+  for (dx = -3; dx < 4; dx++)
+  {
+    pos = input - '1' + dx;
+    if (pos >= 0 && pos < WIDTH)
+    {
+      if (board[pos][row] == chcurrentPlayerTurn)
+      {
+        count++;
+        if (count == 4)
+        {
+          return 1;
+        }
+      }
+      else
+      {
+        count = 0;
+      }
+      return 0;
+    }
 
-  if (x == 5)
-    return 1;
-  else
-    return 0;
+    /* Check for 4 plays in a row */
+    for (x = 0, y = board[(input - '1') + x % searchDistance][row]; x < searchDistance && i == y; ++x)
+      if (y == board[(input - '1') + x % searchDistance][row])
+        i = y;
+    if (x == searchDistance)
+      return 1;
+    else
+      return 0;
+  }
+  return 0;
 }
 
 /* Checks what it says for 2 in a rows */
 int Vertical()
 {
   /* Check for 4 plays in a row */
-  for (x = 0, y = board[input][row + x % 5]; x < 5 && i == y; ++x, y = board[input + x % 5][row])
-    if (y == board[input][row + x % 5])
+  for (x = 0, y = board[(input - '1')][row + x % searchDistance]; x < searchDistance && i == y; ++x, y = board[(input - '1') + x % searchDistance][row])
+    if (y == board[(input - '1')][row + x % searchDistance])
       i = y;
 
-  if (x == 5)
+  if (x == searchDistance)
     return 1;
   else
     return 0;
 }
-/* Checks what it says for 2 in a rows */
+/* Checks what it says */
 int DiagonalRight()
 {
   /* Check for 4 plays in a row */
-  for (x = 0, y = board[input + x % 5][row + x % 5]; x < 5 && i == y; ++x, y = board[input + x % 5][row])
-    if (y == board[input + x % 5][row + x % 5])
+  for (x = 0, y = board[(input - '1') + x % searchDistance][row + x % searchDistance]; x < searchDistance && i == y; ++x, y = board[(input - '1') + x % searchDistance][row])
+    if (y == board[(input - '1') + x % searchDistance][row + x % searchDistance])
       i = y;
 
-  if (x == 5)
+  if (x == searchDistance)
     return 1;
   else
     return 0;
@@ -164,8 +199,8 @@ int DiagonalRight()
 int DiagonalLeft()
 {
   /* Check for 4 plays in a row */
-  for (x = 0, y = board[input + x % 5][row - x % 5]; x < 5 && i == y; ++x, y = board[input + x % 5][row])
-    if (y == board[input + x % 5][row - x % 5])
+  for (x = 0, y = board[(input - '1') + x % searchDistance][row - x % searchDistance]; x < searchDistance && i == y; ++x, y = board[(input - '1') + x % searchDistance][row])
+    if (y == board[(input - '1') + x % searchDistance][row - x % searchDistance])
       i = y;
 
   if (x == 5)
